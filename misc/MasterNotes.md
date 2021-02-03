@@ -2,7 +2,7 @@
 Keep all the collaborated work here
 
 ## Data Retrieval
-SRA files for each set of samples was downloaded individually and converted to fastq.gz format. See [notes]() for details.
+SRA files from NCBI for each set of samples were downloaded and converted to fastq.gz format. See [notes](https://github.com/srmarzec/albopictus_remapping/blob/main/misc/sra_accession/sraRetrievalTips.md) for details.
 
 ## Cleaning Data
 ### Trimmomatic
