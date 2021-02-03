@@ -17,7 +17,7 @@ fasterq-dump sra_directory/sra/SRR1663685.sra
 Considering you can only use fasterq-dump one file at a time, I'm not really sure what the most effective way to bring fastq files down from the sra site...
 
 ### Most efficient way
-Apparently you can run fasterq-dump with a wildcard if you have prefetched the sra files to a local directory. Need to gzip as well. Pefetching each file can take quite a bit of time. I ran this interactively and found that for 17 sra files, it took me 2 hours. However, the fasterq-dump comand takes about 5 minutes per sra file since they are prefetched in a local directory. 
+Apparently you can run fasterq-dump with a wildcard if you have prefetched the sra files to a local directory. Need to gzip as well. Pefetching each file can take quite a bit of time. I ran this interactively and found that for 17 sra files, it took me 2 hours. However, the fasterq-dump comand takes about 5 minutes per sra file since they are prefetched in a local directory. I think probably each of these lines could be submitted in a script so that it doesn't have to be run interactively. However, note above the issue with append the PATH each time I use the sra-toolkit (tried this step in a script and it did not work). Since gzip takes so long, I ran that single line in a script
 ```
 prefetch --option-file SraAccList.txt
 fasterq-dump sra_directory/sra/*.sra
