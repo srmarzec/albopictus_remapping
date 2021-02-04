@@ -9,3 +9,4 @@ unzip Trimmomatic-0.39.zip
 rm Trimmomatic-0.39.zip
 java -jar ~/Trimmomatic-0.39/trimmomatic-0.39.jar -version
 ```
+Installed SRA Toolkit using [instructions] (https://github.com/ncbi/sra-tools/wiki/02.-Installing-SRA-Toolkit) 
