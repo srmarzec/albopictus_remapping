@@ -35,6 +35,11 @@ fastq-dump was killed (signal 13 SIGPIPE)
 
 #### not sure if the last line is ok
 
-Note: you must cd to the directory you set as your repository directory during the config
+Notes: 
+1. you must reset path everytime you use the SRA toolkit: $ export PATH=$PATH:$PWD/sratoolkit.2.10.9-ubuntu64/bin
+
+1. You must cd to the directory you set as your repository directory during the config; in this case the directory is: remapping_RNAseq
+
+
 
 
