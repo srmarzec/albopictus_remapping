@@ -34,3 +34,7 @@ AAGTAGGTCTCGTCTGTGTTTTCTACGAGCTTGTGTTCCAGCTGACCCACTCCCTGGGTGGGGGGACTGGGT
 fastq-dump was killed (signal 13 SIGPIPE)
 
 #### not sure if the last line is ok
+
+Note: you must cd to the directory you set as your repository directory during the config
+
+
