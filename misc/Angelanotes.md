@@ -74,15 +74,15 @@ SRR1664190
 
 SRR1664192
 
-Following the method Sarah outlined as the most efficient in master notes:
+Following the method Sarah outlined as the most efficient in master notes: working within Remapping directory
 
 1. put all the numbers in a nano text editor file: $ nano SraAccList.txt
 
 1. $ srun --pty bash
 
-prefetch --option-file SraAccList.txt
+1. prefetch --option-file SraAccList.txt
 
-1. fasterq-dump sra_directory/sra/*.sra
+1.[zz220@bananas-controller remapping_RNAseq]$ fasterq-dump sra/*.sra
 
 1. gzip *.fastq
 
