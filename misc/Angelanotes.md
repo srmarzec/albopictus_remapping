@@ -65,10 +65,10 @@ Following the method Sarah outlined as the most efficient in master notes:
 
 1. prefetch --option-file SraAccList.txt
 
-*the txt file was really helpful because prefetching the files took a few hours*
-
 1. fasterq-dump sra_directory/sra/*.sra
 
 1. gzip *.fastq
+
+*the txt file was really helpful because prefetching the files took a few hours*
 
 
