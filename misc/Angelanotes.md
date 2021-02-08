@@ -82,7 +82,7 @@ Following the method Sarah outlined as the most efficient in master notes: worki
 
 1. prefetch --option-file SraAccList.txt
 
-1.[zz220@bananas-controller remapping_RNAseq]$ fasterq-dump sra/*.sra
+1. [zz220@bananas-controller remapping_RNAseq]$ fasterq-dump sra/*.sra
 
 1. gzip *.fastq
 
