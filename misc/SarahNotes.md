@@ -20,3 +20,7 @@ rm Trimmomatic-0.39.zip
 # you can test everything worked with this next comand giving you the version number of 0.39
 java -jar ~/Trimmomatic-0.39/trimmomatic-0.39.jar -version
 ```
+
+## Mapping
+Note that when generating the genome index using STAR, you need a bunch of memory (I put a 100G), or it will fail.
+
