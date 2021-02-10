@@ -21,6 +21,21 @@ rm Trimmomatic-0.39.zip
 java -jar ~/Trimmomatic-0.39/trimmomatic-0.39.jar -version
 ```
 
+### Downloading/Using FastQC
+Download Win/Linux zip file from [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to local machine. 
+Bring up to google cloud with 
+```
+gcloud compute scp /Users/sarah/Downloads/fastqc_v0.11.9.zip bananas-controller:.
+```
+Unzip file and change permissions of fastqc within the FastQC folder with `chmod u+x fastqc` in order to run interactively. I would likely run this as a script (even though it takes such a short time) but on test files I run it interactively:
+```
+/home/sm3679/FastQC/fastqc -o /home/sm3679/albopictus_remap/test /home/sm3679/albopictus_remap/test/*PE.fastq.gz
+```
+Bring the html files back to local to veiw in web format (run command from local)
+```
+gcloud compute scp bananas-controller:/home/sm3679/albopictus_remap/test/*_fastqc.html .
+```
+
 ## Mapping
 Note that when generating the genome index using STAR, you need a bunch of memory (I put a 100G), or it will fail.
 
