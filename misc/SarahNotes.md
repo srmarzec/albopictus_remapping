@@ -36,6 +36,7 @@ Bring the html files back to local to veiw in web format (run command from local
 ```
 gcloud compute scp bananas-controller:/home/sm3679/albopictus_remap/test/*_fastqc.html .
 ```
+Notes: Generally my fastqc seem to fail in ceratin areas. I've read that often with RNAseq data the 'per base sequence content' fails [link](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon/lessons/qc_fastqc_assessment.html). I've also read that 'sequence duplication levels' often fails in RNAseq but this could be due to either technical or biological duplicates [link](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/8%20Duplicate%20Sequences.html); however, deduplication steps are not common in RNAseq analysis [link](https://dnatech.genomecenter.ucdavis.edu/faqs/should-i-remove-pcr-duplicates-from-my-rna-seq-data/) so I figure we acknowledge this but continue on normally. Lastly, 'per sequence GC content' fails but this could be relatively normal; not sure what it typically looks like for albopictus.
 
 ## Mapping
 Note that when generating the genome index using STAR, you need a bunch of memory (I put a 100G), or it will fail.
