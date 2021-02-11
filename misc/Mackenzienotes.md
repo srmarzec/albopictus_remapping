@@ -17,7 +17,7 @@ Used format ./vdb-config, worked; Confirmed functioning with
 
 Assigned embryo data. 
 ```
-SRR458463
+	SRR458463
 	SRR458464
 	SRR458465
 	SRR458466
