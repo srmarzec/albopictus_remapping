@@ -20,7 +20,7 @@ rm Trimmomatic-0.39.zip
 # you can test everything worked with this next comand giving you the version number of 0.39
 java -jar ~/Trimmomatic-0.39/trimmomatic-0.39.jar -version
 ```
-Using trimmomatic: PI has used higher MINLEN in the past (75) for albopictus but lots of data removed. I've used lower MINLEN in the past but albopictus has lots of repeat regions.
+Using trimmomatic: LEADING/TRAILING 6 is a light touch. We went with MINLEN 50 which is a general default. PI has used higher MINLEN in the past (75) for albopictus but lots of data removed. I've used lower MINLEN in the past but albopictus has lots of repeat regions.
 
 ### Downloading/Using FastQC
 Download Win/Linux zip file from [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to local machine. 
