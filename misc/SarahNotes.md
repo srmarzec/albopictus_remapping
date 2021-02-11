@@ -20,6 +20,7 @@ rm Trimmomatic-0.39.zip
 # you can test everything worked with this next comand giving you the version number of 0.39
 java -jar ~/Trimmomatic-0.39/trimmomatic-0.39.jar -version
 ```
+Using trimmomatic: PI has used higher MINLEN in the past (75) for albopictus but lots of data removed. I've used lower MINLEN in the past but albopictus has lots of repeat regions.
 
 ### Downloading/Using FastQC
 Download Win/Linux zip file from [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to local machine. 
