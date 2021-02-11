@@ -5,7 +5,7 @@ Keep all the collaborated work here
 SRA files from NCBI for each set of samples were downloaded and converted to fastq.gz format. See [notes](https://github.com/srmarzec/albopictus_remapping/blob/main/misc/sra_accession/sraRetrievalTips.md) for details.
 
 ## Cleaning Data
-Preliminary tests showed no need for preprocessing raw data beside trimmomatic steps
+Preliminary tests showed no need for preprocessing raw data beside trimmomatic steps (read alignment rate is ~82%).
 
 ### Trimmomatic
 Trimmomatic version 0.39 [code for download](https://github.com/srmarzec/albopictus_remapping/blob/main/misc/SarahNotes.md#downloading-the-right-version-of-trimmomatic)
