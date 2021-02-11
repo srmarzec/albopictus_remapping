@@ -15,12 +15,25 @@ Ran into issues with step 3, Quick Toolkit Configuration: can't seem to find fas
 Used format ./vdb-config, worked; Confirmed functioning with 
 ```fastq-dump --stdout SRR390728 | head -n 8```
 
-Assigned embryo data. Put accession numbers into text file entitled: SRAAccList.txt 
+Assigned embryo data. 
+```
+SRR458463
+	SRR458464
+	SRR458465
+	SRR458466
+	SRR458467
+	SRR458468
+	SRR458469
+	SRR458470
+	SRR458471
+	SRR458472
+	SRR458473
+  ```
+Put accession numbers into text file entitled: SRAAccList.txt 
 ```
 prefetch --option-file SraAccList.txt
 fasterq-dump sra_directory/sra/*.sra
 gzip *.fastq
 ```
-
-
-
+## February 11 
+Renaming the downloaded files 
