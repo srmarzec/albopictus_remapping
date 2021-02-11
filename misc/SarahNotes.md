@@ -1,8 +1,17 @@
 # Sarah's Notes
 Things Sarah has tried, wants to keep track of
 
-## Renaming files after pulling them from SRA
-I knew that when I downloaded the sra files (and converted them into fastq.gz) that the names would be th accession numbers, which isn't as helpful as having the sample names. I thus also downloaded the metadata to my local computer and deleted everythign but two columns (the accession # and sample names). I looked into a bunch of way to rename files based on a csv and I'm sure somehow this method would have worked but I couldn't make it work in a day and I could easily write out a command in excel to print lines pasted with mv and oldname, newname. Maybe figure out how to rename based on a csv later...
+## SRA Accession
+I had to continually set the path each time I stearted to use the sra-toolkit on the hpc: `export PATH=$PATH:$PWD/sratoolkit.2.10.9-ubuntu64/bin`
+Once I had prefetched the files using my accession list, I was able convert them to fastq files using fasterq-dump. This is much faster then using fasterq-dump to access files directly as prefetch has copy to use in machine now.
+ ```
+ fasterq-dump /home/sm3679/sra_directory/sra/*.sra -O /home/sm3679/albopictus_remap/albopictus_larva_rawData
+ ```
+Note that fasterq-dump does not work with lists (another reason to do prefetch since that will do lists) and additionally it will not output a zipped file so you will need to zip the files later. Also remember to remove the sra files you have in the sra-directory.
+[Notes I made before](https://github.com/srmarzec/albopictus_remapping/blob/main/misc/sra_accession/sraRetrievalTips.md)
+
+### Renaming files after pulling them from SRA
+I knew that when I downloaded the sra files (and converted them into fastq.gz) that the names would be the accession numbers, which isn't as helpful as having the sample names. I thus also downloaded the metadata to my local computer and deleted everythign but two columns (the accession # and sample names). I looked into a bunch of way to rename files based on a csv and I'm sure somehow this method would have worked but I couldn't make it work in a day and I could easily write out a command in excel to print lines pasted with mv and oldname, newname. Maybe figure out how to rename based on a csv later...
 
 ## Cleaning Data
 In the past, I've used trimmomatic for trim low quality and adapters and have mapped remaining reads to the reference (assuming leftover reads are from extraneous sequences). This has generally worked in the past and I think will continue to work in the future. However, in PI's past work, steps have been taken for pre-processing of RNAseq data to reduce the amount of rRNA and vector contaminants. Generally preprocessing encompasses removing all of: Unwanted sequence (Ex. polyA tails in RNAseq data), artificially added onto sequence of primary interest (vectors, adapters, primers), join short overlapping paired-end reads, low quality bases, originate from PCR duplication. [This](https://ucdavis-bioinformatics-training.github.io/2019_March_UCSF_mRNAseq_Workshop/data_reduction/preproc_htstream.html) seems to have a nice summary of why to preprocess and also references using [HTStream](https://s4hts.github.io/HTStream/) which could be looked into more, but seems promising. Back to PI, PI's old student used ssaha to identify contaminants and rRNA (?). However, newer than that is using [sortmeRNA](https://bioinfo.lifl.fr/sortmerna/sortmerna.php) which does remove specified reads. That said, I'm not entirely sure how to create the database for this yet. I pulled all the rRNA reads for albopitus from [SILVA](https://www.arb-silva.de/) but I'm not sure if you index these fasta files against the package's existing database or somehow make your own... Additionally I would also want to remove vector contaminants probablly based on [UniVec](ftp://ftp.ncbi.nih.gov/pub/UniVec/). 
