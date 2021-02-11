@@ -18,6 +18,8 @@ Used format ./vdb-config, worked; Confirmed functioning with
 Assigned embryo data. Put accession numbers into text file entitled: SRAAccList.txt 
 ```prefetch --option-file SraAccList.txt
 fasterq-dump sra_directory/sra/*.sra
-gzip *.fastq```
+gzip *.fastq
+```
+
 
 
