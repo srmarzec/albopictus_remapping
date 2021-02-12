@@ -11,6 +11,6 @@
 
 #- RUN fastqc ----------------------------------------------------------------#
 
-[path to fastqc]/FastQC/fastqc -o [path to fastqc directory]/fastqc_dir [path to trimmed data]/*PE.fastq.gz
+[path to fastqc]/FastQC/fastqc -o [path to fastqc directory] [path to trimmed data]/*PE.fastq.gz
 
 #- FIN -----------------------------------------------------------------------#
