@@ -31,6 +31,8 @@ java -jar ~/Trimmomatic-0.39/trimmomatic-0.39.jar -version
 ```
 Using trimmomatic: LEADING/TRAILING 6 is a light touch. We went with MINLEN 50 which is a general default. PI has used higher MINLEN in the past (75) for albopictus but lots of data removed. I've used lower MINLEN in the past but albopictus has lots of repeat regions.
 
+UPDATE: We decided that instead of the LEADING/TRAILING flags (which when removed,did little) that we would crop the first 15 bases off using HEADCROP. This is because the "per sequence base content" failed during fastqc and this is common in RNAseq analysis due to 'random' hexamer priming during library prep. Since this was common in all my datasets, we decided to make this a lateral move for all three (adult, embryo, larva) datasets.
+
 ### Downloading/Using FastQC
 Download Win/Linux zip file from [here](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to local machine. 
 Bring up to google cloud with 
