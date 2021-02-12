@@ -12,11 +12,13 @@ Trimmomatic version 0.39 [code for download](https://github.com/srmarzec/albopic
 
 Generic script: [test_trim.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/test_trim.sh)
 
-We decided to use this adapter file because based on the manual, it was most likely used for HiSeq machines (which all sets of our data were run on). Note that all parameter for trimmomatic will run in the order they are written.
+We decided to use this adapter file because based on the manual, it was most likely used for HiSeq machines (which all sets of our data were run on). Note that all parameter for trimmomatic will run in the order they are written. We decided to headcrop (remove) the first 15 bases as they are 'messy' from "random" hexamer priming that occurs during RNA-seq library preparation.
 
 ### Quality Control
 
-Fastqc
+Fastqc [code for download](https://github.com/srmarzec/albopictus_remapping/blob/main/misc/SarahNotes.md#downloadingusing-fastqc)
+
+Fastqc [script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/fastqc.sh)
 
 ## Mapping
 We will be mapping with STAR (v2.7.1a)
