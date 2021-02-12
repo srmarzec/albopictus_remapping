@@ -32,8 +32,7 @@ java -Xmx2G -jar ${trim} PE \
           ${trim_dir}/${base}_1_PE.fastq.gz ${trim_dir}/${base}_1_SE.fastq.gz \
           ${trim_dir}/${base}_2_PE.fastq.gz ${trim_dir}/${base}_2_SE.fastq.gz \
           ILLUMINACLIP:${adapter} \
-          LEADING:6 \
-          TRAILING:6 \
+          HEADCROP:15 \
           SLIDINGWINDOW:4:15 \
           MINLEN:50
 done
