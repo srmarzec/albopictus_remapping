@@ -42,7 +42,7 @@ Notes:
 
 ### Downloading SRA adult files
 Now that SRA toolkit is downloaded, we want to use it do download the (Sequence Read Archive (SRA) files for the *adult* Ae albo the list of accession numbers can be found here: albopictus_remapping/misc/sra_accession/SRR_Acc_List_Adult.txt on github. Also listed here: 
-
+```
 SRR1663689\
 SRR1663685\
 SRR1663687\
@@ -58,14 +58,12 @@ SRR1663911\
 SRR1663913\
 SRR1663916\
 SRR1664190\
-SRR1664192\
-
+SRR1664192
+```
 Following the method Sarah outlined as the most efficient in master notes: working within Remapping directory
 
 1. put all the numbers in a nano text editor file: $ nano SraAccList.txt
-
 1. $ srun --pty bash
-
 1. prefetch --option-file SraAccList.txt
 
 1. [zz220@bananas-controller remapping_RNAseq]$ fasterq-dump sra/*.sra
