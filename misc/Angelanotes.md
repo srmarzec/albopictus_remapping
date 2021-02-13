@@ -9,14 +9,14 @@ java -jar ~/Trimmomatic-0.39/trimmomatic-0.39.jar -version
 
 ### downloading the SRA toolkit
 Chose Ubuntu: $ wget --output-document sratoolkit.tar.gz http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current-ubuntu64.tar.gz\
-'''
+```
 $ tar -vxzf sratoolkit.tar.gz\
 $ export PATH=$PATH:$PWD/sratoolkit.2.10.9-ubuntu64/bin\
 
 test: $ which fastq-dump\
 ~/sratoolkit.2.10.9-ubuntu64/bin/fastq-dump\
 test worked
-'''
+```
 
 completed https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration
 
