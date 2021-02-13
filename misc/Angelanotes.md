@@ -1,3 +1,4 @@
+Jan-Feb 10
 ### Downloading trimmomatic into home directory
 Enter directory you want to store trimmomatic in: /home/zz220
 ```
@@ -70,4 +71,10 @@ Following the method Sarah outlined as the most efficient in master notes: worki
 
 *the txt file was really helpful because prefetching the files took a few hours*
 
+## Feb 13
+Reorganized my directory:
+- made directory: `zz220@bananas-controller albopictus_remap` This will be the overarching directory with the files related to this remapping project
+- within `albopictus_remap` made a directory called `adult_rawdata` Moved my \*.gz i.e. raw adult albo data files to this dir
+- within `albopictus_remap` made dir called `scripts`; will contain my trimmomatic script
+- within `albopictus_remap` made dir called `trim_ouput`
 
