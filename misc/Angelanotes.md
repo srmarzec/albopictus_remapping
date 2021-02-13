@@ -12,16 +12,18 @@ Chose Ubuntu: $ wget --output-document sratoolkit.tar.gz http://ftp-trace.ncbi.n
 ```
 $ tar -vxzf sratoolkit.tar.gz\
 $ export PATH=$PATH:$PWD/sratoolkit.2.10.9-ubuntu64/bin\
-
-test: $ which fastq-dump\
-~/sratoolkit.2.10.9-ubuntu64/bin/fastq-dump\
-test worked
 ```
+test: 
+```
+$ which fastq-dump\
+~/sratoolkit.2.10.9-ubuntu64/bin/fastq-dump\
+```
+test worked
 
-completed https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration
-
-test: $ fastq-dump --stdout SRR390728 | head -n 8
-
+completed https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration\
+test
+`$ fastq-dump --stdout SRR390728 | head -n 8`\
+```
 @SRR390728.1 1 length=72
 CATTCTTCACGTAGTTCTCGAGCCTTGGTTTTCAGCGATGGAGAATGACTTTGACAAGCTGAGAGAAGNTNC
 +SRR390728.1 1 length=72
@@ -31,8 +33,7 @@ AAGTAGGTCTCGTCTGTGTTTTCTACGAGCTTGTGTTCCAGCTGACCCACTCCCTGGGTGGGGGGACTGGGT
 +SRR390728.2 2 length=72
 ;;;;;;;;;;;;;;;;;4;;;;3;393.1+4&&5&&;;;;;;;;;;;;;;;;;;;;;<9;<;;;;;464262
 fastq-dump was killed (signal 13 SIGPIPE)
-
-#### not sure if the last line is ok
+```
 
 Notes: 
 1. you must reset path everytime you use the SRA toolkit: $ export PATH=$PATH:$PWD/sratoolkit.2.10.9-ubuntu64/bin
