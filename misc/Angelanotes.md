@@ -1,5 +1,5 @@
-## Downloading trimmomatic into home directory
-### Enter directory you want to store trimmomatic in: /home/zz220
+### Downloading trimmomatic into home directory
+Enter directory you want to store trimmomatic in: /home/zz220
 ```
 $ curl -LO http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.39.zip
 $ unzip Trimmomatic-0.39.zip
