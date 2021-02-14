@@ -65,7 +65,7 @@ mv SRR458473_2.fastq.gz NDI_135h_rep3_2.fastq.gz
 ```
 ## February 14th 
 Carrying out Trimmomatic read cleaning and FASTQC analysis 
-``
+```
 #!/bin/bash
 #SBATCH --job-name=trim_embryo --output=%x.%j.out
 #SBATCH --mail-type=END,FAIL --mail-user=mlp134@georgetown.edu
@@ -96,3 +96,4 @@ ${trim_dir}/${base}_2_PE.fastq.gz ${trim_dir}/${base}_2_SE.fastq.gz \
           MINLEN:50
 done
 #- FIN -----------------------------------------------------------------------#
+``` 
