@@ -24,7 +24,7 @@ test worked
 
 completed https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration\
 test
-`$ fastq-dump --stdout SRR390728 | head -n 8`\
+`$ fastq-dump --stdout SRR390728 | head -n 8`
 ```
 @SRR390728.1 1 length=72
 CATTCTTCACGTAGTTCTCGAGCCTTGGTTTTCAGCGATGGAGAATGACTTTGACAAGCTGAGAGAAGNTNC
@@ -78,3 +78,5 @@ Reorganized my directory:
 - within `albopictus_remap` made dir called `scripts`; will contain my trimmomatic script
 - within `albopictus_remap` made dir called `trim_ouput`
 
+Edited [test_trim.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/test_trim.sh) into [Angela_trim.sh] (https://github.com/srmarzec/albopictus_remapping/tree/main/scripts)/
+-in my directory, it is:/home/zz220/albopictus_remap/scripts/trim_adult_script.SBATCH
