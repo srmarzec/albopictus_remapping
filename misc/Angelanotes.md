@@ -1,4 +1,4 @@
-Jan-Feb 10
+## Jan-Feb 10
 ### Downloading trimmomatic into home directory
 Enter directory you want to store trimmomatic in: /home/zz220
 ```
