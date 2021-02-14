@@ -79,5 +79,4 @@ Reorganized my directory:
 - within `albopictus_remap` made dir called `trim_ouput`
 
 Edited [test_trim.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/test_trim.sh) into [Angela_trim.sh] (https://github.com/srmarzec/albopictus_remapping/tree/main/scripts)
-
 -in my directory, it is:/home/zz220/albopictus_remap/scripts/trim_adult_script.SBATCH
