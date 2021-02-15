@@ -97,3 +97,4 @@ ${trim_dir}/${base}_2_PE.fastq.gz ${trim_dir}/${base}_2_SE.fastq.gz \
 done
 #- FIN -----------------------------------------------------------------------#
 ``` 
+## February 15th 
