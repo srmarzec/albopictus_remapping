@@ -64,7 +64,7 @@ mv SRR458472_2.fastq.gz NDI_135h_rep2_2.fastq.gz
 mv SRR458473_2.fastq.gz NDI_135h_rep3_2.fastq.gz
 ```
 ## February 14th 
-Carrying out Trimmomatic read cleaning and FASTQC analysis 
+Carrying out Trimmomatic read cleaning script. Ran the following script job. Output files all there after about four hours. Did not receive email confirming end job- unsure if this is an issue. 
 ```
 #!/bin/bash
 #SBATCH --job-name=trim_embryo --output=%x.%j.out
