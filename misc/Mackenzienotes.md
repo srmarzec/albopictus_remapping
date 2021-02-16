@@ -117,7 +117,7 @@ Running FastQC using the following script, named fastqc_embryoscript.SBATCH in R
 ```
 #!/bin/bash
 #SBATCH --job-name=fastqcembryo --output=%x.%j.out
-#SBATCH --mail-type=END,FAIL --mail-user=[mlp134]@georgetown.edu
+#SBATCH --mail-type=END,FAIL --mail-user=mlp134@georgetown.edu
 #SBATCH --nodes=1 --ntasks=1 --cpus-per-task=1 --time=72:00:00
 #SBATCH --mem=4G
 
@@ -128,6 +128,6 @@ Running FastQC using the following script, named fastqc_embryoscript.SBATCH in R
 
 #- RUN fastqc ----------------------------------------------------------------#
 
-[path to fastqc]/FastQC/fastqc -o [path to fastqc directory] [path to trimmed data]/*PE.fastq.gz
+/home/mlp134/FastQC/fastqc -o /home/mlp134/RNAseqproject/Fastqoutput /home/mlp134/RNAseqproject/trim_embryo_output/*PE.fastq.gz
 
 #- FIN -----------------------------------------------------------------------#
