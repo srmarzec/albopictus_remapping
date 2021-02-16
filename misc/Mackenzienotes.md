@@ -98,4 +98,13 @@ done
 #- FIN -----------------------------------------------------------------------#
 ``` 
 ## February 15th 
-Download Win/Linux zip file (https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc) to local machine. Bring up to google cloud with
+Download Win/Linux zip file (https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc) to local machine. Had issue where local device no longer had the Google SDK software. Downloaded using these commands. 
+```
+curl https://sdk.cloud.google.com | bash
+exec -l $SHELL
+gcloud init
+``` 
+Successfully fixed issue. Brought file up to bananas controller. 
+``` 
+gcloud compute scp /Users/mackenzieparsons/Downloads/fastqc_v0.11.9.zip bananas-controller:.
+```
