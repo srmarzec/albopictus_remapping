@@ -80,3 +80,14 @@ Reorganized my directory:
 
 Edited [test_trim.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/test_trim.sh) into [Angela_trim.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela_trim.sh); this is the script I will be using to clean the raw SRA adult reads\
 - in my directory, it is:`/home/zz220/albopictus_remap/scripts/trim_adult_script.SBATCH`
+- files appeared in the trim_out directory, but did not recieve an email confirming job success- unsure if this is an issue.
+
+## Feb 15
+- downloaded Win/Linux zip file from [here](https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc) to local machine. 
+- brought up to google cloud with 
+```
+gcloud compute scp /Users/sarah/Downloads/fastqc_v0.11.9.zip bananas-controller:.
+```
+- unzipped fastqc_v0.11.9.zip with: `$ unzip fastqc_v0.11.9.zip` This created a folder called FastQC
+- modified permissions with `$ chmod u+x FastQC`
+- modified Sarah's [script for FastQC](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/fastqc.sh) to 
