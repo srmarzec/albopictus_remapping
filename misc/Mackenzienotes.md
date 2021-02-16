@@ -137,3 +137,5 @@ FastQC job did not run. Looked in job output file- access issue. Cd into FastQC 
 ```chmod u+x fastqc```
 
 Reran script- worked successfully. Logged onto Terminal on local device and ran ```gcloud compute scp bananas-controller:/home/mlp134/RNAseqproject/Fastqoutput/*_fastqc.html .``` Files successfully downloaded.
+
+Notes on FastQC output files (downloaded to local device). 24 output files. Files look good- all only have red for per sequence GC content. Yellow seen for Sequence Length Distribution and Sequence Duplication levels for most files. Yellow seen for Overrepresented sequences on a few files. 
