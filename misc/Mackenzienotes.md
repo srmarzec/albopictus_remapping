@@ -131,3 +131,7 @@ Running FastQC using the following script, named fastqc_embryoscript.SBATCH in R
 /home/mlp134/FastQC/fastqc -o /home/mlp134/RNAseqproject/Fastqoutput /home/mlp134/RNAseqproject/trim_embryo_output/*PE.fastq.gz
 
 #- FIN -----------------------------------------------------------------------#
+```
+## February 16th 
+FastQC job did not run. Looked in job output file- access issue. Cd into FastQC directory and did command within directory.
+```chmod u+x fastqc```
