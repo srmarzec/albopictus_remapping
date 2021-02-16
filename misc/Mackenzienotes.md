@@ -113,3 +113,21 @@ Unzip file and change permissions of fastqc within the FastQC folder. Unsure if 
 chmod u+x fastqc_v0.11.9.zip 
 unzip fastqc_v0.11.9.zip 
 ```
+Running FastQC using the following script, named fastqc_embryoscript.SBATCH in RNAseqproject directory. 
+```
+#!/bin/bash
+#SBATCH --job-name=fastqcembryo --output=%x.%j.out
+#SBATCH --mail-type=END,FAIL --mail-user=[mlp134]@georgetown.edu
+#SBATCH --nodes=1 --ntasks=1 --cpus-per-task=1 --time=72:00:00
+#SBATCH --mem=4G
+
+#-----------------------------------------------------------------------------#
+# This script gives quality control of embryo fastq files #
+#-----------------------------------------------------------------------------#
+
+
+#- RUN fastqc ----------------------------------------------------------------#
+
+[path to fastqc]/FastQC/fastqc -o [path to fastqc directory] [path to trimmed data]/*PE.fastq.gz
+
+#- FIN -----------------------------------------------------------------------#
