@@ -135,4 +135,5 @@ Running FastQC using the following script, named fastqc_embryoscript.SBATCH in R
 ## February 16th 
 FastQC job did not run. Looked in job output file- access issue. Cd into FastQC directory and did command within directory.
 ```chmod u+x fastqc```
-Reran script- worked successfully. Logged onto Terminal on local device and ran ```gcloud compute scp bananas-controller:/home/mlp134/RNAseqproject/Fastqoutput/*_fastqc.html .```
+
+Reran script- worked successfully. Logged onto Terminal on local device and ran ```gcloud compute scp bananas-controller:/home/mlp134/RNAseqproject/Fastqoutput/*_fastqc.html .``` Files successfully downloaded.
