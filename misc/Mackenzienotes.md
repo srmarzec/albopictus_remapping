@@ -104,7 +104,12 @@ curl https://sdk.cloud.google.com | bash
 exec -l $SHELL
 gcloud init
 ``` 
-Successfully fixed issue. Brought file up to bananas controller. 
+Successfully fixed issue. Brought file up to bananas controller using this command on local device. 
 ``` 
 gcloud compute scp /Users/mackenzieparsons/Downloads/fastqc_v0.11.9.zip bananas-controller:.
+```
+Unzip file and change permissions of fastqc within the FastQC folder. Unsure if I interpreted this step correctly? Used following command. Turned file from red to green color.
+```
+chmod u+x fastqc_v0.11.9.zip 
+unzip fastqc_v0.11.9.zip 
 ```
