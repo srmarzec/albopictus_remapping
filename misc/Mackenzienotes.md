@@ -98,3 +98,4 @@ done
 #- FIN -----------------------------------------------------------------------#
 ``` 
 ## February 15th 
+Download Win/Linux zip file (https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc) to local machine. Bring up to google cloud with
