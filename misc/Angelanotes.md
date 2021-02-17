@@ -91,7 +91,7 @@ Edited [test_trim.sh](https://github.com/srmarzec/albopictus_remapping/blob/main
 gcloud compute scp /Users/sarah/Downloads/fastqc_v0.11.9.zip bananas-controller:.
 ```
 - unzipped fastqc_v0.11.9.zip with: `$ unzip fastqc_v0.11.9.zip` This created a folder called FastQC
-- modified permissions with `$ chmod u+x FastQC`
+- modified permissions with `$ chmod u+x FastQC` Must do this within the FastQC folder.
 - modified Sarah's [script for FastQC](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/fastqc.sh) to [fastqc_script.SBATCH](https://github.com/srmarzec/albopictus_remapping/tree/main/scripts)
 - after running script for FastQC, result is 25 html files and 25 gz files: 7/32 were lost during this process
 - when checking the FastQC job report file, fastqc.96531.out, some areas said failed to process file -----. For example:
