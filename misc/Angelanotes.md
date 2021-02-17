@@ -39,7 +39,7 @@ fastq-dump was killed (signal 13 SIGPIPE)
 
 Notes: 
 1. you must reset path everytime you use the SRA toolkit: $ export PATH=$PATH:$PWD/sratoolkit.2.10.9-ubuntu64/bin
-1. You must cd to the directory you set as your repository directory during the config; in this case the directory is: remapping_RNAseq
+1. You must cd to the directory you set as your repository directory during the config; in this case the directory is: albopictus_remap
 
 ### Downloading SRA adult files
 Now that SRA toolkit is downloaded, we want to use it do download the (Sequence Read Archive (SRA) files for the *adult* Ae albo the list of accession numbers can be found here: albopictus_remapping/misc/sra_accession/SRR_Acc_List_Adult.txt on github. Also listed here: 
@@ -65,7 +65,7 @@ Following the method Sarah outlined as the most efficient in master notes: worki
 
 1. put all the numbers in a nano text editor file: $ nano SraAccList.txt
 1. $ srun --pty bash
-1. prefetch --option-file SraAccList.txt
+1. prefetch --option-file SraAccList.txt *note: need to be in the same folder as the SraAccList file
 1. [zz220@bananas-controller remapping_RNAseq]$ fasterq-dump sra/*.sra
 1. gzip *.fastq
 
