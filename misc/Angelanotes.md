@@ -108,4 +108,4 @@ Bring the html files back to local to veiw in web format (run command from local
 ```
 Cottonelles-MBP:~ cottonellezhou$ gcloud compute scp bananas-controller:/home/zz220/albopictus_remap/fastqc_out/*_fastqc.html .
 ```
-*check with Sarah about truncated files*
+*check with Sarah about files that failed the FastQC process*
