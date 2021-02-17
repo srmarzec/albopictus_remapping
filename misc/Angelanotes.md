@@ -150,7 +150,7 @@ Cottonelles-MBP:~ cottonellezhou$ gcloud compute scp bananas-controller:/home/zz
 ## Feb 17
 Will redownload the raw data for the files that did not succesfully go through FastQC:
 ```
-mv SRR1663769_1.fastq.gz LD_BM_rep2_1_PE_fastq.gz
+mv SRR1663769_1.fastq.gz LD_BM_rep2_1.fastq.gz
 mv SRR1663916_1.fastq.gz LD_NB_rep2_1.fastq.gz
 mv SRR1663916_2.fastq.gz LD_NB_rep2_2.fastq.gz
 mv SRR1663685_1.fastq.gz SD_BM_rep1_1.fastq.gz
