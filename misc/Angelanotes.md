@@ -72,6 +72,45 @@ Following the method Sarah outlined as the most efficient in master notes: worki
 *the txt file was really helpful because prefetching the files took a few hours*
 Result: 32 fastq.gz files within `/home/zz220/albopictus_remap/adult_rawdata`
 
+Renamed the files:
+```
+#!/bin/bash
+#This is just a bunch of renaming commands to change sra accession numbers into actual relevant info
+
+mv SRR1663685_1.fastq.gz SD_BM_rep1_1.fastq.gz
+mv SRR1663687_1.fastq.gz SD_BM_rep2_1.fastq.gz
+mv SRR1663689_1.fastq.gz SD_BM_rep3_1.fastq.gz
+mv SRR1663697_1.fastq.gz SD_BM_rep4_1.fastq.gz
+mv SRR1663700_1.fastq.gz SD_NB_rep1_1.fastq.gz
+mv SRR1663703_1.fastq.gz SD_NB_rep2_1.fastq.gz
+mv SRR1663707_1.fastq.gz SD_NB_rep3_1.fastq.gz
+mv SRR1663709_1.fastq.gz SD_NB_rep4_1.fastq.gz
+mv SRR1663754_1.fastq.gz LD_BM_rep1_1.fastq.gz
+mv SRR1663769_1.fastq.gz LD_BM_rep2_1.fastq.gz
+mv SRR1663843_1.fastq.gz LD_BM_rep3_1.fastq.gz
+mv SRR1663911_1.fastq.gz LD_BM_rep4_1.fastq.gz
+mv SRR1663913_1.fastq.gz LD_NB_rep1_1.fastq.gz
+mv SRR1663916_1.fastq.gz LD_NB_rep2_1.fastq.gz
+mv SRR1664190_1.fastq.gz LD_NB_rep3_1.fastq.gz
+mv SRR1664192_1.fastq.gz LD_NB_rep4_1.fastq.gz
+mv SRR1663685_2.fastq.gz SD_BM_rep1_2.fastq.gz
+mv SRR1663687_2.fastq.gz SD_BM_rep2_2.fastq.gz
+mv SRR1663689_2.fastq.gz SD_BM_rep3_2.fastq.gz
+mv SRR1663697_2.fastq.gz SD_BM_rep4_2.fastq.gz
+mv SRR1663700_2.fastq.gz SD_NB_rep1_2.fastq.gz
+mv SRR1663703_2.fastq.gz SD_NB_rep2_2.fastq.gz
+mv SRR1663707_2.fastq.gz SD_NB_rep3_2.fastq.gz
+mv SRR1663709_2.fastq.gz SD_NB_rep4_2.fastq.gz
+mv SRR1663754_2.fastq.gz LD_BM_rep1_2.fastq.gz
+mv SRR1663769_2.fastq.gz LD_BM_rep2_2.fastq.gz
+mv SRR1663843_2.fastq.gz LD_BM_rep3_2.fastq.gz
+mv SRR1663911_2.fastq.gz LD_BM_rep4_2.fastq.gz
+mv SRR1663913_2.fastq.gz LD_NB_rep1_2.fastq.gz
+mv SRR1663916_2.fastq.gz LD_NB_rep2_2.fastq.gz
+mv SRR1664190_2.fastq.gz LD_NB_rep3_2.fastq.gz
+mv SRR1664192_2.fastq.gz LD_NB_rep4_2.fastq.gz
+```
+
 ## Feb 13
 Reorganized my directory:
 - made directory: `zz220@bananas-controller albopictus_remap` This will be the overarching directory with the files related to this remapping project
@@ -108,4 +147,13 @@ Bring the html files back to local to veiw in web format (run command from local
 ```
 Cottonelles-MBP:~ cottonellezhou$ gcloud compute scp bananas-controller:/home/zz220/albopictus_remap/fastqc_out/*_fastqc.html .
 ```
-*check with Sarah about files that failed the FastQC process*
+Will redownload the raw data for the files that did not succesfully go through FastQC. The following files did not go through:
+```
+LD_BM_rep2_1_PE_fastqc.zip 
+LD_NB_rep2_1_PE_fastqc.zip
+LD_NB_rep2_2_PE_fastqc.zip
+SD_BM_rep1_1_PE_fastqc.zip 
+SD_BM_rep1_2_PE_fastqc.zip 
+SD_BM_rep4_1_PE_fastqc.zip
+SD_BM_rep4_2_PE_fastqc.zip 
+ ```
