@@ -70,6 +70,7 @@ Following the method Sarah outlined as the most efficient in master notes: worki
 1. gzip *.fastq
 
 *the txt file was really helpful because prefetching the files took a few hours*
+Result: 32 fastq.gz files within `/home/zz220/albopictus_remap/adult_rawdata`
 
 ## Feb 13
 Reorganized my directory:
@@ -81,6 +82,7 @@ Reorganized my directory:
 Edited [test_trim.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/test_trim.sh) into [Angela_trim.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela_trim.sh); this is the script I will be using to clean the raw SRA adult reads\
 - in my directory, it is:`/home/zz220/albopictus_remap/scripts/trim_adult_script.SBATCH`
 - files appeared in the trim_out directory, but did not recieve an email confirming job success- unsure if this is an issue.
+- result: 32 parired end files, moved to `/home/zz220/albopictus_remap/trim_output/pairedendfiles` and 32 SE files
 
 ## Feb 15
 - downloaded Win/Linux zip file from [here](https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc) to local machine. 
@@ -90,4 +92,20 @@ gcloud compute scp /Users/sarah/Downloads/fastqc_v0.11.9.zip bananas-controller:
 ```
 - unzipped fastqc_v0.11.9.zip with: `$ unzip fastqc_v0.11.9.zip` This created a folder called FastQC
 - modified permissions with `$ chmod u+x FastQC`
-- modified Sarah's [script for FastQC](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/fastqc.sh) to 
+- modified Sarah's [script for FastQC](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/fastqc.sh) to [fastqc_script.SBATCH](https://github.com/srmarzec/albopictus_remapping/tree/main/scripts)
+- after running script for FastQC, result is 25 html files and 25 gz files: 7/32 were lost during this process
+- when checking the FastQC job report file, fastqc.96531.out, some areas said failed to process file -----. For example:
+```
+Failed to process file LD_BM_rep2_2_PE.fastq.gz
+uk.ac.babraham.FastQC.Sequence.SequenceFormatException: Ran out of data in the middle of a fastq entry.  Your file is probably truncated
+        at uk.ac.babraham.FastQC.Sequence.FastQFile.readNext(FastQFile.java:179)
+        at uk.ac.babraham.FastQC.Sequence.FastQFile.next(FastQFile.java:125)
+        at uk.ac.babraham.FastQC.Analysis.AnalysisRunner.run(AnalysisRunner.java:77)
+        at java.lang.Thread.run(Thread.java:748)
+```
+
+Bring the html files back to local to veiw in web format (run command from local)
+```
+Cottonelles-MBP:~ cottonellezhou$ gcloud compute scp bananas-controller:/home/zz220/albopictus_remap/fastqc_out/*_fastqc.html .
+```
+*check with Sarah about truncated files*
