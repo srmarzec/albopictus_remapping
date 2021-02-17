@@ -147,13 +147,14 @@ Bring the html files back to local to veiw in web format (run command from local
 ```
 Cottonelles-MBP:~ cottonellezhou$ gcloud compute scp bananas-controller:/home/zz220/albopictus_remap/fastqc_out/*_fastqc.html .
 ```
-Will redownload the raw data for the files that did not succesfully go through FastQC. The following files did not go through:
+## Feb 17
+Will redownload the raw data for the files that did not succesfully go through FastQC:
 ```
-LD_BM_rep2_1_PE_fastqc.zip 
-LD_NB_rep2_1_PE_fastqc.zip
-LD_NB_rep2_2_PE_fastqc.zip
-SD_BM_rep1_1_PE_fastqc.zip 
-SD_BM_rep1_2_PE_fastqc.zip 
-SD_BM_rep4_1_PE_fastqc.zip
-SD_BM_rep4_2_PE_fastqc.zip 
+mv SRR1663769_1.fastq.gz LD_BM_rep2_1_PE_fastq.gz
+mv SRR1663916_1.fastq.gz LD_NB_rep2_1.fastq.gz
+mv SRR1663916_2.fastq.gz LD_NB_rep2_2.fastq.gz
+mv SRR1663685_1.fastq.gz SD_BM_rep1_1.fastq.gz
+mv SRR1663685_2.fastq.gz SD_BM_rep1_2.fastq.gz
+mv SRR1663697_1.fastq.gz SD_BM_rep4_1.fastq.gz
+mv SRR1663697_2.fastq.gz SD_BM_rep4_2.fastq.gz
  ```
