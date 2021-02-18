@@ -70,3 +70,23 @@ gsutil cp gs://gu-biology-pi-paa9/aedes_albopictus_AalbF3.gff3 .
 ```
 I put these in one directory separate from what will be the genome index directory for STAR. This is mostly because I didn't want any issues as STAR commands call for the directory name and not specific files (I didn't want file confusion).
 
+## Generating count matrix with HTSeq (htseq-count)
+Future analysis will be done in DESeq and HTSeq generated count data is an acceptable input. I think I'm using HTSeq mostly because I have seen it used before and we have decided to map to a reference genome (as compared to a transcriptome which seems favored with other packages).
+
+### Installing HTSeq 
+So to install HTSeq on the hpc, you will have to make a virtual environment. This is because based on the [GU HPC wiki](https://wiki.uis.georgetown.edu/display/HPCGCP/Python) personalized python installtion need to be done in [virtual environments](https://docs.python.org/3.6/tutorial/venv.html).
+
+Within the home directory (or whever you want the virtual environment to go), we can make a virtual environment called "python-env": `python3 -m venv python-env` \
+We can then activate the environment: `source python-env/bin/activate` \
+Within the environment, we can download HTSeq (and its prerequisites):
+```
+pip install numpy
+pip install pysam
+pip install HTSeq
+``` 
+To exit the virtual environment: `deactivate`
+
+We should be able to run scripts with HTSeq as long as we activate the virtual environment within the script (see [example](https://implement.pt/2018/09/using-python-virtual-environments-with-slurm/))
+
+### Using HTSeq
+So I think one of the biggest issues with using HTSeq is determining strandedness which we have to specify when running ([htseq-count manual](https://htseq.readthedocs.io/en/master/count.html)). Apparently this can be confusing because this is done during library prep, and it's possible that we won't have this info as we will be using data accessed from the SRA. That said, there are ways to determine this after. [This](https://github.com/mcadamme/Culex_RNAseq_Chemosensory/blob/master/Upstream_processing/strandedness_and_htseq.md) gives an example of why they chose the 'stranded=reverse' flag based on the [Srinivasan et al. 2020](https://academic.oup.com/bfg/article/19/5-6/339/5837822?login=true). I'm going to check the SRA database for what information we have for the datasets (whether they were based on cDNA which, based on Srinivasan et al., gives the strandedness), otherwise I may run two files with either strandedness to cinfirm what my data looks like. If I have to do the test (may be good to do anyways), I will need to communicate these steps with Angela and Mackenzie.
