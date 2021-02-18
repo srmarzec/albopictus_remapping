@@ -124,10 +124,11 @@ Edited [test_trim.sh](https://github.com/srmarzec/albopictus_remapping/blob/main
 - result: 32 parired end files, moved to `/home/zz220/albopictus_remap/trim_output/pairedendfiles` and 32 SE files
 
 ## Feb 15
+### Downloading and running FastQC on bananas controller
 - downloaded Win/Linux zip file from [here](https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc) to local machine. 
 - brought up to google cloud with 
 ```
-gcloud compute scp /Users/sarah/Downloads/fastqc_v0.11.9.zip bananas-controller:.
+gcloud compute scp /Users//Users/cottonellezhou/Downloads/fastqc_v0.11.9.zip bananas-controller:.
 ```
 - unzipped fastqc_v0.11.9.zip with: `$ unzip fastqc_v0.11.9.zip` This created a folder called FastQC
 - modified permissions with `$ chmod u+x FastQC` Must do this within the FastQC folder.
