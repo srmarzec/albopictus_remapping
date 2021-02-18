@@ -10,6 +10,6 @@
 
 #- RUN fastqc ----------------------------------------------------------------#
 
-/home/zz220/FastQC/fastqc -o /home/zz220/albopictus_remap/fastqc_out /home/zz22$
+/home/zz220/FastQC/fastqc -o /home/zz220/albopictus_remap/fastqc_out /home/zz220/albopictus_remap/trim_output/*PE.fastq.gz
 
 #- FIN -----------------------------------------------------------------------#
