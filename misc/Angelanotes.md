@@ -118,7 +118,7 @@ Reorganized my directory:
 - within `albopictus_remap` made dir called `scripts`; will contain my trimmomatic script
 - within `albopictus_remap` made dir called `trim_ouput`
 
-Edited [test_trim.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/test_trim.sh) into [Angela_trim.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela_trim.sh); this is the script I will be using to clean the raw SRA adult reads\
+Edited [trim.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/trim.sh) into [Angela_trim.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_trim.sh); this is the script I will be using to clean the raw SRA adult reads\
 - in my directory, it is:`/home/zz220/albopictus_remap/scripts/trim_adult_script.SBATCH`
 - files appeared in the trim_out directory, but did not recieve an email confirming job success- unsure if this is an issue.
 - result: 32 parired end files, moved to `/home/zz220/albopictus_remap/trim_output/pairedendfiles` and 32 SE files
