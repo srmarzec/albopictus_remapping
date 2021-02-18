@@ -1,6 +1,8 @@
 # Main Work Flow
 Keep all the collaborated work here
 
+Information about sequence analysis (raw read count, read alignment rate, etc.) for each dataset can be found [here](https://docs.google.com/spreadsheets/d/1hIqqMIk8ZVw56BJ8_YN_OnwuzdWBSH7bujwDMTqsCKs/edit?usp=sharing)
+
 ## Data Retrieval
 SRA files from NCBI for each set of samples were downloaded and converted to fastq.gz format. See [notes](https://github.com/srmarzec/albopictus_remapping/blob/main/misc/sra_accession/sraRetrievalTips.md) for details.
 
