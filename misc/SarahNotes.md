@@ -71,7 +71,7 @@ gsutil cp gs://gu-biology-pi-paa9/aedes_albopictus_AalbF3.gff3 .
 I put these in one directory separate from what will be the genome index directory for STAR. This is mostly because I didn't want any issues as STAR commands call for the directory name and not specific files (I didn't want file confusion).
 
 ___
-When finding the read mapping rates after using STAR, I went through the files one after another using `less`. I'm sure you can cat the files together but the problem is that they don't include the file name in the final output file (although for the sake of saying it, my files and how I record are both in the same order, alphabetical, and thus I could have tried this). Instead I used `less *Log.final.out` and typed `:n` to go to the next file each time (typing `:p` takes you to the previous file). And of course, typing `q` let's you escape `less`.
+When finding the read mapping rates after using STAR, I went through the files one after another using `less`. I'm sure you can cat the files together but the problem is that they don't include the file name in the final output file (although for the sake of saying it, my files and how I record are both in the same order, alphabetical, and thus I could have tried this). Instead I used `less *Log.final.out` and typed `:n` to go to the next file each time (typing `:p` takes you to the previous file). And of course, typing `q` lets you escape `less`.
 
 ## Generating count matrix with HTSeq (htseq-count)
 Future analysis will be done in DESeq and HTSeq generated count data is an acceptable input. I think I'm using HTSeq mostly because I have seen it used before and we have decided to map to a reference genome (as compared to a transcriptome which seems favored with other packages).
