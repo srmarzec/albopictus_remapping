@@ -1,5 +1,5 @@
 # Sarah's Notes
-Things Sarah has tried, wants to keep track of
+Things Sarah has tried, wants to keep track of. A guide and the reasoning behind the main workflow.
 
 ## SRA Accession
 I had to continually set the path each time I stearted to use the sra-toolkit on the hpc: `export PATH=$PATH:$PWD/sratoolkit.2.10.9-ubuntu64/bin`
@@ -51,7 +51,7 @@ Notes: Generally my fastqc seem to fail in ceratin areas. I've read that often w
 
 Update: When we ran all samples through trimmomatic and veiwed fastqc, it turns out we get a few overrepresented sequences, but these all fall in albopictus (potentially are biologically relevant because they're RNA data and not technical artefacts) and so we don't worry. Additionally, we found that the adult data failed at times in the 'per sequence tile score' and this could be because there were problems with the flow cell (most common cause of this failure is air bubble in the flow cell). That said, the data has passed trim and seems good quality so we'll keep it. This seems most common step. Although if a good reference is not available then further steps could be taken to sort based on tile quality (see [here](https://www.biostars.org/p/228762/)). 
 
-_________________
+___
 
 After we know we have the trimmed files we want (all the fastqc looks good for each dataset), we moved raw reads up to the google bucket for saving space.
 ```
@@ -69,6 +69,9 @@ gsutil cp gs://gu-biology-pi-paa9/aedes_albopictus_AalbF3.fa .
 gsutil cp gs://gu-biology-pi-paa9/aedes_albopictus_AalbF3.gff3 .
 ```
 I put these in one directory separate from what will be the genome index directory for STAR. This is mostly because I didn't want any issues as STAR commands call for the directory name and not specific files (I didn't want file confusion).
+
+___
+When finding the read mapping rates after using STAR, I went through the files one after another using `less`. I'm sure you can cat the files together but the problem is that they don't include the file name in the final output file (although for the sake of saying it, my files and how I record are both in the same order, alphabetical, and thus I could have tried this). Instead I used `less *Log.final.out` and typed `:n` to go to the next file each time (typing `:p` takes you to the previous file). And of course, typing `q` let's you escape `less`.
 
 ## Generating count matrix with HTSeq (htseq-count)
 Future analysis will be done in DESeq and HTSeq generated count data is an acceptable input. I think I'm using HTSeq mostly because I have seen it used before and we have decided to map to a reference genome (as compared to a transcriptome which seems favored with other packages).
