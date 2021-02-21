@@ -72,7 +72,7 @@ Following the method Sarah outlined as the most efficient in master notes: worki
 *the txt file was really helpful because prefetching the files took a few hours*
 Result: 32 fastq.gz files within `/home/zz220/albopictus_remap/adult_rawdata`
 
-##### Counted number of reads: hint: gunzip \*_1.fastq.gz because tested and found that as expected, the forward and reverse read files have the same number of reads: then do wc -l and then divide the number by 4: [result is in google spreadsheet](https://docs.google.com/spreadsheets/d/1hIqqMIk8ZVw56BJ8_YN_OnwuzdWBSH7bujwDMTqsCKs/edit#gid=0)
+
 
 Renamed the files:
 ```
