@@ -17,8 +17,8 @@ $ export PATH=$PATH:$PWD/sratoolkit.2.10.9-ubuntu64/bin
 ```
 test: 
 ```
-$ which fastq-dump\
-~/sratoolkit.2.10.9-ubuntu64/bin/fastq-dump\
+$ which fastq-dump
+~/sratoolkit.2.10.9-ubuntu64/bin/fastq-dump
 ```
 test worked
 
