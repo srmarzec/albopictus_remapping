@@ -72,6 +72,8 @@ Following the method Sarah outlined as the most efficient in master notes: worki
 *the txt file was really helpful because prefetching the files took a few hours*
 Result: 32 fastq.gz files within `/home/zz220/albopictus_remap/adult_rawdata`
 
+##### Counted number of reads: hint: gunzip \*_1.fastq.gz because tested and found that as expected, the forward and reverse read files have the same number of reads: then do wc -l and then divide the number by 4: [result is in google spreadsheet](https://docs.google.com/spreadsheets/d/1hIqqMIk8ZVw56BJ8_YN_OnwuzdWBSH7bujwDMTqsCKs/edit#gid=0)
+
 Renamed the files:
 ```
 #!/bin/bash
@@ -161,7 +163,8 @@ mv SRR1663697_2.fastq.gz SD_BM_rep4_2.fastq.gz
  ```
 Repeated the trimmomatic and FastQC workflow for the above files:
 You can see the difference between the size of raw files that were truncated (thus did not go through FastQC succesfully) and the redownloaded version of these files. For example:\
-new file sizes:
+new file sizes:\
+```
 -rw-r--r--. 1 zz220 users 2.3G Feb 17 19:18 LD_BM_rep2_1.fastq.gz
 -rw-r--r--. 1 zz220 users 2.3G Feb 17 19:18 LD_BM_rep2_2.fastq.gz
 -rw-r--r--. 1 zz220 users 2.5G Feb 17 19:25 LD_NB_rep2_1.fastq.gz
@@ -173,9 +176,9 @@ new file sizes:
 
 vs
 
-old file sizes:
+old file sizes:\
 -rw-------. 1 zz220 users 716M Feb  8 20:49 LD_BM_rep2_2.fastq.gz
 -rw-------. 1 zz220 users 2.1G Feb  9 00:02 LD_NB_rep2_1.fastq.gz
 -rw-r--r--. 1 zz220 users 2.4G Feb  8 13:08 LD_NB_rep2_2.fastq.gz
-
+```
 
