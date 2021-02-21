@@ -12,8 +12,8 @@ java -jar ~/Trimmomatic-0.39/trimmomatic-0.39.jar -version
 ### Downloading the SRA toolkit
 Chose Ubuntu: $ wget --output-document sratoolkit.tar.gz http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current-ubuntu64.tar.gz\
 ```
-$ tar -vxzf sratoolkit.tar.gz\
-$ export PATH=$PATH:$PWD/sratoolkit.2.10.9-ubuntu64/bin\
+$ tar -vxzf sratoolkit.tar.gz
+$ export PATH=$PATH:$PWD/sratoolkit.2.10.9-ubuntu64/bin
 ```
 test: 
 ```
@@ -38,7 +38,7 @@ fastq-dump was killed (signal 13 SIGPIPE)
 ```
 
 Notes: 
-1. you must reset path everytime you use the SRA toolkit: '$ export PATH=$PATH:$PWD/sratoolkit.2.10.9-ubuntu64/bin'
+1. you must reset path everytime you use the SRA toolkit: `$ export PATH=$PATH:$PWD/sratoolkit.2.10.9-ubuntu64/bin`
 1. You must cd to the directory you set as your repository directory during the config; in this case the directory is: albopictus_remap
 
 ### Downloading SRA adult files
