@@ -163,8 +163,8 @@ mv SRR1663697_2.fastq.gz SD_BM_rep4_2.fastq.gz
  ```
 Repeated the trimmomatic and FastQC workflow for the above files:
 You can see the difference between the size of raw files that were truncated (thus did not go through FastQC succesfully) and the redownloaded version of these files. For example:\
-new file sizes:
 ```
+new file sizes:
 -rw-r--r--. 1 zz220 users 2.3G Feb 17 19:18 LD_BM_rep2_1.fastq.gz
 -rw-r--r--. 1 zz220 users 2.3G Feb 17 19:18 LD_BM_rep2_2.fastq.gz
 -rw-r--r--. 1 zz220 users 2.5G Feb 17 19:25 LD_NB_rep2_1.fastq.gz
@@ -176,7 +176,7 @@ new file sizes:
 
 vs
 
-old file sizes:\
+old file sizes:
 -rw-------. 1 zz220 users 716M Feb  8 20:49 LD_BM_rep2_2.fastq.gz
 -rw-------. 1 zz220 users 2.1G Feb  9 00:02 LD_NB_rep2_1.fastq.gz
 -rw-r--r--. 1 zz220 users 2.4G Feb  8 13:08 LD_NB_rep2_2.fastq.gz
