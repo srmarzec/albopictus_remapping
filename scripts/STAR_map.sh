@@ -14,7 +14,7 @@ module load star/2.7.1a
 
 trim_dir=[path to the trimmed files]
 
-out_dir=[path to the output directory]
+out_dir=[path to the sam output directory]
 
 refgen_dir=[path to reference genome index]
 
@@ -29,8 +29,7 @@ base=`basename ${name} _1_PE.fastq.gz`
 STAR --genomeDir ${refgen_dir} \
         --readFilesCommand gunzip -c \
         --readFilesIn ${trim_dir}/${base}_1_PE.fastq.gz ${trim_dir}/${base}_2_PE.fastq.gz \
-        --outFileNamePrefix ${out_dir}/${base}_ \
-        --outSAMtype BAM SortedByCoordinate 
+        --outFileNamePrefix ${out_dir}/${base}_  
 done
 
 #- FIN -----------------------------------------------------------------------#
