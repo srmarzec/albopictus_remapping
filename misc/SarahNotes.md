@@ -72,6 +72,29 @@ I put these in one directory separate from what will be the genome index directo
 
 ___
 When finding the read mapping rates after using STAR, I went through the files one after another using `less`. I'm sure you can cat the files together but the problem is that they don't include the file name in the final output file (although for the sake of saying it, my files and how I record are both in the same order, alphabetical, and thus I could have tried this). Instead I used `less *Log.final.out` and typed `:n` to go to the next file each time (typing `:p` takes you to the previous file). And of course, typing `q` lets you escape `less`.
+___
+For some reason, using the option to get sorted-by-coordinate bam files as an output from star resulted in quite variable bam files sizes (one of them was even listed as 1.9M although the mapping rate was close to 80%). I wasn't sure why this was from the log files or looking online. I decided to try leaving the default putput as a sam file, and then sorting and indexing later using samtools. This is an extra step (although not completely troublesome as I could spare the space for temporary sam storage and combined the sorting and indexing commands in one script), but it resulted in much more consistent bam file sizes. I'm still not sure of the initial issue but I'm going to go with the sam default output, which I then converted to bam and sorted/indexed with samtools.
+
+Table: File sizes with Different output methods
+|	bamOutput_sortedByCoordinateWithSTAR	|	DefaultSamOutput_ConvertedAndSortedWithSamtools	|	FileName	|
+|	---:	|	---:	|	:---	|
+|	2.0G	|	1.3G	|	D_11d_rep1_Aligned.out.bam	|
+|	1.9M	|	1.7G	|	D_11d_rep2_Aligned.out.bam	|
+|	2.5G	|	1.6G	|	D_11d_rep4_Aligned.out.bam	|
+|	3.5G	|	2.3G	|	D_21d_rep1_Aligned.out.bam	|
+|	1.6G	|	991M	|	D_21d_rep2_Aligned.out.bam	|
+|	2.4G	|	1.5G	|	D_21d_rep4_Aligned.out.bam	|
+|	1.9G	|	1.3G	|	D_40d_rep2_Aligned.out.bam	|
+|	1.7G	|	1.1G	|	D_40d_rep3_Aligned.out.bam	|
+|	3.7G	|	2.4G	|	D_40d_rep4_Aligned.out.bam	|
+|	2.8G	|	1.7G	|	ND_11d_rep1_Aligned.out.bam	|
+|	1.1G	|	662M	|	ND_11d_rep2_Aligned.out.bam	|
+|	1.4G	|	842M	|	ND_11d_rep4_Aligned.out.bam	|
+|	1.3G	|	786M	|	ND_21d_rep1_Aligned.out.bam	|
+|	3.0G	|	1.9G	|	ND_21d_rep2_Aligned.out.bam	|
+|	1.2G	|	764M	|	ND_21d_rep3_Aligned.out.bam	|
+|	2.4G	|	1.5G	|	ND_40d_rep3_Aligned.out.bam	|
+|	3.4G	|	2.2G	|	ND_40d_rep4_Aligned.out.bam	|
 
 ## Generating count matrix with HTSeq (htseq-count)
 Future analysis will be done in DESeq and HTSeq generated count data is an acceptable input. I think I'm using HTSeq mostly because I have seen it used before and we have decided to map to a reference genome (as compared to a transcriptome which seems favored with other packages).
