@@ -193,10 +193,21 @@ old file sizes:
 Result: succesfully uploaded 32 files onto the google bucket. Files are no longer in my bananas controller directory
 
 ### Mapping
+Downloading the reference genome:
+
 ```
-#From within the genome directory you make
-#genome fasta file: /home/zz220/albopictus_remap/albopictus_genome
+#From within the genome directory you make: /home/zz220/albopictus_remap/albopictus_genome
+#genome fasta file
 gsutil cp gs://gu-biology-pi-paa9/aedes_albopictus_AalbF3.fa .
 #genome annotation file
 gsutil cp gs://gu-biology-pi-paa9/aedes_albopictus_AalbF3.gff3 .
 ```
+result: one fasta file and one annotation file downloaded in genome folder\
+
+Making the index:
+Ran the following script from: [scripts/Angela/Angela_STAR_genomeIndex.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_STAR_genomeIndex.sh)
+
+Result: 15 files in /home/zz220/albopictus_remap/albopictus_genome_index
+
+Mapping: ran the following script: /home/zz220/albopictus_remap/scripts/STAR_map.SBATCH\
+Can also find it here on gitbhub: [scripts/Angela/Angela_STAR_map.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_STAR_map.sh)
