@@ -190,4 +190,4 @@ Uploading the raw data into the google bucket to save space\
 2. from within my bananas controller, adult raw data directory: `$ gcloud auth login`
 3. `$ gsutil -m mv *.fastq.gz gs://gu-biology-pi-paa9/sm3679/albopictus_remap/adult_rawData`
 
-Result: succesfully uploaded 32 files onto the google bucket. Files are no longer in my bananas controller directory\
+Result: succesfully uploaded 32 files onto the google bucket. Files are no longer in my bananas controller directory
