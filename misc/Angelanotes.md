@@ -193,9 +193,10 @@ old file sizes:
 Result: succesfully uploaded 32 files onto the google bucket. Files are no longer in my bananas controller directory
 
 ### Mapping
+```
 #From within the genome directory you make
-#genome fasta file: `/home/zz220/albopictus_remap/albopictus_genome`
+#genome fasta file: /home/zz220/albopictus_remap/albopictus_genome
 gsutil cp gs://gu-biology-pi-paa9/aedes_albopictus_AalbF3.fa .
 #genome annotation file
 gsutil cp gs://gu-biology-pi-paa9/aedes_albopictus_AalbF3.gff3 .
-
+```
