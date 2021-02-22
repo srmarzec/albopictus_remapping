@@ -182,3 +182,4 @@ old file sizes:
 -rw-r--r--. 1 zz220 users 2.4G Feb  8 13:08 LD_NB_rep2_2.fastq.gz
 ```
 
+*note: the trim.out file tells you the number of raw reads and the number that survived in the paired end file. fastqc reports tell you the number of reads that survived in the paired end file.*
