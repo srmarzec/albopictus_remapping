@@ -75,7 +75,7 @@ When finding the read mapping rates after using STAR, I went through the files o
 ___
 For some reason, using the option to get sorted-by-coordinate bam files as an output from star resulted in quite variable bam files sizes (one of them was even listed as 1.9M although the mapping rate was close to 80%). I wasn't sure why this was from the log files or looking online. I decided to try leaving the default output as a sam file, and then sorting and indexing later using samtools. This is an extra step (although not completely troublesome as I could spare the space for temporary sam storage and combined the sorting and indexing commands in one script), but it resulted in much more consistent bam file sizes. I'm still not sure of the initial issue but I'm going to go with the sam default output, which I then converted to bam and sorted/indexed with samtools.
 
-Table: File sizes with Different output methods
+Table: File sizes with different output methods. All sizes listed are for the bam files made either initially by STAR or which were converted to bam using samtools.
 |	bamOutput_sortedByCoordinateSTAR	|	samOutput_ConvertedSortedSamtools	|	FileName	|
 |	---:	|	---:	|	:---	|
 |	2.0G	|	1.3G	|	D_11d_rep1_Aligned.out.bam	|
