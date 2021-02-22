@@ -114,5 +114,43 @@ To exit the virtual environment: `deactivate`
 
 We should be able to run scripts with HTSeq as long as we activate the virtual environment within the script (see [example](https://implement.pt/2018/09/using-python-virtual-environments-with-slurm/))
 
-### Using HTSeq
-So I think one of the biggest issues with using HTSeq is determining strandedness which we have to specify when running ([htseq-count manual](https://htseq.readthedocs.io/en/master/count.html)). I ran a couple of [tests](https://github.com/srmarzec/albopictus_remapping/blob/main/misc/TestingStrandedness.md) to check for my data.
+### HTSeq parameters
+#### Stranded `-s`
+So I think one of the biggest issues with using HTSeq is determining strandedness which we have to specify when running ([htseq-count manual](https://htseq.readthedocs.io/en/master/count.html)). I ran a couple of [tests](https://github.com/srmarzec/albopictus_remapping/blob/main/misc/TestingStrandedness.md) to check for my data, and found my data was not strand specific.
+
+#### Type `-t`
+I also tested the type input: either exon or gene. (This next part was doen in R)
+```
+type_gene <- read.table("D_11d_rep1_htseq_gff_gene_no_bamV2", header = F) #ran with htseq -t gene
+type_exon <- read.table("D_11d_rep1_htseq_gff_exon_no_bamV2", header = F) #ran with htseq -t exon (which is the default)
+
+merged <- merge(type_gene, type_exon, by = "V1")
+
+head(merged)
+```
+```
+##                       V1    V2.x    V2.y
+## 1 __alignment_not_unique       0       0
+## 2            __ambiguous  435151  102258
+## 3           __no_feature 1637117 1284132
+## 4          __not_aligned       0       0
+## 5        __too_low_aQual       0       0
+## 6           LOC109396977      62      62
+```
+Note that the above files were generated with a minimum quality flag of 20, `-a 20`, and since no reads were unasigned due to quality, it doesn't matter if I choose this or the default of a min score of 10.
+```
+#getting rid of anything that wasn't assigned a gene
+merged_v2 <- merged[c(-1,-2,-3,-4,-5),]
+#counting up everything assigned a gene
+colSums(merged_v2[,c(2,3)])
+```
+```
+##    V2.x    V2.y 
+## 9527473 9648216 
+```
+Looks like type exon assigns more reads to genes, so I will be going with type exon instead of gene, `-t exon`.
+
+#### ID attribute `-i`
+This is what the counts are sorted under. The default is gene_id if you are using a gtf file, and in fact HTSeq expects you to use a gtf file instead of a gff file. I actually tried converting my gff file to a gtf file using [gffread](http://ccb.jhu.edu/software/stringtie/gff.shtml#gffread). However, some of the the lines in the gtf file that are "exons" are missing a "gene_id". I wasn't sure why this was. Apparently you can sort by "transcript_id" which by cursory glance seems to be present at many of the exon lines, however I read online that this leads to a lot more 'ambiguous reads' since transcripts could map to several genes. 
+
+But HTSeq runs well if I give it the gff3 file and specify a different ID attribute. I decided to go with "gene" and this works well. So I think converting it to a gtf file isn't necessary.
