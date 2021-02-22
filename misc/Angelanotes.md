@@ -185,9 +185,17 @@ old file sizes:
 *note: the trim.out file tells you the number of raw reads and the number that survived in the paired end file. fastqc reports tell you the number of reads that survived in the paired end file.* You can find the data [here](https://docs.google.com/spreadsheets/d/1hIqqMIk8ZVw56BJ8_YN_OnwuzdWBSH7bujwDMTqsCKs/edit#gid=0)
 
 ## Feb 22
-Uploading the raw data into the google bucket to save space\
+### Uploading the raw data into the google bucket to save space\
 1. created an [adult raw data folder](https://console.cloud.google.com/storage/browser/gu-biology-pi-paa9/sm3679/albopictus_remap/adult_rawData;tab=objects?authuser=0&project=gcp-gu-hpc-medusa) within Sarah’s directory in which I will upload the raw data files
 2. from within my bananas controller, adult raw data directory: `$ gcloud auth login`
 3. `$ gsutil -m mv *.fastq.gz gs://gu-biology-pi-paa9/sm3679/albopictus_remap/adult_rawData`
 
 Result: succesfully uploaded 32 files onto the google bucket. Files are no longer in my bananas controller directory
+
+### Mapping
+#From within the genome directory you make
+#genome fasta file: `/home/zz220/albopictus_remap/albopictus_genome`
+gsutil cp gs://gu-biology-pi-paa9/aedes_albopictus_AalbF3.fa .
+#genome annotation file
+gsutil cp gs://gu-biology-pi-paa9/aedes_albopictus_AalbF3.gff3 .
+
