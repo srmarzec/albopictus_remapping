@@ -3,7 +3,7 @@ So I think one of the biggest issues with using HTSeq is determining strandednes
 
 ## Using HTSeq to test strandedness
 
-Information from [here](https://chipster.csc.fi/manual/library-type-summary.html) basically suggests we can check the output files from HTSeq to see which flag we should use. I decided to run htseq-count on a single sample but using either yes `-s yes` or reverse `-s reverse` for the stranded flag. I was quite surprised when in the end, both had almost equivalent amount of reads that could not be assigned to any gene. I then decided to also run the stranded flag with the no setting `-s no`. This showed that I had much fewer reads that could not be assigned.
+Information from [here](https://chipster.csc.fi/manual/library-type-summary.html) (which also privides a nice stranded RNA graphic) basically suggests we can check the output files from HTSeq to see which flag we should use. I decided to run htseq-count on a single sample but using either yes `-s yes` or reverse `-s reverse` for the stranded flag. I was quite surprised when in the end, both had almost equivalent amount of reads that could not be assigned to any gene. I then decided to also run the stranded flag with the no setting `-s no`. This showed that I had much fewer reads that could not be assigned.
 
 Output for each trial. These were run with the gff3 files looking for type gene and id attribute as gene. An example command for the code is listed below the table.
 | Sample_and_info | # Reads assigned no feature|
