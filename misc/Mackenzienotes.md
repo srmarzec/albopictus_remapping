@@ -146,3 +146,7 @@ First step: had to reset the authorization from my accounnt to google bucket. ht
 ``` gcloud auth login ``` 
 
 Made a new folder titled mlp134 within paa9 bucket at link: https://console.cloud.google.com/storage/browser/gu-biology-pi-paa9;tab=objects?forceOnBucketsSortingFiltering=false&authuser=0&project=gcp-gu-hpc-medusa&prefix=&forceOnObjectsSortingFiltering=false. 
+
+Moved raw data into folder within my google bucket folder 
+
+``` gsutil -m mv *.fastq.gz gs://gu-biology-pi-paa9/mlp134/embryo_rawdata ``` 
