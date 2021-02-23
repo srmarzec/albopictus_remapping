@@ -160,7 +160,7 @@ Bring down genome annotation file.
 
 ``` gsutil cp gs://gu-biology-pi-paa9/aedes_albopictus_AalbF3.gff3 . ``` 
 
-STAR index script 
+STAR index script: in RNAseqproject folder titled STAR_genomeIndex.SBATCH  
 
 ``` 
 #!/bin/bash
