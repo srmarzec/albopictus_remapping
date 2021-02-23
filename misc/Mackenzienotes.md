@@ -150,3 +150,13 @@ Made a new folder titled mlp134 within paa9 bucket at link: https://console.clou
 Moved raw data into folder within my google bucket folder 
 
 ``` gsutil -m mv *.fastq.gz gs://gu-biology-pi-paa9/mlp134/embryo_rawdata ``` 
+
+Make directory within RNAseqproject titled mapping. 
+Bring down genome fasta file. 
+
+``` gsutil cp gs://gu-biology-pi-paa9/aedes_albopictus_AalbF3.fa . ``` 
+
+Bring down genome annotation file. 
+
+``` gsutil cp gs://gu-biology-pi-paa9/aedes_albopictus_AalbF3.gff3 . ``` 
+
