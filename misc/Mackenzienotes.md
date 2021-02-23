@@ -190,4 +190,49 @@ STAR --runMode genomeGenerate \
 
 #- FIN -----------------------------------------------------------------------#
 ``` 
-Took about one hour to run. 
+Took about little over one hour to run. Next ran the STAR mapping script (STARmap.SBATCH). Took about eight hours and ran successfully. Output files placed into sam_dir (/home/mlp134/RNAseqproject/sam_dir)
+
+``` 
+#!/bin/bash
+#SBATCH --job-name=STAR --output=%x.%j.out
+#SBATCH --mail-type=END,FAIL --mail-user=mlp134@georgetown.edu
+#SBATCH --nodes=1 --ntasks=1 --cpus-per-task=1 --time=72:00:00
+#SBATCH --mem=100G
+#-----------------------------------------------------------------------------#
+# This script maps reads to the ref genome using STAR #
+#-----------------------------------------------------------------------------#
+module load star/2.7.1a
+#- Set variables ----------------------------------------------------------------#
+trim_dir=/home/mlp134/RNAseqproject/trim_embryo_output
+out_dir=/home/mlp134/RNAseqproject/sam_dir
+refgen_dir=/home/mlp134/RNAseqproject/indexed_genome
+#- RUN STAR----------------------------------------------------------------#
+files=(${trim_dir}/*_1_PE.fastq.gz)
+for file in ${files[@]}
+do
+name=${file}
+base=`basename ${name} _1_PE.fastq.gz`
+STAR --genomeDir ${refgen_dir} \
+        --readFilesCommand gunzip -c \
+        --readFilesIn ${trim_dir}/${base}_1_PE.fastq.gz ${trim_dir}/${base}_2_PE.fastq.gz \
+        --outFileNamePrefix ${out_dir}/${base}_  
+done
+#- FIN -----------------------------------------------------------------------#
+``` 
+# February 23: Examine mapping output files 
+Used ```less *Log.final.out``` command on the output mapped files (within sam_dir folder) and :n to click through each file. Results good. 
+```
+Sample		Read Align Rate
+SRR458462	81.11%
+SRR458463	79.95%
+SRR458464	77.56%
+SRR458465	78.60%
+SRR458466	79.56%
+SRR458467	80.60%
+SRR458468	80.39%
+SRR458469	80.27%
+SRR458470	80.15%
+SRR458471	79.25%
+SRR458472	81.01%
+SRR458473	79.75%
+```
