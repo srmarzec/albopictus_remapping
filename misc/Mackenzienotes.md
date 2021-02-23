@@ -142,5 +142,7 @@ Notes on FastQC output files (downloaded to local device). 24 output files. File
 
 ## February 22th: Mapping 
 First step: had to reset the authorization from my accounnt to google bucket. https://wiki.uis.georgetown.edu/pages/viewpage.action?pageId=87097411
+
 ``` gcloud auth login ``` 
+
 Made a new folder titled mlp134 within paa9 bucket at link: https://console.cloud.google.com/storage/browser/gu-biology-pi-paa9;tab=objects?forceOnBucketsSortingFiltering=false&authuser=0&project=gcp-gu-hpc-medusa&prefix=&forceOnObjectsSortingFiltering=false. 
