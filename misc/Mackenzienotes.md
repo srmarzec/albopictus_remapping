@@ -189,3 +189,5 @@ STAR --runMode genomeGenerate \
         --sjdbGTFfile ${refgen_dir}/aedes_albopictus_AalbF3.gff3
 
 #- FIN -----------------------------------------------------------------------#
+``` 
+Took about one hour to run. 
