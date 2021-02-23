@@ -139,3 +139,8 @@ FastQC job did not run. Looked in job output file- access issue. Cd into FastQC 
 Reran script- worked successfully. Logged onto Terminal on local device and ran ```gcloud compute scp bananas-controller:/home/mlp134/RNAseqproject/Fastqoutput/*_fastqc.html .``` Files successfully downloaded.
 
 Notes on FastQC output files (downloaded to local device). 24 output files. Files look good- all only have red for per sequence GC content. Yellow seen for Sequence Length Distribution and Sequence Duplication levels for most files. Yellow seen for Overrepresented sequences on a few files. 
+
+## February 22th: Mapping 
+First step: had to reset the authorization from my accounnt to google bucket. https://wiki.uis.georgetown.edu/pages/viewpage.action?pageId=87097411
+``` gcloud auth login ``` 
+Made a new folder titled mlp134 within paa9 bucket at link: https://console.cloud.google.com/storage/browser/gu-biology-pi-paa9;tab=objects?forceOnBucketsSortingFiltering=false&authuser=0&project=gcp-gu-hpc-medusa&prefix=&forceOnObjectsSortingFiltering=false. 
