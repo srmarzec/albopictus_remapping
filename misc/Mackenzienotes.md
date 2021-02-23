@@ -220,9 +220,9 @@ done
 #- FIN -----------------------------------------------------------------------#
 ``` 
 # February 23: Examine mapping output files 
-Used ```less *Log.final.out``` command on the output mapped files (within sam_dir folder) and :n to click through each file. Results good. 
+Used ```less *Log.final.out``` command on the output mapped files (within sam_dir folder) and :n to click through each file. Results below. 
 ```
-Sample		Read Align Rate
+Sample		Read Align Rate (Uniquely mapped reads?)
 SRR458462	81.11%
 SRR458463	79.95%
 SRR458464	77.56%
