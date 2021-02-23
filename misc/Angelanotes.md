@@ -211,3 +211,13 @@ Result: 15 files in /home/zz220/albopictus_remap/albopictus_genome_index
 
 Mapping: ran the following script: /home/zz220/albopictus_remap/scripts/STAR_map.SBATCH\
 Can also find it here on gitbhub: [scripts/Angela/Angela_STAR_map.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_STAR_map.sh)
+
+Result:6 files for each of the 16 genomes in `/home/zz220/albopictus_remap/sam_dir` ending in
+- Aligned.out.sam
+- Log.final.out
+- SD_BM_rep3_Log.out
+- Log.progress.out
+- SJ.out.tab
+- STARtmp
+
+less *Log.final.out and typed :n to go to the next file each time (typing :p takes you to the previous file). And of course, typing q lets you escape less.
