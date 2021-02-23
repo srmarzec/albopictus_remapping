@@ -78,23 +78,23 @@ For some reason, using the option to get sorted-by-coordinate bam files as an ou
 Table: File sizes with different output methods. All sizes listed are for the bam files made either initially by STAR or which were converted to bam using samtools.
 |	bamOutput_sortedByCoordinateSTAR	|	samOutput_ConvertedSortedSamtools	|	FileName	|
 |	---:	|	---:	|	:---	|
-|	2.0G	|	1.3G	|	D_11d_rep1_Aligned.out.bam	|
-|	1.9M	|	1.7G	|	D_11d_rep2_Aligned.out.bam	|
-|	2.5G	|	1.6G	|	D_11d_rep4_Aligned.out.bam	|
-|	3.5G	|	2.3G	|	D_21d_rep1_Aligned.out.bam	|
-|	1.6G	|	991M	|	D_21d_rep2_Aligned.out.bam	|
-|	2.4G	|	1.5G	|	D_21d_rep4_Aligned.out.bam	|
-|	1.9G	|	1.3G	|	D_40d_rep2_Aligned.out.bam	|
-|	1.7G	|	1.1G	|	D_40d_rep3_Aligned.out.bam	|
-|	3.7G	|	2.4G	|	D_40d_rep4_Aligned.out.bam	|
-|	2.8G	|	1.7G	|	ND_11d_rep1_Aligned.out.bam	|
-|	1.1G	|	662M	|	ND_11d_rep2_Aligned.out.bam	|
-|	1.4G	|	842M	|	ND_11d_rep4_Aligned.out.bam	|
-|	1.3G	|	786M	|	ND_21d_rep1_Aligned.out.bam	|
-|	3.0G	|	1.9G	|	ND_21d_rep2_Aligned.out.bam	|
-|	1.2G	|	764M	|	ND_21d_rep3_Aligned.out.bam	|
-|	2.4G	|	1.5G	|	ND_40d_rep3_Aligned.out.bam	|
-|	3.4G	|	2.2G	|	ND_40d_rep4_Aligned.out.bam	|
+|	2.0G	|	1.7G	|	D_11d_rep1_Aligned.out.bam	|
+|	1.9M	|	2.3G	|	D_11d_rep2_Aligned.out.bam	|
+|	2.5G	|	2.1G	|	D_11d_rep4_Aligned.out.bam	|
+|	3.5G	|	2.9G	|	D_21d_rep1_Aligned.out.bam	|
+|	1.6G	|	1.3G	|	D_21d_rep2_Aligned.out.bam	|
+|	2.4G	|	2.0G	|	D_21d_rep4_Aligned.out.bam	|
+|	1.9G	|	1.6G	|	D_40d_rep2_Aligned.out.bam	|
+|	1.7G	|	1.4G	|	D_40d_rep3_Aligned.out.bam	|
+|	3.7G	|	3.1G	|	D_40d_rep4_Aligned.out.bam	|
+|	2.8G	|	2.3G	|	ND_11d_rep1_Aligned.out.bam	|
+|	1.1G	|	872M	|	ND_11d_rep2_Aligned.out.bam	|
+|	1.4G	|	1.2G	|	ND_11d_rep4_Aligned.out.bam	|
+|	1.3G	|	1.1G	|	ND_21d_rep1_Aligned.out.bam	|
+|	3.0G	|	2.5G	|	ND_21d_rep2_Aligned.out.bam	|
+|	1.2G	|	1000M	|	ND_21d_rep3_Aligned.out.bam	|
+|	2.4G	|	2.0G	|	ND_40d_rep3_Aligned.out.bam	|
+|	3.4G	|	2.8G	|	ND_40d_rep4_Aligned.out.bam	|
 
 ## Generating count matrix with HTSeq (htseq-count)
 Future analysis will be done in DESeq and HTSeq generated count data is an acceptable input. I think I'm using HTSeq mostly because I have seen it used before and we have decided to map to a reference genome (as compared to a transcriptome which seems favored with other packages).
