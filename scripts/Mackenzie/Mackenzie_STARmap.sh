@@ -12,7 +12,7 @@ module load star/2.7.1a
 
 #- Set variables ----------------------------------------------------------------#
 
-trim_dir=[path to the trimmed files]
+trim_dir=/home/mlp134/RNAseqproject/trim_embryo_output
 
 out_dir=[path to the sam output directory]
 
