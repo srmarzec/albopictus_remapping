@@ -14,9 +14,9 @@ module load star/2.7.1a
 
 trim_dir=/home/mlp134/RNAseqproject/trim_embryo_output
 
-out_dir=[path to the sam output directory]
+out_dir=/home/mlp134/RNAseqproject/sam_dir
 
-refgen_dir=[path to reference genome index]
+refgen_dir=/home/mlp134/RNAseqproject/indexed_genome
 
 
 #- RUN STAR----------------------------------------------------------------#
