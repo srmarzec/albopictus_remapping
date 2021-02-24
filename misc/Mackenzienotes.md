@@ -268,3 +268,13 @@ samtools index ${bam_dir}/${base}_Aligned.out.bam
 done
 
 #- FIN -----------------------------------------------------------------------#
+``` 
+Installing HITSeq. Make a virtual environment called python-ev (```python3 -m venv python-env```) 
+Activate the environment. (```python3 -m venv python-env```) 
+download HTSeq (and its prerequisites): 
+```pip install numpy
+pip install pysam
+pip install HTSeq 
+``` 
+
+Exit virtual environment (```deactivate```) 
