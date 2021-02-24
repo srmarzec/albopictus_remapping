@@ -184,14 +184,6 @@ old file sizes:
 
 *note: the trim.out file tells you the number of raw reads and the number that survived in the paired end file. fastqc reports tell you the number of reads that survived in the paired end file.* You can find the data [here](https://docs.google.com/spreadsheets/d/1hIqqMIk8ZVw56BJ8_YN_OnwuzdWBSH7bujwDMTqsCKs/edit#gid=0)
 
-## Feb 22
-### Uploading the raw data into the google bucket to save space\
-1. created an [adult raw data folder](https://console.cloud.google.com/storage/browser/gu-biology-pi-paa9/sm3679/albopictus_remap/adult_rawData;tab=objects?authuser=0&project=gcp-gu-hpc-medusa) within Sarah’s directory in which I will upload the raw data files
-2. from within my bananas controller, adult raw data directory: `$ gcloud auth login`
-3. `$ gsutil -m mv *.fastq.gz gs://gu-biology-pi-paa9/sm3679/albopictus_remap/adult_rawData`
-
-Result: succesfully uploaded 32 files onto the google bucket. Files are no longer in my bananas controller directory
-
 ### Mapping
 Downloading the reference genome:
 
@@ -221,3 +213,12 @@ Result:6 files for each of the 16 genomes in `/home/zz220/albopictus_remap/sam_d
 - STARtmp
 
 less *Log.final.out and typed :n to go to the next file each time (typing :p takes you to the previous file). And of course, typing q lets you escape less.
+
+## Feb 24
+### Deleted raw data files to save space\
+### Uploading the trimmed data files into the google bucket to save space\
+1. created a [trimmed file folder](https://console.cloud.google.com/storage/browser/gu-biology-pi-paa9/zz220/trimmed_files?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22) on google bucket within my netID directory
+2. from within my bananas controller, trim_output directory: `$ gcloud auth login`
+3. `$ gsutil -m mv *.fastq.gz gs://gu-biology-pi-paa9/zz220/trimmed_files
+
+Result: succesfully uploaded 32 files onto the google bucket. Files are no longer in my bananas controller directory
