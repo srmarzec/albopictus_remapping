@@ -1,4 +1,5 @@
 # Workflow Record
+Multiple projects and publications have been completed and generated understanding expression difference of diapause and non-diapause at multiple timepoints during the Aedes albopictus lifecycle. However, now a better quality reference assembly exists and old data needs to be reanalyzed based on this reference. We will re-analyze the various diapause transcriptomes. Potentially, once all analyses are done against common reference, we may also look for clusters of genes that change across timepoints in a coordinated way (look into Kostal et al 2017 and Dowle et al 2020).
 ## February 4
 Made a directory for this workflow titled "RNAseqproject"
 Downloaded Trimmomatic using following commands: 
