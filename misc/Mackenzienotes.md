@@ -236,3 +236,35 @@ SRR458471	79.25%
 SRR458472	81.01%
 SRR458473	79.75%
 ```
+Now running the script to convert sam to bam files and indexing for future work. (samtobam.SBATCH) 
+``` 
+#!/bin/bash
+#SBATCH --job-name=sam2bam --output=%x.%j.out
+#SBATCH --mail-type=END,FAIL --mail-user=mlp134@georgetown.edu
+#SBATCH --nodes=1 --ntasks=1 --cpus-per-task=1 --time=72:00:00
+#SBATCH --mem=4G
+
+#-----------------------------------------------------------------------------#
+# This script converts sam to bam, sorts/indexes the bam files #
+#-----------------------------------------------------------------------------#
+
+module load samtools/1.9
+
+#- Set variables ----------------------------------------------------------------#
+
+sam_dir=/home/mlp134/RNAseqproject/sam_dir
+bam_dir=/home/mlp134/RNAseqproject/bam_dir
+
+#- RUN fastqc ----------------------------------------------------------------#
+
+files=(${sam_dir}/*_Aligned.out.sam)
+for file in ${files[@]}
+do
+base=`basename ${file} _Aligned.out.sam`
+samtools view -b -S ${sam_dir}/${base}_Aligned.out.sam | samtools sort -o ${bam_dir}/${base}_Aligned.out.bam
+rm -f ${sam_dir}/${base}_Aligned.out.sam
+samtools index ${bam_dir}/${base}_Aligned.out.bam
+
+done
+
+#- FIN -----------------------------------------------------------------------#
