@@ -10,7 +10,7 @@ $ rm Trimmomatic-0.39.zip
 java -jar ~/Trimmomatic-0.39/trimmomatic-0.39.jar -version
 
 ### Downloading the SRA toolkit
-Chose Ubuntu: $ wget --output-document sratoolkit.tar.gz http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current-ubuntu64.tar.gz\
+Chose Ubuntu: $ wget --output-document sratoolkit.tar.gz http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current-ubuntu64.tar.gz
 ```
 $ tar -vxzf sratoolkit.tar.gz
 $ export PATH=$PATH:$PWD/sratoolkit.2.10.9-ubuntu64/bin
