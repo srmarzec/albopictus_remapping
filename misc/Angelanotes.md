@@ -222,3 +222,11 @@ less *Log.final.out and typed :n to go to the next file each time (typing :p tak
 3. `$ gsutil -m mv *.fastq.gz gs://gu-biology-pi-paa9/zz220/trimmed_files
 
 Result: succesfully uploaded 32 PE files and 32 SE onto the google bucket. Files are no longer in my bananas controller directory
+### Converted sam to bam: ran [Angela_sam2bam.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_sam2bam.sh)
+Result: removed the Aligned.out.sam files from the sam folder; created a .bam and .bai for each of the 16 genomes
+
+## Feb 27
+counted read align rate from the sam files by using less *Log.final.out and typed :n to go to the next file each time (typing :p takes you to the previous file)*
+put the Uniquely mapped reads % on shared google sheets
+
+
