@@ -221,4 +221,4 @@ less *Log.final.out and typed :n to go to the next file each time (typing :p tak
 2. from within my bananas controller, trim_output directory: `$ gcloud auth login`
 3. `$ gsutil -m mv *.fastq.gz gs://gu-biology-pi-paa9/zz220/trimmed_files
 
-Result: succesfully uploaded 32 files onto the google bucket. Files are no longer in my bananas controller directory
+Result: succesfully uploaded 32 PE files and 32 SE onto the google bucket. Files are no longer in my bananas controller directory
