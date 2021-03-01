@@ -35,3 +35,8 @@ Lastly, the sam files converted to bam and indexed for future work: [sam2bam.sh]
 
 ## Counting Data
 
+To count data, we will be using HTSeq
+
+The general script is [htseq_count.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/htseq_count.sh)
+
+However, it may be that the stranded setting needs to be changed for the different datasets. Please check [here](https://github.com/srmarzec/albopictus_remapping/blob/main/misc/TestingStrandedness.md) for testing strandedness of data.
