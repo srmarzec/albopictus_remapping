@@ -3,6 +3,8 @@ Keep all the collaborated work here. Different note files exist for each collabo
 
 Information about sequence analysis (raw read count, read alignment rate, etc.) for each dataset can be found [here](https://docs.google.com/spreadsheets/d/1hIqqMIk8ZVw56BJ8_YN_OnwuzdWBSH7bujwDMTqsCKs/edit?usp=sharing)
 
+In a bid to be more efficient in requesting future resources for running jobs, a [list](https://docs.google.com/spreadsheets/d/1nUIWIHBaFrsp9vRli46SlE7K6ci-MSl6gKQy1SEJJw0/edit?usp=sharing) was generated for the larval dataset with both the requested and actually used resources. Note, that the scripts linked below use the the former, so this list serves as an example moving forward. 
+
 ## Data Retrieval
 SRA files from NCBI for each set of samples were downloaded and converted to fastq.gz format. See [notes](https://github.com/srmarzec/albopictus_remapping/blob/main/misc/sra_accession/sraRetrievalTips.md) for details.
 
