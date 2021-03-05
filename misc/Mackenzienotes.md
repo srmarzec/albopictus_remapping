@@ -292,11 +292,11 @@ pip uninstall pysam
 pip uninstall HTSeq 
 ``` 
 Did not work. Still getting same error from failed script. Also getting the same error when 
-I check for strandedness. Also, my error message said no directory or file for the output named "DI_135h_rep1_htseq_gff_gene_no"- should I be making a file named this before running the test?
+I check for strandedness. 
 ``` 
 source python-env/bin/activate
 htseq-count -f bam -a 20 -r pos -s no -t gene -i gene /home/mlp134/RNAseqproject/bam_di
 r/DI_135h_rep1_Aligned.out.bam /home/mlp134/RNAseqproject/mapping/aedes_albopictus_AalbF3.gff3 > /home/mlp134/RNAseqpr
 oject/counts_dir/DI_135h_rep1_htseq_gff_gene_no 
 ``` 
-<img width="979" alt="Screen Shot 2021-03-04 at 7 23 27 PM" src="https://user-images.githubusercontent.com/78369439/110049084-1e418280-7d1f-11eb-8fd2-cadd0daf1c1e.png">
+<img width="1071" alt="Screen Shot 2021-03-04 at 7 25 15 PM" src="https://user-images.githubusercontent.com/78369439/110049209-69f42c00-7d1f-11eb-884f-e8c029fa490c.png">
