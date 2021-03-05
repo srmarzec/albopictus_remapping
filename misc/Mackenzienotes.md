@@ -271,7 +271,7 @@ done
 #- FIN -----------------------------------------------------------------------#
 ``` 
 Installing HITSeq. Make a virtual environment called python-ev (```python3 -m venv python-env```) 
-Activate the environment. (```python3 -m venv python-env```) 
+Activate the environment from within the environment. (```source python-env/bin/activate```) 
 download HTSeq (and its prerequisites): 
 ```pip install numpy
 pip install pysam
@@ -279,3 +279,24 @@ pip install HTSeq
 ``` 
 
 Exit virtual environment (```deactivate```) 
+
+## March 3 
+Tried running HTSeq count script, failed and received the following error message. 
+
+<img width="928" alt="Screen Shot 2021-03-03 at 9 43 34 PM" src="https://user-images.githubusercontent.com/78369439/110047352-bb9ab780-7d1b-11eb-861c-921df042d6d6.png">
+
+Trying these commands to uninstall the numpy, pysam, HTSeq because issue seems to be with this software. Possibly got interrupted when downloading- similar issues happened to Angela and Sarah as well. 
+``` python3 -m venv python-env 
+pip uninstall numpy
+pip uninstall pysam
+pip uninstall HTSeq 
+``` 
+Did not work. Still getting same error from failed script. Also getting the same error when 
+I check for strandedness. Also, my error message said no directory or file for the output named "DI_135h_rep1_htseq_gff_gene_no"- should I be making a file named this before running the test?
+``` 
+source python-env/bin/activate
+htseq-count -f bam -a 20 -r pos -s no -t gene -i gene /home/mlp134/RNAseqproject/bam_di
+r/DI_135h_rep1_Aligned.out.bam /home/mlp134/RNAseqproject/mapping/aedes_albopictus_AalbF3.gff3 > /home/mlp134/RNAseqpr
+oject/counts_dir/DI_135h_rep1_htseq_gff_gene_no 
+``` 
+<img width="979" alt="Screen Shot 2021-03-04 at 7 23 27 PM" src="https://user-images.githubusercontent.com/78369439/110049084-1e418280-7d1f-11eb-8fd2-cadd0daf1c1e.png">
