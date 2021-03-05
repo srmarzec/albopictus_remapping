@@ -300,3 +300,6 @@ r/DI_135h_rep1_Aligned.out.bam /home/mlp134/RNAseqproject/mapping/aedes_albopict
 oject/counts_dir/DI_135h_rep1_htseq_gff_gene_no 
 ``` 
 <img width="1071" alt="Screen Shot 2021-03-04 at 7 25 15 PM" src="https://user-images.githubusercontent.com/78369439/110049209-69f42c00-7d1f-11eb-884f-e8c029fa490c.png">
+
+## March 4 
+Repeated process and eventually worked by updating and rerunning the script. 
