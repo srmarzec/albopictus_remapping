@@ -229,4 +229,7 @@ Result: removed the Aligned.out.sam files from the sam folder; created a .bam an
 counted read align rate from the sam files by using less *Log.final.out and typed :n to go to the next file each time (typing :p takes you to the previous file)*
 put the Uniquely mapped reads % on shared google sheets
 
-
+Unstranded: __no_feature	2,286,514
+stranded: yes: 9,964,263
+reverse: 9,994,135
+Around ~4 times more reads that could not be assigned to a gene with -s yes and -s reverse, so data is unstranded
