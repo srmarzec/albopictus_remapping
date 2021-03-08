@@ -270,8 +270,11 @@ htseq-count -f bam -a 20 -r pos -s yes -t gene -i gene /home/zz220/albopictus_re
 htseq-count -f bam -a 20 -r pos -s reverse -t gene -i gene /home/zz220/albopictus_remap/bam_dir/LD_NB_rep2_Aligned.out.bam /home/zz220/albopictus_remap/albopictus_genome/aedes_albopictus_AalbF3.gff3 > /home/zz220/albopictus_remap/counts_dir/LD_NB_rep2_htseq_gff_gene_reverse
 ```
 Found that using the unstranded setting, resulted in 4X fewer unassigned reads so I then decided to also run the stranded flag with the no setting `-s no`:
+| Sample_and_info | # Reads assigned no feature|
+| ---: | ---: |
+| LD_NB_rep2_htseq_gff_gene_no | __no_feature	2,286,514 | 
+| LD_NB_rep2_htseq_gff_gene_reverse | __no_feature	9,994,135 |
+| LD_NB_rep2_htseq_gff_gene_yes | __no_feature	9,964,263 |
 
-Unstranded: __no_feature	2,286,514
-stranded: yes: 9,964,263
-reverse: 9,994,135
-Around ~4 times more reads that could not be assigned to a gene with -s yes and -s reverse, so data is unstranded
+## March 3rd
+
