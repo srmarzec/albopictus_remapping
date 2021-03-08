@@ -1,5 +1,8 @@
 # Script to count up the reads assigned to genes by HTSeq for each of the samples
 
+#if (!require("readbulk")) install.packages("readbulk")
+#if (!require("tidyverse")) install.packages("tidyverse")
+
 library(readbulk)
 library(tidyverse)
 
