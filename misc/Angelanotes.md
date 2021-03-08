@@ -204,7 +204,8 @@ Result: 15 files in /home/zz220/albopictus_remap/albopictus_genome_index
 Mapping: ran the following script: /home/zz220/albopictus_remap/scripts/STAR_map.SBATCH\
 Can also find it here on gitbhub: [scripts/Angela/Angela_STAR_map.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_STAR_map.sh)
 
-Result:6 files for each of the 16 genomes in `/home/zz220/albopictus_remap/sam_dir` ending in
+Took around 11 hours to run
+Result: 6 files for each of the 16 genomes in `/home/zz220/albopictus_remap/sam_dir` ending in
 - Aligned.out.sam
 - Log.final.out
 - SD_BM_rep3_Log.out
@@ -228,6 +229,47 @@ Result: removed the Aligned.out.sam files from the sam folder; created a .bam an
 ## Feb 27
 counted read align rate from the sam files by using less *Log.final.out and typed :n to go to the next file each time (typing :p takes you to the previous file)*
 put the Uniquely mapped reads % on shared google sheets
+
+### Installing HTSeq:
+- Make a virtual environment called python-ev in home directory (```python3 -m venv python-env```) 
+- Activate the virtual environment (```source python-env/bin/activate```) 
+- Download HTSeq (and its prerequisites): 
+
+```
+pip install numpy
+pip install pysam
+pip install HTSeq 
+``` 
+
+Note: to exit virtual environment: `deactivate`
+
+## March 2
+Ran into issues trying to use HTSeq, so reinstalled and updated pip:
+``` 
+python3 -m venv python-env 
+pip uninstall numpy
+pip uninstall pysam
+pip uninstall HTSeq 
+``` 
+
+```
+pip install numpy
+pip install pysam
+pip install HTSeq 
+```
+
+Testing for strandedness using HTSeq:
+
+Information from [here](https://chipster.csc.fi/manual/library-type-summary.html) and other options to test for strandedness [here](https://github.com/srmarzec/albopictus_remapping/blob/main/misc/SarahNotes.md). I ran can HTSeq on a single sample using either yes `-s yes` or reverse `-s reverse` for the stranded flag and then checked the output files using `last file_name` to find the number of reads that could not be assigned to any gene:
+
+```
+htseq-count -f bam -a 20 -r pos -s no -t gene -i gene /home/zz220/albopictus_remap/bam_dir/LD_NB_rep2_Aligned.out.bam /home/zz220/albopictus_remap/albopictus_genome/aedes_albopictus_AalbF3.gff3 > /home/zz220/albopictus_remap/counts_dir/LD_NB_rep2_htseq_gff_gene_no
+
+htseq-count -f bam -a 20 -r pos -s yes -t gene -i gene /home/zz220/albopictus_remap/bam_dir/LD_NB_rep2_Aligned.out.bam /home/zz220/albopictus_remap/albopictus_genome/aedes_albopictus_AalbF3.gff3 > /home/zz220/albopictus_remap/counts_dir/LD_NB_rep2_htseq_gff_gene_yes
+
+htseq-count -f bam -a 20 -r pos -s reverse -t gene -i gene /home/zz220/albopictus_remap/bam_dir/LD_NB_rep2_Aligned.out.bam /home/zz220/albopictus_remap/albopictus_genome/aedes_albopictus_AalbF3.gff3 > /home/zz220/albopictus_remap/counts_dir/LD_NB_rep2_htseq_gff_gene_reverse
+```
+Found that using the unstranded setting, resulted in 4X fewer unassigned reads so I then decided to also run the stranded flag with the no setting `-s no`:
 
 Unstranded: __no_feature	2,286,514
 stranded: yes: 9,964,263
