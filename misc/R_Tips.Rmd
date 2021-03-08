@@ -1,0 +1,50 @@
+# Some tips about working in R
+
+Data set up (how to manage folders): Have data, scrpts, output, misc, README.txt
+
+## The R studio interface 
+different panels (write code in source)
+```
+print("hello")
+``` 
+Can run with cmd+enter or with run
+comment/uncomment code
+
+## Set working directory
+```
+getwd()
+setwd("") 
+```
+- tab completion works here too
+- through files tab
+- or through session
+
+## Installing packages
+through packages tab
+```
+install.packages("learnr")
+```
+
+## Help
+If looking for something, then ??
+```
+??ggplot
+```
+If package is loaded, then one ?
+```
+library(ggplot2)
+?ggplot
+```
+
+
+## Stop running something 
+Either control+C or the stop sign
+
+## Clear screen 
+control+L
+
+## Useful commands
+```
+head()
+str()
+```
