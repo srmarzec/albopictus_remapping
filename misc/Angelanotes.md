@@ -277,4 +277,5 @@ Found that using the unstranded setting, resulted in 4X fewer unassigned reads s
 | LD_NB_rep2_htseq_gff_gene_yes | __no_feature	9,964,263 |
 
 ## March 3rd
-
+Ran [script for STAR](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_STAR_map.sh)
+Result: took around 11 hours to run; output was 
