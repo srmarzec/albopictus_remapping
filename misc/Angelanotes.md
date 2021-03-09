@@ -283,7 +283,6 @@ Result: took around 11 hours to run; output was 16 \*htseqCount files, 1 for eac
 ## March 8th
 ### Counting Reads Assigned To Genes on R
 Created a folder on my laptop for DE analysis
-Downloaded HTSeq files onto my local desktop (will move to the DE analysis data folder) for differential analysis on RStudio: 'gcloud compute scp bananas-controller: /home/zz220/albopictus_remap/htseqcounts_dir/*htseqCount .
+Downloaded HTSeq files onto my local desktop (will move to the DE analysis data folder) for differential analysis on RStudio: `gcloud compute scp bananas-controller: /home/zz220/albopictus_remap/htseqcounts_dir/*htseqCount .`
 
-Started running https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_CountReadsAssignedToGenes.R
-
+Ran [script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_CountReadsAssignedToGenes.R) and put results in shared google sheet
