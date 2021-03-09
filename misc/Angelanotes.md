@@ -278,4 +278,7 @@ Found that using the unstranded setting, resulted in 4X fewer unassigned reads s
 
 ## March 3rd
 Ran [script for STAR](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_STAR_map.sh)
-Result: took around 11 hours to run; output was 
+Result: took around 11 hours to run; output was 16 \*htseqCount files, 1 for each sample
+
+## March 8th
+Downloaded HTSeq files onto my local desktop for differential analysis on Rstudio
