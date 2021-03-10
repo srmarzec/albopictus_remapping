@@ -305,9 +305,18 @@ oject/counts_dir/DI_135h_rep1_htseq_gff_gene_no
 Repeated process and eventually worked by updating and rerunning the script. 
  
 Reran the test command.
-``` htseq-count -f bam -a 20 -r pos -s no -t gene -i gene /home/mlp134/RNAseqproject/bam_dir/DI_135h_rep1_Aligned.out.bam /home/mlp134/RNAseqproject/mapping/aedes_albopictus_AalbF3.gff3 > /home/mlp134/RNAseqproject/counts_dir/DI_135h_rep1_htseq_gff_gene_no - 8832673 alignment pairs processed 
+``` 
+htseq-count -f bam -a 20 -r pos -s no -t gene -i gene /home/mlp134/RNAseqproject/bam_dir/DI_135h_rep1_Aligned.out.bam /home/mlp134/RNAseqproject/mapping/aedes_albopictus_AalbF3.gff3 > /home/mlp134/RNAseqproject/counts_dir/DI_135h_rep1_htseq_gff_gene_no - 8832673 alignment pairs processed 
 
 htseq-count -f bam -a 20 -r pos -s yes -t gene -i gene /home/mlp134/RNAseqproject/bam_dir/DI_135h_rep1_Aligned.out.bam /home/mlp134/RNAseqproject/mapping/aedes_albopictus_AalbF3.gff3 > /home/mlp134/RNAseqproject/counts_dir/DI_135h_rep1_htseq_gff_gene_yes
 
 htseq-count -f bam -a 20 -r pos -s reverse -t gene -i gene /home/mlp134/RNAseqproject/bam_dir/DI_135h_rep1_Aligned.out.bam /home/mlp134/RNAseqproject/mapping/aedes_albopictus_AalbF3.gff3 > /home/mlp134/RNAseqproject/counts_dir/DI_135h_rep1_htseq_gff_gene_reverse
-``
+```
+## March 8 
+Testing for strandedness 
+
+| Sample_and_info | # Reads assigned no feature|
+| ---: | ---: |
+| DI_135h_rep1_htseq_gff_gene_no | __no_feature    1,351,474 | 
+| DI_135h_rep1_htseq_gff_gene_reverse | __no_feature	4,517,024 |
+| DI_135h_rep1_htseq_gff_gene_yes | __no_feature 4,541,824 |
