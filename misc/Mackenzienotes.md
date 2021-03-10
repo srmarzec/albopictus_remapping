@@ -347,3 +347,5 @@ done
 #- FIN -----------------------------------------------------------------------#
 ```
 Got twelve output files in the counts_dir directory (/home/mlp134/RNAseqproject/counts_dir). Moved files down to my local device on the Terminal app using ```gcloud compute scp bananas-controller:/home/mlp134/RNAseqproject/counts_dir/*htseqCount /Users/mackenzieparsons/Downloads/HTSeqfiles``` 
+
+Once files were downloaded to my computer, I ran the script to count reads assigned to genes in R. <img width="258" alt="Screen Shot 2021-03-09 at 8 53 45 PM" src="https://user-images.githubusercontent.com/78369439/110563594-8c1fec80-8119-11eb-8e90-227eff1a40de.png">
