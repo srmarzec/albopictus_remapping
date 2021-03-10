@@ -313,10 +313,37 @@ htseq-count -f bam -a 20 -r pos -s yes -t gene -i gene /home/mlp134/RNAseqprojec
 htseq-count -f bam -a 20 -r pos -s reverse -t gene -i gene /home/mlp134/RNAseqproject/bam_dir/DI_135h_rep1_Aligned.out.bam /home/mlp134/RNAseqproject/mapping/aedes_albopictus_AalbF3.gff3 > /home/mlp134/RNAseqproject/counts_dir/DI_135h_rep1_htseq_gff_gene_reverse
 ```
 ## March 8 
-Testing for strandedness 
+Testing for strandedness by using tail command on each file to look at unassigned reads. Looks like data is unstranded since 1/4 roughly of the number of reads assigned no feature in the -no file compared to the -reverse and -yes files.
 
 | Sample_and_info | # Reads assigned no feature|
 | ---: | ---: |
 | DI_135h_rep1_htseq_gff_gene_no | __no_feature    1,351,474 | 
 | DI_135h_rep1_htseq_gff_gene_reverse | __no_feature	4,517,024 |
 | DI_135h_rep1_htseq_gff_gene_yes | __no_feature 4,541,824 |
+
+Ran htseq.count script (htseq_count.SBATCH)
+``` 
+#!/bin/bash
+#SBATCH --job-name=htseq_count --output=%x.%j.out
+#SBATCH --mail-type=END,FAIL --mail-user=mlp134@georgetown.edu
+#SBATCH --nodes=1 --ntasks=1 --cpus-per-task=1 --time=72:00:00
+#SBATCH --mem=4G
+#-----------------------------------------------------------------------------#
+# This script uses htseq to count and assign reads to genes #
+#-----------------------------------------------------------------------------#
+source [path to python env]/bin/activate
+#- Set variables ----------------------------------------------------------------#
+bam_dir=/home/mlp134/RNAseqproject/bam_dir
+count_dir=/home/mlp134/RNAseqproject/counts_dir
+htseq=/home/mlp134/RNAseqproject/python-env/bin/htseq-count
+ref=/home/mlp134/RNAseqproject/mapping/aedes_albopictus_AalbF3.gff3
+#- RUN fastqc ----------------------------------------------------------------#
+files=(${bam_dir}/*_Aligned.out.bam)
+for file in ${files[@]}
+do
+base=`basename ${file} _Aligned.out.bam`
+${htseq} -f bam -r pos -s no -t exon -i gene ${bam_dir}/${base}_Aligned.out.bam ${ref} > ${count_dir}/${base}_htseqCount
+done
+#- FIN -----------------------------------------------------------------------#
+```
+Got twelve output files in the counts_dir directory (/home/mlp134/RNAseqproject/counts_dir). Moved files down to my local device on the Terminal app using ```gcloud compute scp bananas-controller:/home/mlp134/RNAseqproject/counts_dir/*htseqCount /Users/mackenzieparsons/Downloads/HTSeqfiles``` 
