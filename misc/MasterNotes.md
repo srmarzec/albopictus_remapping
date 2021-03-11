@@ -42,3 +42,8 @@ To count data, we will be using HTSeq
 The general script is [htseq_count.sh](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/htseq_count.sh)
 
 However, it may be that the stranded setting needs to be changed for the different datasets. Please check [here](https://github.com/srmarzec/albopictus_remapping/blob/main/misc/TestingStrandedness.md) for testing strandedness of data.
+
+## Differential Expression with DESeq
+After bringing htseq count files to local machine, we counted reads assigned to genes with this [script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Sarah/CountReadsAssignedToGenes.R).
+
+Then, DESeq
