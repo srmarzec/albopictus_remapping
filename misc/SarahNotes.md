@@ -154,3 +154,8 @@ Looks like type exon assigns more reads to genes, so I will be going with type e
 This is what the counts are sorted under. The default is gene_id if you are using a gtf file, and in fact HTSeq expects you to use a gtf file instead of a gff file. I actually tried converting my gff file to a gtf file using [gffread](http://ccb.jhu.edu/software/stringtie/gff.shtml#gffread). However, some of the the lines in the gtf file that are "exons" are missing a "gene_id". I wasn't sure why this was. Apparently you can sort by "transcript_id" which by cursory glance seems to be present at many of the exon lines, however I read online that this leads to a lot more 'ambiguous reads' since transcripts could map to several genes. 
 
 But HTSeq runs well if I give it the gff3 file and specify a different ID attribute. I decided to go with "gene" and this works well. So I think converting it to a gtf file isn't necessary.
+
+# Differential Expression analysis with DESeq
+[Vingette](http://www.bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
+
+[Helpful post for QC](https://hbctraining.github.io/DGE_workshop_salmon/lessons/03_DGE_QC_analysis.html)
