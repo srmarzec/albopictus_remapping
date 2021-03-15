@@ -1,11 +1,12 @@
 # This script runs DESeq (specifically starting with htseq count files)
 
 ##Install DESeq2
-# if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
-# BiocManager::install("DESeq2")
-# BiocManager::install('EnhancedVolcano')
-# BiocManager::install("apeglm")
-# BiocManager::install("GOplot")
+# if (!requireNamespace("BiocManager", quietly = TRUE)) 
+install.packages("BiocManager")
+ BiocManager::install("DESeq2")
+ BiocManager::install('EnhancedVolcano')
+ BiocManager::install("apeglm")
+ BiocManager::install("GOplot")
 
 #Load Libraries
 library(DESeq2); library(ggplot2); library(tidyverse); library(EnhancedVolcano); library(GOplot); library(pheatmap)
@@ -13,7 +14,7 @@ library(DESeq2); library(ggplot2); library(tidyverse); library(EnhancedVolcano);
 # Set working directory to source file location (going to session, set working directory as source file, same functionally as coding it. source file is the script youre working on)
 
 #Choose directory with htseq-count data (this is directory relative to the script)
-directory<-("../data")
+directory<-("../HTSeqfiles")
 
 #Create the sample table (this could alternatively be made externally and read in) change to 72h and 35 h
 sampleFiles <- grep("72h", list.files(directory), value=T) #this is pulling all files from the directory with the age specified
@@ -122,7 +123,7 @@ plotMA(res_LFC, ylim=c(-3,3)) # See lots of shrinkage towards the beginning
 # idx <- identify(res$baseMean, res$log2FoldChange)
 # rownames(res)[idx]
 
-# Volcano plot of the lfcShrink data. For various setting try: `browseVignettes("EnhancedVolcano")`
+# Volcano plot of the lfcShrink data. For various setting try: `browseVignettes("EnhancedVolcano")`. Did not work first time but did second time through
 EnhancedVolcano(res_LFC,
                 lab = rownames(res_LFC),
                 x = 'log2FoldChange',
@@ -136,14 +137,14 @@ EnhancedVolcano(res_LFC,
                 pointSize = 2.0,
                 labSize = 5.0)
 
-# Can look at which of the result are significant and have a high enough log2 fold change
+# Can look at which of the result are significant and have a high enough log2 fold change . This command did not produce a result for me (?)
 sig_res <- res_LFC %>%
   data.frame() %>%
   rownames_to_column(var="gene") %>% 
   as.data.frame() %>% 
   filter(padj < 0.05, abs(log2FoldChange) > 0.58)
 
-# Write out a table of these significant differentially expressed genes
+# Write out a table of these significant differentially expressed genes. was told that attempt to set col.names was ignored?
 write.csv(select(sig_res, gene, log2FoldChange, padj), 
             file="../misc/72h_DvND_LFCshrink_padj.txt", col.names = F, row.names = F)
 
@@ -153,9 +154,9 @@ write.table(sig_res %>% select(gene),
 
 
 ####################
-# Running through another dataset (21days)
+# Running through another dataset (135hdays)
 #Create the sample table (this could alternatively be made externally and read in)
-sampleFiles <- grep("21d", list.files(directory), value=T) #this is pulling all files from the directory with the age specified
+sampleFiles <- grep("135h", list.files(directory), value=T) #this is pulling all files from the directory with the age specified
 sampleNames <- sub("_htseqCount","",sampleFiles) #this is removing the ending of the files to better represent the sample names
 sampleConditions <- sub("_.*","", sampleFiles) #to get conditions I pull everything from before the first underscore (which I know is the diapause status)
 
@@ -166,33 +167,33 @@ str(sampleTable)
 sampleTable$condition <- factor(sampleTable$condition)
 
 # Make the DESeq dataset
-dds_21d <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable,
+dds_135h <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable,
                                   directory = directory,
                                   design = ~ condition)
-dds_21d
+dds_135h
 
 #DESeq recommends a pre-filtering step to reduce memory size and increase speed. They suggest keeping only rows which have 10 reads total
-keep <- rowSums(counts(dds_21d)) >= 10
-dds_21d <- dds_21d[keep,]
+keep <- rowSums(counts(dds_135h)) >= 10
+dds_135h <- dds_135h[keep,]
 
 #Relevel the condition for what to compare to. Likely not important in our case with two conditions, but you would want everything compared to the control. (Default is first condition alphabetically)
-dds_21d$condition <- relevel(dds_21d$condition, ref = "ND")
+dds_135h$condition <- relevel(dds_135h$condition, ref = "NDI")
 
 
 #Run DESeq
-dds_21d <- DESeq(dds_21d)
-res_21d <- results(dds_21d)
-res_21d
+dds_135h <- DESeq(dds_135h)
+res_135h <- results(dds_135h)
+res_135h
 
-# Apparently, it is common to shrink the log fold change estimate for better visualization and ranking of genes. Often, lowly expressed genes tend to have relatively high levels of variability so shrinking can reduce this.
-resultsNames(dds_21d)
-res_LFC_21d <- lfcShrink(dds_21d, coef="condition_D_vs_ND", type="apeglm")
-res_LFC_21d
+# Apparently, it is common to shrink the log fold change estimate for better visualization and ranking of genes. Often, lowly expressed genes tend to have relatively high levels of variability so shrinking can reduce this. 
+resultsNames(dds_135h)
+res_LFC_135h <- lfcShrink(dds_135h, coef="condition_DI_vs_NDI", type="apeglm")
+res_LFC_135h
 
 
 # Volcano plot of the lfcShrink data. For various setting try: `browseVignettes("EnhancedVolcano")`
-EnhancedVolcano(res_LFC_21d,
-                lab = rownames(res_LFC_21d),
+EnhancedVolcano(res_LFC_135h,
+                lab = rownames(res_LFC_135h),
                 x = 'log2FoldChange',
                 y = 'pvalue',
                 selectLab = NA,
@@ -205,93 +206,28 @@ EnhancedVolcano(res_LFC_21d,
                 labSize = 5.0)
 
 # Can look at which of the result are significant and have a high enough log2 fold change
-sig_res_21d <- res_LFC_21d %>%
+sig_res_135h <- res_LFC_135h %>%
   data.frame() %>%
   rownames_to_column(var="gene") %>% 
   as.data.frame() %>% 
   filter(padj < 0.05, abs(log2FoldChange) > 0.58)
 
 # Write out a table of these significant differentially expressed genes
-write.csv(select(sig_res_21d, gene, log2FoldChange, padj), 
-          file="../misc/21D_DvND_LFCshrink_padj.txt", row.names = F)
-
-
-####################
-# Running through another dataset (40days)
-#Create the sample table (this could alternatively be made externally and read in)
-sampleFiles <- grep("40d", list.files(directory), value=T) #this is pulling all files from the directory with the age specified
-sampleNames <- sub("_htseqCount","",sampleFiles) #this is removing the ending of the files to better represent the sample names
-sampleConditions <- sub("_.*","", sampleFiles) #to get conditions I pull everything from before the first underscore (which I know is the diapause status)
-
-sampleTable <- data.frame(sampleName = sampleNames,
-                          fileName = sampleFiles,
-                          condition = sampleConditions)
-str(sampleTable)
-sampleTable$condition <- factor(sampleTable$condition)
-
-# Make the DESeq dataset
-dds_40d <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable,
-                                      directory = directory,
-                                      design = ~ condition)
-dds_40d
-
-#DESeq recommends a pre-filtering step to reduce memory size and increase speed. They suggest keeping only rows which have 10 reads total
-keep <- rowSums(counts(dds_40d)) >= 10
-dds_40d <- dds_40d[keep,]
-
-#Relevel the condition for what to compare to. Likely not important in our case with two conditions, but you would want everything compared to the control. (Default is first condition alphabetically)
-dds_40d$condition <- relevel(dds_40d$condition, ref = "ND")
-
-
-#Run DESeq
-dds_40d <- DESeq(dds_40d)
-res_40d <- results(dds_40d)
-res_40d
-
-# Apparently, it is common to shrink the log fold change estimate for better visualization and ranking of genes. Often, lowly expressed genes tend to have relatively high levels of variability so shrinking can reduce this.
-resultsNames(dds_40d)
-res_LFC_40d <- lfcShrink(dds_40d, coef="condition_D_vs_ND", type="apeglm")
-res_LFC_40d
-
-
-# Volcano plot of the lfcShrink data. For various setting try: `browseVignettes("EnhancedVolcano")`
-EnhancedVolcano(res_LFC_40d,
-                lab = rownames(res_LFC_40d),
-                x = 'log2FoldChange',
-                y = 'pvalue',
-                selectLab = NA,
-                #drawConnectors = TRUE,
-                xlim = c(-1.5, 1.5),
-                ylim = c(0,30),
-                pCutoff = 10e-6,
-                FCcutoff = 0.58,
-                pointSize = 2.0,
-                labSize = 5.0)
-
-# Can look at which of the result are significant and have a high enough log2 fold change
-sig_res_40d <- res_LFC_40d %>%
-  data.frame() %>%
-  rownames_to_column(var="gene") %>% 
-  as.data.frame() %>% 
-  filter(padj < 0.05, abs(log2FoldChange) > 0.58)
-
-# Write out a table of these significant differentially expressed genes
-write.csv(select(sig_res_40d, gene, log2FoldChange, padj), 
-          file="../misc/40d_DvND_LFCshrink_padj.txt", row.names = F)
-
+write.csv(select(sig_res_135h, gene, log2FoldChange, padj), 
+          file="../misc/135h_DIvNDI_LFCshrink_padj.txt", row.names = F)
 
 
 ##################
-# Making a venn diagram of the 3 different datasets DEGs
-dat_11 <- read.csv("../misc/11d_DvND_LFCshrink_padj.txt")
-dat_21 <- read.csv("../misc/21d_DvND_LFCshrink_padj.txt")
-dat_40 <- read.csv("../misc/40d_DvND_LFCshrink_padj.txt")
+# Making a venn diagram of the 2 different datasets DEGs
+dat_72 <- read.csv("../misc/72h_DvND_LFCshrink_padj.txt")
+dat_135 <- read.csv("../misc/135h_DIvNDI_LFCshrink_padj.txt")
 
 
-l1 <- dat_11[, c(1,2)]
-l2 <- dat_21[, c(1,2)]
-l3 <- dat_40[, c(1,2)]
 
-VennDiag <- GOVenn(l1,l2,l3, label=c('11d','21d','40d'), plot = F)
+l1 <- dat_72[, c(1,2)]
+l2 <- dat_135[, c(1,2)]
+
+
+VennDiag <- GOVenn(l1,l2, label=c('72h','135h'), plot = F)
 print(VennDiag$plot)
 # The colors inside the labels: Red (up), Blue (down), and Yellow (contra-regulated). These colors can be changed but the order of the regulation (up, down, contra) starts at the top and goes clockwise.
