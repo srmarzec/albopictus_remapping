@@ -302,9 +302,12 @@ For NB (8 files):
 [NB_SDvLD_test.txt](https://github.com/srmarzec/albopictus_remapping/files/6145371/NB_SDvLD_test.txt)
 [NB_SDvLD_LFCshrink_padj.txt](https://github.com/srmarzec/albopictus_remapping/files/6145372/NB_SDvLD_LFCshrink_padj.txt)
 
+
 For BM (8 files):
-![Volcano plot BM](https://user-images.githubusercontent.com/78465068/111241276-2fb64480-85d3-11eb-903c-5ca323b5580f.png)![Venn Diagram](https://user-images.githubusercontent.com/78465068/111241324-46f53200-85d3-11eb-833c-4956b3fad99d.png)
+![Volcano plot BM](https://user-images.githubusercontent.com/78465068/111241276-2fb64480-85d3-11eb-903c-5ca323b5580f.png)
+
 [BM_SDvLD_LFCshrink_padj.txt](https://github.com/srmarzec/albopictus_remapping/files/6145374/BM_SDvLD_LFCshrink_padj.txt)
 
 Venn Diagram
-![Uploading Venn Diagram.png…]()
+![Venn Diagram](https://user-images.githubusercontent.com/78465068/111241469-95a2cc00-85d3-11eb-86d7-e6efbe6239d3.png)
+
