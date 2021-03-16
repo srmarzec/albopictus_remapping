@@ -351,3 +351,7 @@ Got twelve output files in the counts_dir directory (/home/mlp134/RNAseqproject/
 Once files were downloaded to my computer, I ran the script (Mackenzie_CountReadsAssignedToGenes.R) to count reads assigned to genes in R. 
 
 <img width="258" alt="Screen Shot 2021-03-09 at 8 53 45 PM" src="https://user-images.githubusercontent.com/78369439/110563594-8c1fec80-8119-11eb-8e90-227eff1a40de.png">
+
+## March 15: DESeq
+Ran script Mackenzie_DESeq.R in R. Put results files into the folder Downloads/misc. 
+![Barplot of library sizes (line 47) for 72h](https://user-images.githubusercontent.com/78369439/111237258-1e693a00-85cb-11eb-9e76-80178db15a25.png)
