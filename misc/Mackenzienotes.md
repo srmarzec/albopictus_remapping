@@ -364,3 +364,19 @@ Box plot of per gene counts for 72h:
 PCA graph for 72 hours:  ![PCA for 72 hours](https://user-images.githubusercontent.com/78369439/111237438-756f0f00-85cb-11eb-9d19-cf3b684dd5e7.png)
 
 PCA graph with transformed normalized counts for 72 hours: ![PCA with transformed normalized counts, 72 hr](https://user-images.githubusercontent.com/78369439/111237495-96cffb00-85cb-11eb-8604-b1610873302e.png)
+
+Heatmap Pairwise Correlation Values: ![Heatmap Pairwise Correlation Values, 72 hr](https://user-images.githubusercontent.com/78369439/111237557-b6672380-85cb-11eb-9053-3edf33f69aa4.png)
+
+PlotDispEsts (dds) for 72 hours ![plotDispEsts (dds), 72 hr](https://user-images.githubusercontent.com/78369439/111237579-caab2080-85cb-11eb-90e6-f40ea5227732.png)
+
+MA plot for  72 hours ![MA plot, 72 hr](https://user-images.githubusercontent.com/78369439/111237708-0219cd00-85cc-11eb-8dae-2be5a614f32e.png)
+
+plotMA (res_LFC) for 72 hours ![plotMA (res_LFC), 72 hr](https://user-images.githubusercontent.com/78369439/111237742-12ca4300-85cc-11eb-8d88-3918b0109758.png)
+
+Volcano plot for 72 hours ![Volcano plot, 72 hr](https://user-images.githubusercontent.com/78369439/111237767-1eb60500-85cc-11eb-9905-95661101626a.png)
+
+Volcano plot for 135 hours ![Volcano plot, 135h](https://user-images.githubusercontent.com/78369439/111237792-2aa1c700-85cc-11eb-902c-066f8a3a03a0.png)
+
+Venn diagram 
+![venn diagram](https://user-images.githubusercontent.com/78369439/111237886-5c1a9280-85cc-11eb-9981-e8d0d2c31bfd.png)
+
