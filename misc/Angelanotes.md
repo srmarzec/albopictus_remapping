@@ -294,7 +294,8 @@ Results:
 For NB (8 files):
 ![barplot of library sizes](https://user-images.githubusercontent.com/78465068/111240013-c5040980-85d0-11eb-9b40-95842d5cebad.png)
 ![Logcounts](https://user-images.githubusercontent.com/78465068/111241101-d4845200-85d2-11eb-8cb1-42c9d15ca159.png)
-
+![MA plot NB](https://user-images.githubusercontent.com/78465068/111242570-cf74d200-85d5-11eb-9301-cbced2a69dbd.png)
+![MA LFC](https://user-images.githubusercontent.com/78465068/111242578-d0a5ff00-85d5-11eb-98a2-ff38fa749034.png)
 ![PCA counts_percentage of the variance can be explained by PC1 (LD vs SD](https://user-images.githubusercontent.com/78465068/111241126-e36b0480-85d2-11eb-9802-4131c0ea632c.png)
 ![plot of variation of data](https://user-images.githubusercontent.com/78465068/111241130-e534c800-85d2-11eb-96fc-b7e0fcb5e9d2.png)
 ![heatmap copy](https://user-images.githubusercontent.com/78465068/111241135-e6fe8b80-85d2-11eb-83ee-10ba9b35e0b5.png)
@@ -302,10 +303,7 @@ For NB (8 files):
 [NB_SDvLD_test.txt](https://github.com/srmarzec/albopictus_remapping/files/6145371/NB_SDvLD_test.txt)
 [NB_SDvLD_LFCshrink_padj.txt](https://github.com/srmarzec/albopictus_remapping/files/6145372/NB_SDvLD_LFCshrink_padj.txt)
 
-
 For BM (8 files):
-
-
 ![Volcano plot BM](https://user-images.githubusercontent.com/78465068/111241276-2fb64480-85d3-11eb-903c-5ca323b5580f.png)
 
 [BM_SDvLD_LFCshrink_padj.txt](https://github.com/srmarzec/albopictus_remapping/files/6145374/BM_SDvLD_LFCshrink_padj.txt)
