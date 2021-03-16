@@ -286,3 +286,25 @@ Created a folder on my laptop for DE analysis
 Downloaded HTSeq files onto my local desktop (will move to the DE analysis data folder) for differential analysis on RStudio: `gcloud compute scp bananas-controller: /home/zz220/albopictus_remap/htseqcounts_dir/*htseqCount .`
 
 Ran [script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_CountReadsAssignedToGenes.R) and put results in shared google sheet
+
+## March 15th
+### DESeq
+Ran [Angela_DESeq.R script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_DESeq.R)
+Results:
+For NB (8 files):
+![barplot of library sizes](https://user-images.githubusercontent.com/78465068/111240013-c5040980-85d0-11eb-9b40-95842d5cebad.png)
+![Logcounts](https://user-images.githubusercontent.com/78465068/111241101-d4845200-85d2-11eb-8cb1-42c9d15ca159.png)
+
+![PCA counts_percentage of the variance can be explained by PC1 (LD vs SD](https://user-images.githubusercontent.com/78465068/111241126-e36b0480-85d2-11eb-9802-4131c0ea632c.png)
+![plot of variation of data](https://user-images.githubusercontent.com/78465068/111241130-e534c800-85d2-11eb-96fc-b7e0fcb5e9d2.png)
+![heatmap copy](https://user-images.githubusercontent.com/78465068/111241135-e6fe8b80-85d2-11eb-83ee-10ba9b35e0b5.png)
+[Volcano Plot.pdf](https://github.com/srmarzec/albopictus_remapping/files/6145369/Volcano.Plot.pdf)
+[NB_SDvLD_test.txt](https://github.com/srmarzec/albopictus_remapping/files/6145371/NB_SDvLD_test.txt)
+[NB_SDvLD_LFCshrink_padj.txt](https://github.com/srmarzec/albopictus_remapping/files/6145372/NB_SDvLD_LFCshrink_padj.txt)
+
+For BM (8 files):
+![Volcano plot BM](https://user-images.githubusercontent.com/78465068/111241276-2fb64480-85d3-11eb-903c-5ca323b5580f.png)![Venn Diagram](https://user-images.githubusercontent.com/78465068/111241324-46f53200-85d3-11eb-833c-4956b3fad99d.png)
+[BM_SDvLD_LFCshrink_padj.txt](https://github.com/srmarzec/albopictus_remapping/files/6145374/BM_SDvLD_LFCshrink_padj.txt)
+
+Venn Diagram
+![Uploading Venn Diagram.png…]()
