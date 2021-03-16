@@ -354,4 +354,13 @@ Once files were downloaded to my computer, I ran the script (Mackenzie_CountRead
 
 ## March 15: DESeq
 Ran script Mackenzie_DESeq.R in R. Put results files into the folder Downloads/misc. 
+
+Barplot of library sizes for 72h: 
 ![Barplot of library sizes (line 47) for 72h](https://user-images.githubusercontent.com/78369439/111237258-1e693a00-85cb-11eb-9e76-80178db15a25.png)
+
+Box plot of per gene counts for 72h: 
+![Boxplot of per gene counts for sample groups, 72 hours](https://user-images.githubusercontent.com/78369439/111237352-46589d80-85cb-11eb-9504-9f9571646d42.png)
+
+PCA graph for 72 hours:  ![PCA for 72 hours](https://user-images.githubusercontent.com/78369439/111237438-756f0f00-85cb-11eb-9d19-cf3b684dd5e7.png)
+
+PCA graph with transformed normalized counts for 72 hours: ![PCA with transformed normalized counts, 72 hr](https://user-images.githubusercontent.com/78369439/111237495-96cffb00-85cb-11eb-8604-b1610873302e.png)
