@@ -159,3 +159,9 @@ But HTSeq runs well if I give it the gff3 file and specify a different ID attrib
 [Vingette](http://www.bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
 
 [Helpful post for QC](https://hbctraining.github.io/DGE_workshop_salmon/lessons/03_DGE_QC_analysis.html)
+
+# GO term annotation
+ 
+Transferred proper notes over to separate markdown [here](https://github.com/srmarzec/albopictus_remapping/blob/main/misc/GO_annotation.md)
+
+
