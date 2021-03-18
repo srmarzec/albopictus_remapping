@@ -23,9 +23,10 @@ awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%1000==0){file=sprintf("myseq%d.fa",n_seq);}
 # Run InterProScan
 After I had the fasta in manageable portions, I ran a [script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/InterProScan.sh) made to run over all the files
 
-# Manipulate the results of the InterProScan script for the complete protein fasta (AalbF2) 
+# Manipulate outputs to get a set or GO annotations for AalbF2 
 
 ## Combine the broken up results tsv files into one large file 
+Since we ran this on broken up fasta files, there are multiple output tsv files.
 ```
 cat myseq*.fa.tsv >> FULL.tsv
 ```
@@ -35,7 +36,7 @@ This command prints the first column (protein name) and the GO column
 ```
 awk -v OFS='\t' '{for(i=11;i<=NF;i++){if($i~/^GO:/){a=$i}} print $1,a}' FULL.tsv > FULL_protein_GOterm.tsv
 ```
-`for(...)` loops through all fields, starting with field 11 (i=11; this is because I want to save time instead of going through all columns and I think GO terms will always be after column 11). `if($i~/^GO:/)` checks if the field starts with "GO:". 'a=$i' if yes, set variable a to that value. `-v OFS='\t'` sets the "output file separator" as a tab (instead of space which is default)
+`for(...)` loops through all fields, starting with field 11 (i=11; this is because I want to save time instead of going through all columns and I think GO terms will always be after column 11). `if($i~/^GO:/)` checks if the field starts with "GO:". `a=$i` if yes, set variable a to that value. `-v OFS='\t'` sets the "output file separator" as a tab (instead of space which is default)
 
 ## Replace protein ID with gene ID
 ```
