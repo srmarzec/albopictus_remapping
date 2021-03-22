@@ -46,4 +46,4 @@ However, it may be that the stranded setting needs to be changed for the differe
 ## Differential Expression with DESeq
 After bringing htseq count files to local machine, we counted reads assigned to genes with this [script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Sarah/CountReadsAssignedToGenes.R).
 
-Then, [DESeq](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Sarah/DESeq.R) followed by [GO term enrichment](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Sarah/GOenrichment.R) and [KEGG pathway id]()
+Then, [DESeq](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Sarah/DESeq.R) followed by [GO term enrichment](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Sarah/GOenrichment.R) and [KEGG pathway id](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Sarah/KEGG.R)
