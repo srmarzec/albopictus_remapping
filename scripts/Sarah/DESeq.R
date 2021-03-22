@@ -8,7 +8,7 @@
 # BiocManager::install("GOplot")
 
 #Load Libraries
-library(DESeq2); library(ggplot2); library(tidyverse); library(EnhancedVolcano); library(GOplot); library(pheatmap)
+library(DESeq2); library(ggplot2); library(tidyverse); library(EnhancedVolcano); library(GOplot); library(pheatmap); library(reshape2); library(viridis); library(mygene)
 
 # Set working directory to source file location
 
@@ -64,19 +64,19 @@ boxplot(logcounts,
 abline(h=median(as.matrix(logcounts)), col="blue")
 
 #Looking at PCA of the data - Do treatments cluster together?
-rlogcounts <- rlog(counts(dds))#transforming data to make it approximately homoskedastic, n < 30 so rlog is better
+#rlogcounts <- rlog(counts(dds))#transforming data to make it approximately homoskedastic, n < 30 so rlog is better
 
-data_for_PCA <- t(rlogcounts)
-dim(data_for_PCA)
+#data_for_PCA <- t(rlogcounts)
+#dim(data_for_PCA)
 
 #run PCA
-pcDat <- prcomp(data_for_PCA, center = T)
-pcDat_df <- data.frame('Condition' = dds$condition, pcDat$x[,1:2])
+#pcDat <- prcomp(data_for_PCA, center = T)
+#pcDat_df <- data.frame('Condition' = dds$condition, pcDat$x[,1:2])
 
 # basic plot
-ggplot(pcDat_df, aes(x = PC1, y = PC2, col = Condition)) +
-  geom_point() + 
-  theme_bw()
+#ggplot(pcDat_df, aes(x = PC1, y = PC2, col = Condition)) +
+#  geom_point() + 
+#  theme_bw()
 
 # Transform normalized counts using the rlog function ("RNASEQ20_Day3_HandsOn.pdf")
 rld <- rlog(dds, blind=TRUE)
@@ -132,7 +132,7 @@ EnhancedVolcano(res_LFC,
                 xlim = c(-1.5, 1.5),
                 ylim = c(0,30),
                 pCutoff = 10e-6,
-                FCcutoff = 0.58,
+                FCcutoff = 0.5,
                 pointSize = 2.0,
                 labSize = 5.0)
 
@@ -141,7 +141,7 @@ sig_res <- res_LFC %>%
   data.frame() %>%
   rownames_to_column(var="gene") %>% 
   as.data.frame() %>% 
-  filter(padj < 0.05, abs(log2FoldChange) > 0.58)
+  filter(padj < 0.05, abs(log2FoldChange) > 0.5)
 
 # Write out a table of these significant differentially expressed genes
 write.csv(select(sig_res, gene, log2FoldChange, padj), 
@@ -200,7 +200,7 @@ EnhancedVolcano(res_LFC_21d,
                 xlim = c(-1.5, 1.5),
                 ylim = c(0,30),
                 pCutoff = 10e-6,
-                FCcutoff = 0.58,
+                FCcutoff = 0.5,
                 pointSize = 2.0,
                 labSize = 5.0)
 
@@ -209,11 +209,15 @@ sig_res_21d <- res_LFC_21d %>%
   data.frame() %>%
   rownames_to_column(var="gene") %>% 
   as.data.frame() %>% 
-  filter(padj < 0.05, abs(log2FoldChange) > 0.58)
+  filter(padj < 0.05, abs(log2FoldChange) > 0.5)
 
 # Write out a table of these significant differentially expressed genes
 write.csv(select(sig_res_21d, gene, log2FoldChange, padj), 
           file="../misc/21D_DvND_LFCshrink_padj.txt", row.names = F)
+
+# Write out just the gene names for later analysis in KEGG
+write.table(sig_res_21d %>% select(gene), 
+            file="../misc/21D_DvND_test.txt", col.names = F, row.names = F, quote = F)
 
 
 ####################
@@ -264,7 +268,7 @@ EnhancedVolcano(res_LFC_40d,
                 xlim = c(-1.5, 1.5),
                 ylim = c(0,30),
                 pCutoff = 10e-6,
-                FCcutoff = 0.58,
+                FCcutoff = 0.5,
                 pointSize = 2.0,
                 labSize = 5.0)
 
@@ -273,12 +277,15 @@ sig_res_40d <- res_LFC_40d %>%
   data.frame() %>%
   rownames_to_column(var="gene") %>% 
   as.data.frame() %>% 
-  filter(padj < 0.05, abs(log2FoldChange) > 0.58)
+  filter(padj < 0.05, abs(log2FoldChange) > 0.5)
 
 # Write out a table of these significant differentially expressed genes
 write.csv(select(sig_res_40d, gene, log2FoldChange, padj), 
           file="../misc/40d_DvND_LFCshrink_padj.txt", row.names = F)
 
+# Write out just the gene names for later analysis in KEGG
+write.table(sig_res_40d %>% select(gene), 
+            file="../misc/40D_DvND_test.txt", col.names = F, row.names = F, quote = F)
 
 
 ##################
@@ -295,3 +302,101 @@ l3 <- dat_40[, c(1,2)]
 VennDiag <- GOVenn(l1,l2,l3, label=c('11d','21d','40d'), plot = F)
 print(VennDiag$plot)
 # The colors inside the labels: Red (up), Blue (down), and Yellow (contra-regulated). These colors can be changed but the order of the regulation (up, down, contra) starts at the top and goes clockwise.
+
+
+##################
+# Trialing making a heatmap for larva_11d
+dds2VST <- vst(dds) %>%
+  assay() %>%
+  as.data.frame()
+dds2VST$Gene <- rownames(dds2VST)
+head(dds2VST)
+
+# Keep only the significantly differentiated genes
+sigGenes <- sig_res$gene
+dds2VST <- dds2VST[dds2VST$Gene %in% sigGenes,]
+
+# Convert the object to a long format for ggplot
+dds2VST <- melt(dds2VST, id.vars=c("Gene"))
+
+dds2VST$diapause <- sub("_.*","", dds2VST$variable) #to get conditions I pull everything from before the first underscore
+
+# Make a heatmap
+heatmap <- ggplot(dds2VST, aes(x=diapause, y=Gene, fill=value)) + 
+  geom_raster() + 
+  scale_fill_viridis(trans="sqrt") + 
+  theme(axis.text.x=element_text(angle=65, hjust=1), 
+        axis.text.y=element_blank(), 
+        axis.ticks.y=element_blank())
+heatmap
+
+##
+# Make heatmap for all three ages
+dds2VST_11d <- vst(dds) %>%
+  assay() %>%
+  as.data.frame()
+dds2VST_11d$Gene <- rownames(dds2VST_11d)
+
+dds2VST_21d <- vst(dds_21d) %>%
+  assay() %>%
+  as.data.frame()
+dds2VST_21d$Gene <- rownames(dds2VST_21d)
+
+dds2VST_40d <- vst(dds_40d) %>%
+  assay() %>%
+  as.data.frame()
+dds2VST_40d$Gene <- rownames(dds2VST_40d)
+
+
+# Keep only the significantly differentiated genes
+sigGenes_all <- unique(c(sig_res$gene, sig_res_21d$gene, sig_res_40d$gene))
+dds2VST_11d <- dds2VST_11d[dds2VST_11d$Gene %in% sigGenes_all,]
+dds2VST_21d <- dds2VST_21d[dds2VST_21d$Gene %in% sigGenes_all,]
+dds2VST_40d <- dds2VST_40d[dds2VST_40d$Gene %in% sigGenes_all,]
+
+# Convert the object to a long format for ggplot
+dds2VST_11d <- melt(dds2VST_11d, id.vars=c("Gene"))
+dds2VST_21d <- melt(dds2VST_21d, id.vars=c("Gene"))
+dds2VST_40d <- melt(dds2VST_40d, id.vars=c("Gene"))
+
+# Combine all the datasets into one
+dds2VST_all <- rbind(dds2VST_11d,dds2VST_21d,dds2VST_40d)
+
+dds2VST_all$diapause <- sub("_.*","", dds2VST_all$variable) #to get conditions I remove everything after the first underscore
+dds2VST_all$ages <- sub("^[^_]*_([^_]*).*", "\\1", dds2VST_all$variable) #pull out the string between the first and the second underscore
+
+# Make a heatmap
+heatmap_all <- ggplot(dds2VST_all, aes(x=ages, y=Gene, fill=value)) + 
+  geom_raster() + 
+  scale_fill_viridis(trans="sqrt") + 
+  theme(axis.text.x=element_text(angle=65, hjust=1), 
+        axis.text.y=element_blank(), 
+        axis.ticks.y=element_blank()) +
+  facet_wrap(~ diapause)
+heatmap_all
+
+
+##################
+# Make output excel sheet to match M.F.P.'s old excel sheets
+res_print <- as.data.frame(res_LFC)
+res_21d_print <- as.data.frame(res_LFC_21d)
+res_40d_print <- as.data.frame(res_LFC_40d)
+res_40d_print$Row.names <- row.names(res_40d_print)
+
+res_merged <- merge(res_print,res_21d_print, by="row.names") %>%
+  merge(res_40d_print)
+
+colnames(res_merged) <- c("geneID", "11d_baseMean", "11d_Log2FoldChange", "11d_lfcSE", "lld_pvalue", "11d_padj", "21d_baseMean", "21d_Log2FoldChange", "21d_lfcSE", "2ld_pvalue", "21d_padj", "40d_baseMean", "40d_Log2FoldChange", "40d_lfcSE", "40d_pvalue", "40d_padj")
+
+head(res_merged)
+
+# Find gene names with mygene package
+dat <- queryMany(res_merged$geneID, scopes="symbol", fields="name")
+
+res_merged <- merge(res_merged, dat, by.x="geneID", by.y="query")
+
+keep_cols <- c("geneID", "name", "11d_Log2FoldChange", "11d_padj", "21d_Log2FoldChange", "21d_padj", "40d_Log2FoldChange", "40d_padj")
+
+# Write out a csv with these data
+write.csv(res_merged[keep_cols], 
+          file="../misc/DESeq_results_pharatelarvae.csv", row.names = F)
