@@ -235,3 +235,26 @@ print(VennDiag$plot)
 NEW Additions: 
 res_print <- as.data.frame(res_LFC) # first for 72h
 res_135h_print <- as.data.frame(res_LFC_135h)
+
+NEW: 
+# Make output excel sheet to match M.F.P.'s old excel sheets
+res_print <- as.data.frame(res_LFC)
+res_135h_print <- as.data.frame(res_LFC_135h)
+
+
+res_merged <- merge(res_print,res_135h_print, by="row.names") 
+#take out 40 and rename the 72h and 135h
+colnames(res_merged) <- c("geneID", "11d_baseMean", "11d_Log2FoldChange", "11d_lfcSE", "lld_pvalue", "11d_padj", "21d_baseMean", "21d_Log2FoldChange", "21d_lfcSE", "2ld_pvalue", "21d_padj", "40d_baseMean", "40d_Log2FoldChange", "40d_lfcSE", "40d_pvalue", "40d_padj")
+
+head(res_merged)
+
+# Find gene names with mygene package
+dat <- queryMany(res_merged$geneID, scopes="symbol", fields="name")
+
+res_merged <- merge(res_merged, dat, by.x="geneID", by.y="query")
+
+keep_cols <- c("geneID", "name", "11d_Log2FoldChange", "11d_padj", "21d_Log2FoldChange", "21d_padj", "40d_Log2FoldChange", "40d_padj")
+
+# Write out a csv with these data
+write.csv(res_merged[keep_cols], 
+          file="../misc/DESeq_results_pharatelarvae.csv", row.names = F)
