@@ -9,9 +9,9 @@ library(KEGGREST)
 
 # Set some variables
 
-genes_with_pvalues <- "../misc/11D_DvND_LFCshrink_padj.txt" # with at least columns "gene", "padj"
+genes_with_pvalues <- "../misc/NB_SDvLD_LFCshrink_padj.txt" # with at least columns "gene", "padj"
 
-keggGeneID_output <- "../misc/11D_DvND_keggID.txt"
+keggGeneID_output <- "../misc/NB_SDvLD_test.txt"
 
 # Read in data
 gene_list <- read.csv(genes_with_pvalues, header = T)
@@ -42,7 +42,7 @@ write.table(gene_list$kegg_id,
 ######
 ####
 #Trying to automate this process with KEGG pathway enrichment
-all_genes_list <- read.csv(file="../misc/DESeq_results_pharatelarvae.csv")
+all_genes_list <- read.csv(file="../misc/htseqCount_ReadsAssignedGene.csv")
 
 all_genes_list$ncbi_geneid <- sub("LOC","ncbi-geneid:", all_genes_list$geneID)
 all_genes_list$kegg_id = names(convs)[match(all_genes_list$ncbi_geneid, as.character(convs))]
