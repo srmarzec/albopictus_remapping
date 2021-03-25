@@ -239,3 +239,21 @@ l2 <- dat_BM[, c(1,2)]
 VennDiag <- GOVenn(l1,l2, label=c('NB','BM'), plot = F)
 print(VennDiag$plot)
 # The colors inside the labels: Red (up), Blue (down), and Yellow (contra-regulated). These colors can be changed but the order of the regulation (up, down, contra) starts at the top and goes clockwise.
+
+
+# Make output excel sheet to match M.F.P.'s old excel sheets
+res_print <- as.data.frame(res_LFC)
+res_21d_print <- as.data.frame(res_LFC_21d)
+res_40d_print <- as.data.frame(res_LFC_40d)
+res_40d_print$Row.names <- row.names(res_40d_print)
+res_merged <- merge(res_print,res_21d_print, by="row.names") %>%
+  merge(res_40d_print)
+colnames(res_merged) <- c("geneID", "11d_baseMean", "11d_Log2FoldChange", "11d_lfcSE", "lld_pvalue", "11d_padj", "21d_baseMean", "21d_Log2FoldChange", "21d_lfcSE", "2ld_pvalue", "21d_padj", "40d_baseMean", "40d_Log2FoldChange", "40d_lfcSE", "40d_pvalue", "40d_padj")
+head(res_merged)
+# Find gene names with mygene package
+dat <- queryMany(res_merged$geneID, scopes="symbol", fields="name")
+res_merged <- merge(res_merged, dat, by.x="geneID", by.y="query")
+keep_cols <- c("geneID", "name", "11d_Log2FoldChange", "11d_padj", "21d_Log2FoldChange", "21d_padj", "40d_Log2FoldChange", "40d_padj")
+# Write out a csv with these data
+write.csv(res_merged[keep_cols], 
+file="../misc/DESeq_results_pharatelarvae.csv", row.names = F)
