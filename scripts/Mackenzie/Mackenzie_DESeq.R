@@ -231,3 +231,7 @@ l2 <- dat_135[, c(1,2)]
 VennDiag <- GOVenn(l1,l2, label=c('72h','135h'), plot = F)
 print(VennDiag$plot)
 # The colors inside the labels: Red (up), Blue (down), and Yellow (contra-regulated). These colors can be changed but the order of the regulation (up, down, contra) starts at the top and goes clockwise.
+
+NEW Additions: 
+res_print <- as.data.frame(res_LFC) # first for 72h
+res_135h_print <- as.data.frame(res_LFC_135h)
