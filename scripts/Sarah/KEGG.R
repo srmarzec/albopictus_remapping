@@ -65,7 +65,7 @@ genes.by.pathway <- sapply(pathway.codes,
 )
 head(genes.by.pathway)
 
-geneList <- all_genes_list$X11d_padj
+geneList <- all_genes_list$X11d_padj # CHANGE THIS LINE
 names(geneList) <- sub("aalb:","", gene_list$kegg_id) # get rid of the beginning "aalb:" since the gene list we brought from kegg doesn't have this
 head(geneList)
 
