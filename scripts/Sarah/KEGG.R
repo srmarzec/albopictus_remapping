@@ -99,3 +99,7 @@ pathway_pval$pval <- as.numeric(pathway_pval$pval)
 
 pathway_pval <- pathway_pval[order(pathway_pval$pval),]
 head(pathway_pval)
+                                           
+# Write out a csv with these data
+write.csv(pathway_pval, 
+          file="../output/larva_11d_keggPathwayEnrichment.csv", row.names = F)
