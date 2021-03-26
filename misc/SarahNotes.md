@@ -160,6 +160,8 @@ But HTSeq runs well if I give it the gff3 file and specify a different ID attrib
 
 [Helpful post for QC](https://hbctraining.github.io/DGE_workshop_salmon/lessons/03_DGE_QC_analysis.html)
 
+In terms of cutoffs for the p-value and log2 fold-change, I decided to go with a p-value of 0.05 (typical cutoff) and a log2FC of 0.58. This log2FC is equivalent to a fold change of 1.5. This is different than past lab work cutoff. I think they chose a log2FC of 0.5 just because it was a simple number which I think is generally fine. My result don't change much when choosing between a 0.5 and 0.58 cutoff. I think my results end up differing from past work due to the different reference genome and a change in pieline moreso than changing the cutoff in such a way. 
+
 # GO term annotation
  
 Transferred proper notes over to separate markdown [here](https://github.com/srmarzec/albopictus_remapping/blob/main/misc/GO_annotation.md)
