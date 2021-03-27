@@ -242,18 +242,29 @@ print(VennDiag$plot)
 
 
 # Make output excel sheet to match M.F.P.'s old excel sheets
-res_print <- as.data.frame(res_LFC)
-res_21d_print <- as.data.frame(res_LFC_21d)
-res_40d_print <- as.data.frame(res_LFC_40d)
-res_40d_print$Row.names <- row.names(res_40d_print)
-res_merged <- merge(res_print,res_21d_print, by="row.names") %>%
-  merge(res_40d_print)
-colnames(res_merged) <- c("geneID", "11d_baseMean", "11d_Log2FoldChange", "11d_lfcSE", "lld_pvalue", "11d_padj", "21d_baseMean", "21d_Log2FoldChange", "21d_lfcSE", "2ld_pvalue", "21d_padj", "40d_baseMean", "40d_Log2FoldChange", "40d_lfcSE", "40d_pvalue", "40d_padj")
+#remember that res_LFC is the name used for res_LFC_NB
+res_NB_print <- as.data.frame(res_LFC)
+res_BM_print <- as.data.frame(res_LFC_BM)
+
+#set res_NB_print as a vector with row names
+res_NB_print$Row.names <- row.names(res_NB_print)
+
+#merge row names from res_print of NB and BM
+res_merged <- merge(res_NB_print,res_BM_print, by="row.names")
+
+#colnames: retrieve or set a row of column names of a matrix-like object. In this case, setting the column names to following variables inside the vector 
+colnames(res_merged) <- c("geneID", "NB_baseMean", "NB_Log2FoldChange", "NB_lfcSE", "NB_pvalue", "NB_padj", "BM_baseMean", "BM_Log2FoldChange", "BM_lfcSE", "BM_pvalue", "BM_padj")
+
+#made sure that the merged table looks ok, i.e. making sure that the table has both NB and BM data
 head(res_merged)
+
+BiocManager::install("mygene")
+library(mygene)
 # Find gene names with mygene package
 dat <- queryMany(res_merged$geneID, scopes="symbol", fields="name")
 res_merged <- merge(res_merged, dat, by.x="geneID", by.y="query")
-keep_cols <- c("geneID", "name", "11d_Log2FoldChange", "11d_padj", "21d_Log2FoldChange", "21d_padj", "40d_Log2FoldChange", "40d_padj")
-# Write out a csv with these data
+keep_cols <- c("geneID", "name", "NB_Log2FoldChange", "NB_padj", "BM_Log2FoldChange", "BM_padj")
+
+# Write out a csv with these data# Write out a csv with these data
 write.csv(res_merged[keep_cols], 
-file="../misc/DESeq_results_pharatelarvae.csv", row.names = F)
+          file="../misc/DESeq_results_adultlarvae.csv", row.names = F)
