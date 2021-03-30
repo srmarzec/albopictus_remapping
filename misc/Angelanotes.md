@@ -293,7 +293,7 @@ Ran [Angela_DESeq.R script](https://github.com/srmarzec/albopictus_remapping/blo
 Results:
 For NB (non-blood fed, 8 files):
 
-Barplot of library sizes: The bars show the distribution of the count data across the 8 samples. The bars are similar in height and our data looks normal.
+Barplot of library sizes: The bars show the distribution of the count data across the 8 samples. The bars are similar in height and our data looks normal.\
 ![barplot of library sizes](https://user-images.githubusercontent.com/78465068/111240013-c5040980-85d0-11eb-9b40-95842d5cebad.png)
 
 ![Logcounts](https://user-images.githubusercontent.com/78465068/111241101-d4845200-85d2-11eb-8cb1-42c9d15ca159.png)
