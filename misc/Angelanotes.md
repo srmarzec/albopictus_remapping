@@ -305,19 +305,19 @@ Figure 2. Boxplot of per gene counts for each of the sample groups. The median l
 Figure 3. PCA plot for the nonblood fed samples. Most of the variance (67%) can be explained by PC1 which is short-day vs long day conditions.
 
 ![heatmap copy](https://user-images.githubusercontent.com/78465068/111241135-e6fe8b80-85d2-11eb-83ee-10ba9b35e0b5.png)\
-Figure 7. Heat map- we want to look out for a row or block that show the same underexpression or over expression pattern (i.e. are either all red or all blue)
+Figure 4. Heat map- we want to look out for a row or block that show the same underexpression or over expression pattern (i.e. are either all red or all blue)
 
 ![MA plot NB](https://user-images.githubusercontent.com/78465068/111242570-cf74d200-85d5-11eb-9301-cbced2a69dbd.png)\
-Figure 4. MA plot: an application of a Bland–Altman plot for visual representation of genomic data. The plot visualizes the differences between measurements taken in two samples, by transforming the data onto M (log ratio) and A (mean average) scales, then plotting these values. In this case, we are plotting the log fold change against the mean of normalized counts. 
+Figure 5. MA plot: an application of a Bland–Altman plot for visual representation of genomic data. The plot visualizes the differences between measurements taken in two samples, by transforming the data onto M (log ratio) and A (mean average) scales, then plotting these values. In this case, we are plotting the log fold change against the mean of normalized counts. 
 
 ![MA LFC](https://user-images.githubusercontent.com/78465068/111242578-d0a5ff00-85d5-11eb-98a2-ff38fa749034.png)\
-Figure 5. MA plot after cleaning up the data: excluded data points with low mean counts and a large log fold change. This is because if there are very few counts for a gene, then the gene is more likely to be variable and have a large log fold change.
+Figure 6. MA plot after cleaning up the data: excluded data points with low mean counts and a large log fold change. This is because if there are very few counts for a gene, then the gene is more likely to be variable and have a large log fold change.
 
 ![plot of variation of data](https://user-images.githubusercontent.com/78465068/111241130-e534c800-85d2-11eb-96fc-b7e0fcb5e9d2.png)\
-Figure 6. Plot of the variation or dispersion in the data
+Figure 7. Plot of the variation or dispersion in the data
 
 <img width="689" alt="Volcano plot_NB" src="https://user-images.githubusercontent.com/78465068/111241861-56c14600-85d4-11eb-8fb8-2547afc01519.png">\
-Figure 7. A volcano plot showing the statistical significance (P value) versus magnitude of change (fold change). Points in red are genes with large fold changes that are also statistically significant. These may be the most biologically significant genes. 
+Figure 8. A volcano plot showing the statistical significance (P value) versus magnitude of change (fold change). Points in red are genes with large fold changes that are also statistically significant. These may be the most biologically significant genes. 
 
 Table of significant differentially expressed genes:
 [NB_SDvLD_test.txt](https://github.com/srmarzec/albopictus_remapping/files/6145371/NB_SDvLD_test.txt)
@@ -327,14 +327,14 @@ Table with only the gene names (to be used later in KEGG analysis):
 
 For BM (bloodfed, 8 files):
 ![Volcano plot BM](https://user-images.githubusercontent.com/78465068/111241276-2fb64480-85d3-11eb-903c-5ca323b5580f.png)
-Figure 8. A volcano plot showing the statistical significance (P value) versus magnitude of change (fold change). Points in red are genes with large fold changes that are also statistically significant. These may be the most biologically significant genes. 
+Figure 9. A volcano plot showing the statistical significance (P value) versus magnitude of change (fold change). Points in red are genes with large fold changes that are also statistically significant. These may be the most biologically significant genes. 
 
 Table with the names of differentially expressed genes (to be used later in KEGG analysis):
 [BM_SDvLD_LFCshrink_padj.txt](https://github.com/srmarzec/albopictus_remapping/files/6145374/BM_SDvLD_LFCshrink_padj.txt)
 
 Venn Diagram
 ![Venn Diagram](https://user-images.githubusercontent.com/78465068/111241469-95a2cc00-85d3-11eb-86d7-e6efbe6239d3.png)
-Figure 9. Venn diagram of the 2 different datasets DEGs. There are 880 genes that are upregulated and 375 genes that are downregulated only for nonblood fed adults. There are 328 genes that are upregulated and 69 genes that are downregulated only for nonblood fed adults. There are 397 genes that upregulated and 37 genes that are downregulated in both bloodfed and nonblood fed adults. There are 6 genes that are contraregulated.
+Figure 10. Venn diagram of the 2 different datasets DEGs. There are 880 genes that are upregulated and 375 genes that are downregulated only for nonblood fed adults. There are 328 genes that are upregulated and 69 genes that are downregulated only for nonblood fed adults. There are 397 genes that upregulated and 37 genes that are downregulated in both bloodfed and nonblood fed adults. There are 6 genes that are contraregulated.
 
 ## March 25
 To be consistent with past data: Made an output excel sheet to match M.F.P.'s old excel sheets. See [Angela_DESeq.R script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_DESeq.R)\
