@@ -24,7 +24,7 @@ test worked
 
 completed https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration\
 test
-`$ fastq-dump --stdout SRR390728 | head -n 8`
+`$ fastq-dump --stdout SRR390728 | head -n 8` 
 ```
 @SRR390728.1 1 length=72
 CATTCTTCACGTAGTTCTCGAGCCTTGGTTTTCAGCGATGGAGAATGACTTTGACAAGCTGAGAGAAGNTNC
@@ -290,20 +290,39 @@ Ran [script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/
 ## March 15th
 ### DESeq
 Ran [Angela_DESeq.R script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_DESeq.R)\
+I had 16 data files in total, but we decided to 
 Results:
 For NB (non-blood fed, 8 files):
 
-Barplot of library sizes: The bars show the distribution of the count data across the 8 samples. The bars are similar in height and our data looks normal.\
 ![barplot of library sizes](https://user-images.githubusercontent.com/78465068/111240013-c5040980-85d0-11eb-9b40-95842d5cebad.png)
+Figure 1. Barplot of library sizes. The bars show the distribution of the count data across the 8 samples. The bars are similar in height and our data looks normal.\
+
 
 ![Logcounts](https://user-images.githubusercontent.com/78465068/111241101-d4845200-85d2-11eb-8cb1-42c9d15ca159.png)
-![MA plot NB](https://user-images.githubusercontent.com/78465068/111242570-cf74d200-85d5-11eb-9301-cbced2a69dbd.png)
-![MA LFC](https://user-images.githubusercontent.com/78465068/111242578-d0a5ff00-85d5-11eb-98a2-ff38fa749034.png)
+Figure 2. Boxplot of per gene counts for each of the sample groups. The median log counts are similar across samples.
+
 ![PCA counts_percentage of the variance can be explained by PC1 (LD vs SD](https://user-images.githubusercontent.com/78465068/111241126-e36b0480-85d2-11eb-9802-4131c0ea632c.png)
-![plot of variation of data](https://user-images.githubusercontent.com/78465068/111241130-e534c800-85d2-11eb-96fc-b7e0fcb5e9d2.png)
+Figure 3. PCA plot for the nonblood fed samples. Most of the variance (67%) can be explained by PC1 which is short-day vs long day conditions.
+
 ![heatmap copy](https://user-images.githubusercontent.com/78465068/111241135-e6fe8b80-85d2-11eb-83ee-10ba9b35e0b5.png)
+Figure 7. Heat map- we want to look out for a row or block that show the same underexpression or over expression pattern (i.e. are either all red or all blue)
+
+![MA plot NB](https://user-images.githubusercontent.com/78465068/111242570-cf74d200-85d5-11eb-9301-cbced2a69dbd.png)
+Figure 4. MA plot: an application of a Bland–Altman plot for visual representation of genomic data. The plot visualizes the differences between measurements taken in two samples, by transforming the data onto M (log ratio) and A (mean average) scales, then plotting these values. In this case, we are plotting the log fold change against the mean of normalized counts. 
+
+![MA LFC](https://user-images.githubusercontent.com/78465068/111242578-d0a5ff00-85d5-11eb-98a2-ff38fa749034.png)
+Figure 4. MA plot after cleaning up the data: excluded data points with low mean counts and a large log fold change.
+
+![plot of variation of data](https://user-images.githubusercontent.com/78465068/111241130-e534c800-85d2-11eb-96fc-b7e0fcb5e9d2.png)
+Figure 5. Plot of the variation or dispersion in the data
+
 <img width="689" alt="Volcano plot_NB" src="https://user-images.githubusercontent.com/78465068/111241861-56c14600-85d4-11eb-8fb8-2547afc01519.png">
+Figure 6. A volcano plot showing the statistical significance (P value) versus magnitude of change (fold change). Points in red are genes with large fold changes that are also statistically significant. These may be the most biologically significant genes. 
+
+Table of significant differentially expressed genes:
 [NB_SDvLD_test.txt](https://github.com/srmarzec/albopictus_remapping/files/6145371/NB_SDvLD_test.txt)
+
+Table with only the gene names (to be used later in KEGG analysis):
 [NB_SDvLD_LFCshrink_padj.txt](https://github.com/srmarzec/albopictus_remapping/files/6145372/NB_SDvLD_LFCshrink_padj.txt)
 
 For BM (8 files):
