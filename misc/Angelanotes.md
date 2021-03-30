@@ -289,10 +289,13 @@ Ran [script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/
 
 ## March 15th
 ### DESeq
-Ran [Angela_DESeq.R script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_DESeq.R)
+Ran [Angela_DESeq.R script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_DESeq.R)\
 Results:
-For NB (8 files):
+For NB (non-blood fed, 8 files):
+
+Barplot of library sizes: The bars show the distribution of the count data across the 8 samples. The bars are similar in height and our data looks normal.
 ![barplot of library sizes](https://user-images.githubusercontent.com/78465068/111240013-c5040980-85d0-11eb-9b40-95842d5cebad.png)
+
 ![Logcounts](https://user-images.githubusercontent.com/78465068/111241101-d4845200-85d2-11eb-8cb1-42c9d15ca159.png)
 ![MA plot NB](https://user-images.githubusercontent.com/78465068/111242570-cf74d200-85d5-11eb-9301-cbced2a69dbd.png)
 ![MA LFC](https://user-images.githubusercontent.com/78465068/111242578-d0a5ff00-85d5-11eb-98a2-ff38fa749034.png)
