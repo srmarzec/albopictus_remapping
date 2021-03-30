@@ -7,17 +7,19 @@
 
 library(KEGGREST)
 
-# Set some variables
+setwd("~/OneDrive - Georgetown University/Differential Expression Analysis/Script")
 
-genes_with_pvalues <- "../misc/11D_DvND_LFCshrink_padj.txt" # with at least columns "gene", "padj"
+genes_with_pvalues <- "../misc/NB_SDvLD_LFCshrink_padj.txt" # with at least columns "gene", "padj"
 
-keggGeneID_output <- "../misc/11D_DvND_keggID.txt"
+keggGeneID_output <- "../misc/NB_SDvLD_test.txt"
 
 # Read in data
 gene_list <- read.csv(genes_with_pvalues, header = T)
 
 # Make a list of all the ncbi to albopictus gene ids
+
 convs <- keggConv("ncbi-geneid", "aalb")
+
 #convs2 <- keggConv("aalb", "uniprot")
 #convs3 <- keggConv("aalb", "ncbi-proteinid")
 
@@ -32,11 +34,10 @@ gene_list$kegg_id = names(convs)[match(gene_list$ncbi_geneid, as.character(convs
 
 # If you want to write out the KEGG ID list and do this online
 write.table(gene_list$kegg_id, 
-          file=keggGeneID_output, col.names = F, row.names = F, quote = F)
+            file=keggGeneID_output, col.names = F, row.names = F, quote = F)
 ###
 # You can input this KEGG list at "https://www.kegg.jp/kegg/tool/map_pathway1.html" to find enriched pathways
 ###
-
 
 ########
 ######
@@ -65,7 +66,8 @@ genes.by.pathway <- sapply(pathway.codes,
 )
 head(genes.by.pathway)
 
-geneList <- all_genes_list$X11d_padj
+# For NB                                          
+geneList <- all_genes_list$X11d_padj # CHANGE THIS LINE
 names(geneList) <- sub("aalb:","", gene_list$kegg_id) # get rid of the beginning "aalb:" since the gene list we brought from kegg doesn't have this
 head(geneList)
 
@@ -103,39 +105,9 @@ head(pathway_pval)
 # Write out a csv with these data
 write.csv(pathway_pval, 
           file="../output/larva_11d_keggPathwayEnrichment.csv", row.names = F)
-###
-# You can input this KEGG list at "https://www.kegg.jp/kegg/tool/map_pathway1.html" to find enriched pathways
-###
-
-
-########
-######
-####
-#Trying to automate this process with KEGG pathway enrichment
-all_genes_list <- read.csv(file="../misc/htseqCount_ReadsAssignedGene.csv")
-
-all_genes_list$ncbi_geneid <- sub("LOC","ncbi-geneid:", all_genes_list$geneID)
-all_genes_list$kegg_id = names(convs)[match(all_genes_list$ncbi_geneid, as.character(convs))]
-
-
-# Get the pathways list from KEGG
-pathways.list <- keggList("pathway", "aalb")
-head(pathways.list)
-
-# Pull all genes for each pathway
-pathway.codes <- sub("path:", "", names(pathways.list)) 
-genes.by.pathway <- sapply(pathway.codes,
-                           function(pwid){
-                             pw <- keggGet(pwid)
-                             if (is.null(pw[[1]]$GENE)) return(NA)
-                             pw2 <- pw[[1]]$GENE[c(TRUE,FALSE)] # may need to modify this to c(FALSE, TRUE) for other organisms
-                             pw2 <- unlist(lapply(strsplit(pw2, split = ";", fixed = T), function(x)x[1]))
-                             return(pw2)
-                           }
-)
-head(genes.by.pathway)
-
-geneList <- all_genes_list$X11d_padj
+                                           
+# For BM
+geneList <- all_genes_list$BM_padj # CHANGE THIS LINE
 names(geneList) <- sub("aalb:","", gene_list$kegg_id) # get rid of the beginning "aalb:" since the gene list we brought from kegg doesn't have this
 head(geneList)
 
@@ -169,3 +141,7 @@ pathway_pval$pval <- as.numeric(pathway_pval$pval)
 
 pathway_pval <- pathway_pval[order(pathway_pval$pval),]
 head(pathway_pval)
+                                           
+# Write out a csv with these data
+write.csv(pathway_pval, 
+          file="../output/larva_BM_keggPathwayEnrichment.csv", row.names = F)
