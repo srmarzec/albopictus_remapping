@@ -320,23 +320,23 @@ Figure 7. Plot of the variation or dispersion in the data
 Figure 8. A volcano plot showing the statistical significance (P value) versus magnitude of change (fold change). Points in red are genes with large fold changes that are also statistically significant. These may be the most biologically significant genes. 
 
 Table of significant differentially expressed genes:
-[NB_SDvLD_test.txt](https://github.com/srmarzec/albopictus_remapping/files/6145371/NB_SDvLD_test.txt)
+[NB_SDvLD_test.txt](https://github.com/srmarzec/albopictus_remapping/files/6145371/NB_SDvLD_test.txt)\
 
 Table with only the gene names (to be used later in KEGG analysis):
-[NB_SDvLD_LFCshrink_padj.txt](https://github.com/srmarzec/albopictus_remapping/files/6145372/NB_SDvLD_LFCshrink_padj.txt)
+[NB_SDvLD_LFCshrink_padj.txt](https://github.com/srmarzec/albopictus_remapping/files/6145372/NB_SDvLD_LFCshrink_padj.txt)\
 
 For BM (bloodfed, 8 files):
-![Volcano plot BM](https://user-images.githubusercontent.com/78465068/111241276-2fb64480-85d3-11eb-903c-5ca323b5580f.png)
+![Volcano plot BM](https://user-images.githubusercontent.com/78465068/111241276-2fb64480-85d3-11eb-903c-5ca323b5580f.png)\
 Figure 9. A volcano plot showing the statistical significance (P value) versus magnitude of change (fold change). Points in red are genes with large fold changes that are also statistically significant. These may be the most biologically significant genes. 
 
-Table with the names of differentially expressed genes (to be used later in KEGG analysis):
+Table with the names of differentially expressed genes (to be used later in KEGG analysis):\
 [BM_SDvLD_LFCshrink_padj.txt](https://github.com/srmarzec/albopictus_remapping/files/6145374/BM_SDvLD_LFCshrink_padj.txt)
 
 Venn Diagram
-![Venn Diagram](https://user-images.githubusercontent.com/78465068/111241469-95a2cc00-85d3-11eb-86d7-e6efbe6239d3.png)
+![Venn Diagram](https://user-images.githubusercontent.com/78465068/111241469-95a2cc00-85d3-11eb-86d7-e6efbe6239d3.png)\
 Figure 10. Venn diagram of the 2 different datasets DEGs. There are 880 genes that are upregulated and 375 genes that are downregulated only for nonblood fed adults. There are 328 genes that are upregulated and 69 genes that are downregulated only for nonblood fed adults. There are 397 genes that upregulated and 37 genes that are downregulated in both bloodfed and nonblood fed adults. There are 6 genes that are contraregulated.
 
 ## March 25
-To be consistent with past data: Made an output excel sheet to match M.F.P.'s old excel sheets. See [Angela_DESeq.R script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_DESeq.R)\
+To be consistent with past data: Made an output excel sheet to match M.F.P.'s old excel sheets. See [Angela_DESeq.R script (https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_DESeq.R)\
 
 Result: a csv file called DESeq_results_adultlarvae.csv. Contains the p-adjusted values and log fold change values for the differentially expressed genes.
