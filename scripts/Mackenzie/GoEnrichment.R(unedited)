@@ -11,10 +11,11 @@
 # Load libraries
 library(topGO); library(Rgraphviz); library(formattable)
 
+gcloud compute scp bananas-controller:/home/mlp134/AalbF2_GOannotations.txt /Users/mackenzieparsons/Downloads/misc
 # Set up files to read in 
-annotations_file <- "../misc/FULL_GOannotations.txt" #Contains gene IDs and GO annotations. See specifics of GO-term annotation file above
-interesting_genes <- "../misc/21D_DvND_test.txt" #This file is a single column of gene IDs with no header
-project_description <- "larva 11d" #Name given for creating GO data object (something like "My project" or "larva 11d")
+annotations_file <- "../misc/AalbF2_GOannotations.txt" #Contains gene IDs and GO annotations. See specifics of GO-term annotation file above
+interesting_genes <- "../misc/72h_DvND_test.txt" #This file is a single column of gene IDs with no header
+project_description <- "larva 72h" #Name given for creating GO data object (something like "My project" or "larva 11d")
 
 # Read in GO annotations for genes
 geneID2GO <- readMappings(file = annotations_file) 
@@ -49,7 +50,7 @@ myGOdata
 sg <- sigGenes(myGOdata)
 str(sg)
 numSigGenes(myGOdata)
-
+#1730
 
 #####
 
@@ -77,12 +78,14 @@ showSigOfNodes(myGOdata, score(resultFisher), firstSigNodes = 5, useInfo ='all')
 # Output description from the vingette: "The subgraph induced by the top 5 GO terms identified by the elim algorithm for scoring GO terms for enrichment. Rectangles indicate the 5 most significant terms. Rectangle color represents the relative significance, ranging from dark red (most significant) to bright yellow (least significant). For each node, some basic information is displayed. The first two lines show the GO identifier and a trimmed GO name. In the third line the raw p-value is shown. The forth line is showing the number of significant genes and the total number of genes annotated to the respective GO term."
 
 # The following prints out the above but as a PDF. Change the prefix in order to change the folder it prints to
-printGraph(myGOdata, resultFisher, firstSigNodes = 5, fn.prefix = "../output/tGO", useInfo = "all", pdfSW = TRUE)
+printGraph(myGOdata, resultFisher, firstSigNodes = 5, fn.prefix = "../misc/tGO", useInfo = "all", pdfSW = TRUE)
 
 # Find gene annotated with significant GO terms
 # This print all the genes from the gene universe that have the GO term
 myterms = c("GO:0043044") 
-mygenes <- genesInTerm(myGOdata, myterms)
+mygenes <- genesInTerm(myGOdata, myterms) # get warning: n .genesInNode(graph(object), whichGO) :
+  #Nodes not present in the graph:GO:0043044. Output from next lines 89 to 94 says: "Term GO:0043044 genes: "
+  
 for (i in 1:length(myterms)) {
   myterm <- myterms[i]
   mygenesforterm <- mygenes[myterm][[1]]
