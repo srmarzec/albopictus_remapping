@@ -119,7 +119,7 @@ library(KEGGREST)
 # Set some variables
 setwd("~/Downloads/misc")
 
-genes_with_pvalues <- "135h_DvND_LFCshrink_padj.txt" # with at least columns "gene", "padj"
+genes_with_pvalues <- "135h_DIvNDI_LFCshrink_padj.txt" # with at least columns "gene", "padj"
 
 keggGeneID_output <- "135h_DvND_keggID.txt"
 
@@ -162,7 +162,7 @@ all_genes_list$kegg_id = names(convs)[match(all_genes_list$ncbi_geneid, as.chara
 pathways.list <- keggList("pathway", "aalb")
 head(pathways.list)
 
-# Pull all genes for each pathway
+# Pull all genes for each pathway 
 pathway.codes <- sub("path:", "", names(pathways.list)) 
 genes.by.pathway <- sapply(pathway.codes,
                            function(pwid){
@@ -177,11 +177,9 @@ geneList <- all_genes_list$X135h_padj
 names(geneList) <- sub("aalb:","", gene_list$kegg_id) # get rid of the beginning "aalb:" since the gene list we brought from kegg doesn't have this
 head(geneList)
 
-
+#When I run line 181 to line 200, am told there are more than 50 warnings "condition has length greater than one and only the first element will be used"
 pathway_pval <- data.frame()
 
-#Here I get the error message: Error in wilcox.test.default(scores.in.pathway, scores.not.in.pathway,  : 
-  #not enough (non-missing) 'x' observations. proceeded with the script at line 94- not sure if this changes anything?
                                            
 for (pathway in 1:length(genes.by.pathway)){
       pathway.genes <- genes.by.pathway[[pathway]]
@@ -213,4 +211,4 @@ head(pathway_pval)
 
 # Write out a csv with these data
 write.csv(pathway_pval, 
-          file="../output/larva_135h_keggPathwayEnrichment.csv", row.names = F)                                            
+          file="../misc/larva_135h_keggPathwayEnrichment.csv", row.names = F)                                            
