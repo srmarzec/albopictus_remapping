@@ -9,7 +9,7 @@ install.packages("BiocManager")
  BiocManager::install("GOplot")
 
 #Load Libraries
-library(DESeq2); library(ggplot2); library(tidyverse); library(EnhancedVolcano); library(GOplot); library(pheatmap)
+library(DESeq2); library(ggplot2); library(tidyverse); library(EnhancedVolcano); library(GOplot); library(pheatmap); library(reshape2); library(viridis); library(mygene)
 
 # Set working directory to source file location (going to session, set working directory as source file, same functionally as coding it. source file is the script youre working on)
 
@@ -243,8 +243,8 @@ res_135h_print <- as.data.frame(res_LFC_135h)
 
 
 res_merged <- merge(res_print,res_135h_print, by="row.names") 
-#take out 40 and rename the 72h and 135h
-colnames(res_merged) <- c("geneID", "11d_baseMean", "11d_Log2FoldChange", "11d_lfcSE", "lld_pvalue", "11d_padj", "21d_baseMean", "21d_Log2FoldChange", "21d_lfcSE", "2ld_pvalue", "21d_padj", "40d_baseMean", "40d_Log2FoldChange", "40d_lfcSE", "40d_pvalue", "40d_padj")
+#renamed with 72h and 135h- just want to make sure i did it in the correct order 
+colnames(res_merged) <- c("geneID", "72h_baseMean", "72h_Log2FoldChange", "72h_lfcSE", "72h_pvalue", "72h_padj", "135h_baseMean", "135h_Log2FoldChange", "135h_lfcSE", "135h_pvalue", "135h_padj")
 
 head(res_merged)
 
@@ -253,8 +253,8 @@ dat <- queryMany(res_merged$geneID, scopes="symbol", fields="name")
 
 res_merged <- merge(res_merged, dat, by.x="geneID", by.y="query")
 
-keep_cols <- c("geneID", "name", "11d_Log2FoldChange", "11d_padj", "21d_Log2FoldChange", "21d_padj", "40d_Log2FoldChange", "40d_padj")
+keep_cols <- c("geneID", "name", "72h_Log2FoldChange", "72h_padj", "135h_Log2FoldChange", "135h_padj")
 
 # Write out a csv with these data
 write.csv(res_merged[keep_cols], 
-          file="../misc/DESeq_results_pharatelarvae.csv", row.names = F)
+          file="../misc/DESeq_results_embryo.csv", row.names = F)
