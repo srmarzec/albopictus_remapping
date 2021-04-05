@@ -65,10 +65,13 @@ genes.by.pathway <- sapply(pathway.codes,
 )
 head(genes.by.pathway)
 
-geneList <- all_genes_list$X11d_padj # CHANGE THIS LINE
+geneList <- all_genes_list$X11d_padj #CHANGE THIS LINE
+geneLFClist <- all_genes_list$X11d_Log2FoldChange #CHANGE THIS LINE
 names(geneList) <- sub("aalb:","", all_genes_list$kegg_id) # get rid of the beginning "aalb:" since the gene list we brought from kegg doesn't have this
+names(geneLFClist) <- sub("aalb:","", all_genes_list$kegg_id)
 head(geneList)
 
+#genes.by.pathway_40d <- genes.by.pathway[-c(99, 120)]
 
 pathway_pval <- data.frame()
 
@@ -84,7 +87,7 @@ for (pathway in 1:length(genes.by.pathway)){
         } else{
             p.value <- NA
         }
-        new_row <- c(names(genes.by.pathway[pathway]), p.value, length(list.genes.in.pathway))
+        new_row <- c(names(genes.by.pathway[pathway]), p.value, length(list.genes.in.pathway), sum(abs(geneLFClist[list.genes.in.pathway])>0.58&geneList[list.genes.in.pathway]<0.05))
         pathway_pval <- rbind(pathway_pval, new_row)
       }
     }
