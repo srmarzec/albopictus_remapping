@@ -395,4 +395,4 @@ Venn diagram
 Worked on running final lines of updated DESeq script. 
 
 ## April 4 
-Finished working on final lines of DESeq script. Ran Kegg script.
+Finished working on final lines of DESeq script. Ran Kegg script for both 72h and 135h data sets. The output file contains many more enriched pathways for 135h than for 72h- unsure the reason for this? Recieved the same error message for running the script both times aroune line 200 but rest of script ran fine.
