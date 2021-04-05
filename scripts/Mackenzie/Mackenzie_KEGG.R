@@ -35,15 +35,15 @@ gene_list$kegg_id = names(convs)[match(gene_list$ncbi_geneid, as.character(convs
 write.table(gene_list$kegg_id, 
           file=keggGeneID_output, col.names = F, row.names = F, quote = F)
 ###
-# You can input this KEGG list at "https://www.kegg.jp/kegg/tool/map_pathway1.html" to find enriched pathways
+# You can input this KEGG list at "https://www.kegg.jp/kegg/tool/map_pathway1.html" to find enriched pathways (do we do this step?)
 ###
 
 
 ########
 ######
 ####
-#Trying to automate this process with KEGG pathway enrichment (what is this file?)
-all_genes_list <- read.csv(file="../misc/DESeq_results_pharatelarvae.csv")
+#Trying to automate this process with KEGG pathway enrichment 
+all_genes_list <- read.csv(file="../misc/DESeq_results_embryo.csv")
 
 all_genes_list$ncbi_geneid <- sub("LOC","ncbi-geneid:", all_genes_list$geneID)
 all_genes_list$kegg_id = names(convs)[match(all_genes_list$ncbi_geneid, as.character(convs))]
@@ -61,18 +61,19 @@ genes.by.pathway <- sapply(pathway.codes,
                              if (is.null(pw[[1]]$GENE)) return(NA)
                              pw2 <- pw[[1]]$GENE[c(TRUE,FALSE)] # may need to modify this to c(FALSE, TRUE) for other organisms
                              pw2 <- unlist(lapply(strsplit(pw2, split = ";", fixed = T), function(x)x[1]))
-                             return(pw2)
-                           }
-)
+                             return(pw2)})
 head(genes.by.pathway)
 
-geneList <- all_genes_list$X11d_padj
+geneList <- all_genes_list$X72h_padj
 names(geneList) <- sub("aalb:","", gene_list$kegg_id) # get rid of the beginning "aalb:" since the gene list we brought from kegg doesn't have this
 head(geneList)
 
 
 pathway_pval <- data.frame()
 
+#Here I get the error message: Error in wilcox.test.default(scores.in.pathway, scores.not.in.pathway,  : 
+  #not enough (non-missing) 'x' observations. proceeded with the script at line 94- not sure if this changes anything?
+                                           
 for (pathway in 1:length(genes.by.pathway)){
       pathway.genes <- genes.by.pathway[[pathway]]
       if (!is.na(pathway.genes)){
@@ -101,4 +102,6 @@ pathway_pval$pval <- as.numeric(pathway_pval$pval)
 pathway_pval <- pathway_pval[order(pathway_pval$pval),]
 head(pathway_pval)
 
-                                           ADD NEW PART HERE
+# Write out a csv with these data
+write.csv(pathway_pval, 
+          file="../output/larva_11d_keggPathwayEnrichment.csv", row.names = F)                                       
