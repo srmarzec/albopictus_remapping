@@ -392,4 +392,7 @@ Venn diagram
 ![venn diagram](https://user-images.githubusercontent.com/78369439/111237886-5c1a9280-85cc-11eb-9981-e8d0d2c31bfd.png)
 
 ## March 24: KEGG analysis 
-Did updated final lines of DESeq script. 
+Worked on running final lines of updated DESeq script. 
+
+## April 4 
+Finished working on final lines of DESeq script. Ran Kegg script.
