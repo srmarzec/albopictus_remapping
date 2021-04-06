@@ -118,7 +118,7 @@ summary(res)
 #Basic MA-plot, shinrks log fold change estimates of some replicates compared to other replicates
 plotMA(res, ylim=c(-3,3))
 plotMA(res_LFC, ylim=c(-3,3)) # See lots of shrinkage towards the beginning
-
+resOrdered <- res[order(res$pvalue),]
 #If you want to interactivly find genes associated with certain points
 # idx <- identify(res$baseMean, res$log2FoldChange)
 # rownames(res)[idx]
@@ -217,8 +217,8 @@ write.csv(select(sig_res_135h, gene, log2FoldChange, padj),
           file="../misc/135h_DIvNDI_LFCshrink_padj.txt", row.names = F)
 
 # Write out just the gene names for later analysis in KEGG
-write.table(sig_res_21d %>% select(gene), 
-            file="../misc/72h_DvND_test.txt", col.names = F, row.names = F, quote = F)
+write.table(sig_res_135h %>% select(gene), 
+            file="../misc/135h_DvND_test.txt", col.names = F, row.names = F, quote = F)
 
 ##################
 # Making a venn diagram of the 2 different datasets DEGs
