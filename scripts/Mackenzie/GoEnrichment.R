@@ -1,12 +1,12 @@
-# GO-term enrichment using TopGO
+# GO-term enrichment using TopGO for 72h
 # This compares a subset of genes (genes of interest; in this case, significant DEGs) to a full set of genes
 # Specifically for this script, a GO-term annotations list must be provided. This list is tab-delimited and has two columns. The first column is the gene names. The second column contains the associated GO-terms. If there are multiple GO-terms, then each is list with a comma and space in between. [I made this file separately for *Aedes albopictus* and the process can be found here: "https://github.com/srmarzec/albopictus_remapping/blob/main/misc/GO_annotation.md"]
 # The following script is based on the vignette ("http://www.bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topGO.pdf") and these blog post ("https://ucdavis-bioinformatics-training.github.io/2018-June-RNA-Seq-Workshop/friday/enrichment.html" & "http://avrilomics.blogspot.com/2015/07/using-topgo-to-test-for-go-term.html") 
 
 # Install packages if necessary
-# BiocManager::install("topGO")
-# BiocManager::install("Rgraphviz")
-# install.packages("formattable")
+BiocManager::install("topGO")
+BiocManager::install("Rgraphviz")
+install.packages("formattable")
 
 # Load libraries
 library(topGO); library(Rgraphviz); library(formattable)
@@ -83,8 +83,8 @@ printGraph(myGOdata, resultFisher, firstSigNodes = 5, fn.prefix = "../misc/tGO",
 # Find gene annotated with significant GO terms
 # This print all the genes from the gene universe that have the GO term
 myterms = c("GO:0043044") 
-mygenes <- genesInTerm(myGOdata, myterms) # get warning: n .genesInNode(graph(object), whichGO) :
-  #Nodes not present in the graph:GO:0043044. Output from next lines 89 to 94 says: "Term GO:0043044 genes: "
+mygenes <- genesInTerm(myGOdata, myterms) # get warning: Warning message:In .genesInNode(graph(object), whichGO) :Nodes not present in the graph:GO:00430
+ # Output from next lines 89 to 94 says: "Term GO:0043044 genes: "
   
 for (i in 1:length(myterms)) {
   myterm <- myterms[i]
