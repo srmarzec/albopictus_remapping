@@ -216,6 +216,9 @@ sig_res_135h <- res_LFC_135h %>%
 write.csv(select(sig_res_135h, gene, log2FoldChange, padj), 
           file="../misc/135h_DIvNDI_LFCshrink_padj.txt", row.names = F)
 
+# Write out just the gene names for later analysis in KEGG
+write.table(sig_res_21d %>% select(gene), 
+            file="../misc/72h_DvND_test.txt", col.names = F, row.names = F, quote = F)
 
 ##################
 # Making a venn diagram of the 2 different datasets DEGs
