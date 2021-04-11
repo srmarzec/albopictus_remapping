@@ -156,7 +156,7 @@ sig_res <- res_LFC %>%
 
 # Write out a table of these significant differentially expressed genes
 write.csv(select(sig_res, gene, log2FoldChange, padj), 
-            file="../misc/NB_LDvSD_LFCshrink_padj.txt", col.names = F, row.names = F)
+          file="../misc/NB_LDvSD_LFCshrink_padj.txt", col.names = F, row.names = F)
 
 # Write out just the gene names for later analysis in KEGG
 write.table(sig_res %>% select(gene), 
@@ -178,8 +178,8 @@ sampleTable$condition <- factor(sampleTable$condition)
 
 # Make the DESeq dataset
 dds_BM <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable,
-                                  directory = directory,
-                                  design = ~ condition)
+                                     directory = directory,
+                                     design = ~ condition)
 dds_BM
 
 #DESeq recommends a pre-filtering step to reduce memory size and increase speed. They suggest keeping only rows which have 10 reads total
@@ -223,9 +223,12 @@ sig_res_BM <- res_LFC_BM %>%
   filter(padj < 0.05, abs(log2FoldChange) > 0.58)
 
 # Write out a table of these significant differentially expressed genes
-write.csv(select(sig_res_BM, gene, log2FoldChange, padj), 
+write.csv(dplyr::select(sig_res_BM, gene, log2FoldChange, padj), 
           file="../misc/BM_SDvLD_LFCshrink_padj.txt", row.names = F)
 
+# Write out just the gene names for later analysis in KEGG
+write.table(sig_res_BM %>% dplyr::select(gene), 
+            file="../misc/BM_SDvLD_test.txt", col.names = F, row.names = F, quote = F)
 ##################
 # Making a venn diagram of the 3 different datasets DEGs
 dat_NB <- read.csv("../misc/NB_SDvLD_LFCshrink_padj.txt")
