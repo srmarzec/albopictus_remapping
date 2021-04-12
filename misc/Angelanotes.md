@@ -340,3 +340,16 @@ Figure 10. Venn diagram of the 2 different datasets DEGs. There are 880 genes th
 To be consistent with past data: Made an output excel sheet to match M.F.P.'s old excel sheets. See [Angela_DESeq.R script (https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_DESeq.R)
 
 Result: a csv file called DESeq_results_adultlarvae.csv. Contains the p-adjusted values and log fold change values for the differentially expressed genes.
+
+## April 11th
+### Updating DESeq and running GOenrichment
+Updated DESeq after getting the following error message:![Error- unable to find inherited method](https://user-images.githubusercontent.com/78465068/114325941-8c3c4f00-9b00-11eb-8886-b0658d6929d8.png)
+
+Note use dplyr::select when select is part of multiple libraries so R knows which one to use.
+
+Ran DEseq to obtain the test.txt file for the second data set to use for GOenrichment analysis. Total output of GOenrichment script: pdf with significant GO terms
+
+[tGO_NB_weight01_5_all.pdf](https://github.com/srmarzec/albopictus_remapping/files/6293123/tGO_NB_weight01_5_all.pdf)
+[tGO_BM_weight01_5_all.pdf](https://github.com/srmarzec/albopictus_remapping/files/6293124/tGO_BM_weight01_5_all.pdf)
+
+
