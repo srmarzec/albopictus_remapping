@@ -4,6 +4,7 @@
 # The following script is based on the vignette ("http://www.bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topGO.pdf") and these blog post ("https://ucdavis-bioinformatics-training.github.io/2018-June-RNA-Seq-Workshop/friday/enrichment.html" & "http://avrilomics.blogspot.com/2015/07/using-topgo-to-test-for-go-term.html") 
 
 # Install packages if necessary
+install.packages("BiocManager")
 # BiocManager::install("topGO")
 # BiocManager::install("Rgraphviz")
 # install.packages("formattable")
@@ -15,7 +16,7 @@ setwd("~/OneDrive - Georgetown University/Differential Expression Analysis/Scrip
 
 # Set up files to read in 
 annotations_file <- "../misc/FULL_GOannotations.txt" #Contains gene IDs and GO annotations. See specifics of GO-term annotation file above
-interesting_genes <- "../misc/NB_LDvSD_test.txt" #This file is a single column of gene IDs with no header
+interesting_genes <- "../misc/NB_SDvLD_test.txt" #This file is a single column of gene IDs with no header
 project_description <- "adult NB" #Name given for creating GO data object (something like "My project" or "larva 11d")
 
 # Read in GO annotations for genes
@@ -90,7 +91,7 @@ showSigOfNodes(myGOdata, score(resultFisher), firstSigNodes = 5, useInfo ='all')
 # Output description from the vingette: "The subgraph induced by the top 5 GO terms identified by the elim algorithm for scoring GO terms for enrichment. Rectangles indicate the 5 most significant terms. Rectangle color represents the relative significance, ranging from dark red (most significant) to bright yellow (least significant). For each node, some basic information is displayed. The first two lines show the GO identifier and a trimmed GO name. In the third line the raw p-value is shown. The forth line is showing the number of significant genes and the total number of genes annotated to the respective GO term."
 
 # The following prints out the above but as a PDF. Change the prefix in order to change the folder it prints to
-printGraph(myGOdata, resultFisher, firstSigNodes = 5, fn.prefix = "../output/tGO_NB", useInfo = "all", pdfSW = TRUE)
+printGraph(myGOdata, resultFisher, firstSigNodes = 5, fn.prefix = "../output/tGO_NB2", useInfo = "all", pdfSW = TRUE)
 
 # Find gene annotated with significant GO terms
 # This print all the genes from the gene universe that have the GO term
@@ -180,7 +181,7 @@ showSigOfNodes(myGOdata, score(resultFisher), firstSigNodes = 5, useInfo ='all')
 # Output description from the vingette: "The subgraph induced by the top 5 GO terms identified by the elim algorithm for scoring GO terms for enrichment. Rectangles indicate the 5 most significant terms. Rectangle color represents the relative significance, ranging from dark red (most significant) to bright yellow (least significant). For each node, some basic information is displayed. The first two lines show the GO identifier and a trimmed GO name. In the third line the raw p-value is shown. The forth line is showing the number of significant genes and the total number of genes annotated to the respective GO term."
 
 # The following prints out the above but as a PDF. Change the prefix in order to change the folder it prints to
-printGraph(myGOdata, resultFisher, firstSigNodes = 5, fn.prefix = "../output/tGO_BM", useInfo = "all", pdfSW = TRUE)
+printGraph(myGOdata, resultFisher, firstSigNodes = 5, fn.prefix = "../output/tGO_BM2", useInfo = "all", pdfSW = TRUE)
 
 # Find gene annotated with significant GO terms
 # This print all the genes from the gene universe that have the GO term
