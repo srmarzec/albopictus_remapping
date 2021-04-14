@@ -365,14 +365,10 @@ This boxplot shows the library sizes for each of the 72h data sets. Size looks c
 
 Median per gene counts look consistent across data sets.
 
-## Figure 3. PCA graph for 72 hours:  
-![PCA for 72 hours](https://user-images.githubusercontent.com/78369439/111237438-756f0f00-85cb-11eb-9d19-cf3b684dd5e7.png)
-
-
 ## Figure 4. PCA graph with transformed normalized counts for 72 hours: 
 ![PCA with transformed normalized counts, 72 hr](https://user-images.githubusercontent.com/78369439/111237495-96cffb00-85cb-11eb-8604-b1610873302e.png)
 
-This PCA graph with the transformed normalized counts shows us that almost all (98%) of rhte variation is due to diapause (NDI vs. DI). 
+This PCA graph with the transformed normalized counts shows us that almost all (98%) of the variation is due to diapause (NDI vs. DI). 
 
 ## Figure 5. Heatmap Pairwise Correlation Values: 
 ![Heatmap Pairwise Correlation Values, 72 hr](https://user-images.githubusercontent.com/78369439/111237557-b6672380-85cb-11eb-9053-3edf33f69aa4.png)
