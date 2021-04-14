@@ -397,5 +397,12 @@ Venn diagram
 ## March 24: KEGG analysis 
 Worked on running final lines of updated DESeq script. 
 
+[larva_135h_keggPathwayEnrichment.csv](https://github.com/srmarzec/albopictus_remapping/files/6307763/larva_135h_keggPathwayEnrichment.csv)
+[larva_72h_keggPathwayEnrichment.csv](https://github.com/srmarzec/albopictus_remapping/files/6307764/larva_72h_keggPathwayEnrichment.csv)
+
 ## April 4 
-Finished working on final lines of DESeq script. Ran Kegg script for both 72h and 135h data sets. The output file contains many more enriched pathways for 135h than for 72h- unsure the reason for this? Recieved the same error message for running the script both times aroune line 200 but rest of script ran fine.
+Finished working on final lines of DESeq script. Ran Kegg script for both 72h and 135h data sets. Also ran the GO script for both data sets. Received pdf output files. 
+[tGO_weight01_5_135h.pdf](https://github.com/srmarzec/albopictus_remapping/files/6307762/tGO_weight01_5_135h.pdf)
+[tGO_weight01_5_72h.pdf](https://github.com/srmarzec/albopictus_remapping/files/6307767/tGO_weight01_5_72h.pdf)
+
+
