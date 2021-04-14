@@ -372,6 +372,8 @@ Median per gene counts look consistent across data sets.
 ## Figure 4. PCA graph with transformed normalized counts for 72 hours: 
 ![PCA with transformed normalized counts, 72 hr](https://user-images.githubusercontent.com/78369439/111237495-96cffb00-85cb-11eb-8604-b1610873302e.png)
 
+This PCA graph with the transformed normalized counts shows us that almost all (98%) of rhte variation is due to diapause (NDI vs. DI). 
+
 ## Figure 5. Heatmap Pairwise Correlation Values: 
 ![Heatmap Pairwise Correlation Values, 72 hr](https://user-images.githubusercontent.com/78369439/111237557-b6672380-85cb-11eb-9053-3edf33f69aa4.png)
 
@@ -400,7 +402,7 @@ Volcano plots depict the comparison between the magnitude of differential expres
 
 ![venn diagram](https://user-images.githubusercontent.com/78369439/111237886-5c1a9280-85cc-11eb-9981-e8d0d2c31bfd.png)
 
-The Ven diagram compares differentially regulated genes across the two data sets, 72h and 135h. 134 genes are upregulated in both experimental groups, 222 are downregulated, and 55 are contraregulated, meaning effects on gene expression level are opposite in the data sets.
+The Venn diagram compares differentially regulated genes across the two data sets, 72h and 135h. 134 genes are upregulated in both experimental groups, 222 are downregulated, and 55 are contraregulated, meaning effects on gene expression level are opposite in the data sets.
 
 ## March 24: KEGG analysis 
 Worked on running final lines of updated DESeq script. 
