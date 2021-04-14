@@ -355,44 +355,52 @@ Once files were downloaded to my computer, I ran the script (Mackenzie_CountRead
 ## March 15: DESeq
 Ran script Mackenzie_DESeq.R in R. Put results files into the folder Downloads/misc. 
 
-Barplot of library sizes for 72h: 
+## Figure 1. Barplot of library sizes for 72h: 
 ![Barplot of library sizes (line 47) for 72h](https://user-images.githubusercontent.com/78369439/111237258-1e693a00-85cb-11eb-9e76-80178db15a25.png)
+
 This boxplot shows the library sizes for each of the 72h data sets. Size looks consistent with no outliers.
 
-Box plot of per gene counts for 72h: 
+## Figure 2. Box plot of per gene counts for 72h: 
 ![Boxplot of per gene counts for sample groups, 72 hours](https://user-images.githubusercontent.com/78369439/111237352-46589d80-85cb-11eb-9504-9f9571646d42.png)
+
 Median per gene counts look consistent across data sets.
 
-PCA graph for 72 hours:  
+## Figure 3. PCA graph for 72 hours:  
 ![PCA for 72 hours](https://user-images.githubusercontent.com/78369439/111237438-756f0f00-85cb-11eb-9d19-cf3b684dd5e7.png)
 
 
-PCA graph with transformed normalized counts for 72 hours: 
+## Figure 4. PCA graph with transformed normalized counts for 72 hours: 
 ![PCA with transformed normalized counts, 72 hr](https://user-images.githubusercontent.com/78369439/111237495-96cffb00-85cb-11eb-8604-b1610873302e.png)
 
-Heatmap Pairwise Correlation Values: 
+## Figure 5. Heatmap Pairwise Correlation Values: 
 ![Heatmap Pairwise Correlation Values, 72 hr](https://user-images.githubusercontent.com/78369439/111237557-b6672380-85cb-11eb-9053-3edf33f69aa4.png)
 
-PlotDispEsts (dds) for 72 hours 
+## Figure 6. PlotDispEsts (dds) for 72 hours 
 ![plotDispEsts (dds), 72 hr](https://user-images.githubusercontent.com/78369439/111237579-caab2080-85cb-11eb-90e6-f40ea5227732.png)
 
-MA plot for  72 hours 
+## Figure 7. MA plot for  72 hours 
 
 ![MA plot, 72 hr](https://user-images.githubusercontent.com/78369439/111237708-0219cd00-85cc-11eb-8dae-2be5a614f32e.png)
 
-plotMA (res_LFC) for 72 hours 
+## Figure 8. plotMA (res_LFC) for 72 hours 
 ![plotMA (res_LFC), 72 hr](https://user-images.githubusercontent.com/78369439/111237742-12ca4300-85cc-11eb-8d88-3918b0109758.png)
 
-Volcano plot for 72 hours
+## Figure 9. Volcano plot for 72 hours
 ![Volcano plot, 72 hr](https://user-images.githubusercontent.com/78369439/111237767-1eb60500-85cc-11eb-9905-95661101626a.png)
 
-Volcano plot for 135 hours 
+Volcano plots depict the comparison between the magnitude of differential expression (Log fold change) and statistical significance (p value). Genes in red are differentially regulated with a significant p-value. 
+
+## Figure 10. Volcano plot for 135 hours 
 
 ![Volcano plot, 135h](https://user-images.githubusercontent.com/78369439/111237792-2aa1c700-85cc-11eb-902c-066f8a3a03a0.png)
 
-Venn diagram 
+Volcano plots depict the comparison between the magnitude of differential expression (Log fold change) and statistical significance (p value). Genes in red are differentially regulated with a significant p-value. 
+
+## Figure 11. Venn diagram 
 
 ![venn diagram](https://user-images.githubusercontent.com/78369439/111237886-5c1a9280-85cc-11eb-9981-e8d0d2c31bfd.png)
+
+The Ven diagram compares differentially regulated genes across the two data sets, 72h and 135h. 134 genes are upregulated in both experimental groups, 222 are downregulated, and 55 are contraregulated, meaning effects on gene expression level are opposite in the data sets.
 
 ## March 24: KEGG analysis 
 Worked on running final lines of updated DESeq script. 
