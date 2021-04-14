@@ -341,15 +341,21 @@ To be consistent with past data: Made an output excel sheet to match M.F.P.'s ol
 
 Result: a csv file called DESeq_results_adultlarvae.csv. Contains the p-adjusted values and log fold change values for the differentially expressed genes.
 
+## March 28
+Ran the [Kegg script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_Kegg.R)
+Obtained two excel files with DE pathways, their p-values, and the number of annotated genes. 
+
 ## April 11th
 ### Updating DESeq and running GOenrichment
 Updated DESeq after getting the following error message:![Error- unable to find inherited method](https://user-images.githubusercontent.com/78465068/114325941-8c3c4f00-9b00-11eb-8886-b0658d6929d8.png)
 
 Note use dplyr::select when select is part of multiple libraries so R knows which one to use.
 
-Ran DEseq to obtain the test.txt file for the second data set to use for GOenrichment analysis. Total output of GOenrichment script: pdf with significant GO terms
+Ran DEseq to obtain the test.txt file for the second data set to use for GOenrichment analysis.
+Ran [GOenrichment](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_Kegg.R): Total output of GOenrichment script: pdf with significant GO terms
 
-[tGO_NB_weight01_5_all.pdf](https://github.com/srmarzec/albopictus_remapping/files/6293123/tGO_NB_weight01_5_all.pdf)
-[tGO_BM_weight01_5_all.pdf](https://github.com/srmarzec/albopictus_remapping/files/6293124/tGO_BM_weight01_5_all.pdf)
+[tGO_BM2_weight01_5_all.pdf](https://github.com/srmarzec/albopictus_remapping/files/6307341/tGO_BM2_weight01_5_all.pdf)
+[tGO_NB2_weight01_5_all.pdf](https://github.com/srmarzec/albopictus_remapping/files/6307342/tGO_NB2_weight01_5_all.pdf)
+
 
 
