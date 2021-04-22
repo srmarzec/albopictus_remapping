@@ -339,7 +339,7 @@ Figure 10. Venn diagram of the 2 different datasets DEGs. There are 880 genes th
 ## March 25
 To be consistent with past data: Made an output excel sheet to match M.F.P.'s old excel sheets. See [Angela_DESeq.R script (https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_DESeq.R)
 
-Result: a csv file called DESeq_results_adultlarvae.csv. Contains the p-adjusted values and log fold change values for the differentially expressed genes.
+Result: a csv file called DESeq_results_adult.csv Contains the p-adjusted values and log fold change values for the differentially expressed genes.
 
 ## March 28
 Ran the [Kegg script](https://github.com/srmarzec/albopictus_remapping/blob/main/scripts/Angela/Angela_Kegg.R)
